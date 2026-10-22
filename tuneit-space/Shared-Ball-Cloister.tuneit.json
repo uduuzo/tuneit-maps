@@ -1,0 +1,5183 @@
+{
+ "v": 1,
+ "id": "p_mvjz4tkjd",
+ "name": "Intergalactic Ball · Shared Ball (cloister)",
+ "updated": 1792699731379,
+ "example": false,
+ "notes": "Ancient Spanish Monastery cloister: the open courtyard is the dance floor, the booth in the corner, galleries all round. Built from the Cloister Tuning Map, designed by Uzo Udu. TuneiT Space does not model the arcade columns between the courtyard and the galleries; the map takes 6 to 12 dB off for them, so gallery levels read higher in TuneiT Space. Towers and lights are listed in the speaker notes only.",
+ "space": {
+  "outline": [
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": 30.4,
+    "y": 0
+   },
+   {
+    "x": 30.4,
+    "y": 30.4
+   },
+   {
+    "x": 0,
+    "y": 30.4
+   }
+  ],
+  "src": "rect",
+  "env": "courtyard",
+  "ceil": 0,
+  "floor": "concrete",
+  "walls": "concrete",
+  "ceilm": "open",
+  "trees": true,
+  "water": false,
+  "bg": null,
+  "gps": null
+ },
+ "zones": [
+  {
+   "id": "z_mvjz4tkh1",
+   "type": "floor",
+   "name": "Courtyard dance floor",
+   "pts": [
+    {
+     "x": 10.7,
+     "y": 7.7
+    },
+    {
+     "x": 22.7,
+     "y": 7.7
+    },
+    {
+     "x": 22.7,
+     "y": 22.7
+    },
+    {
+     "x": 7.7,
+     "y": 22.7
+    },
+    {
+     "x": 7.7,
+     "y": 10.7
+    },
+    {
+     "x": 10.7,
+     "y": 10.7
+    }
+   ],
+   "guests": 300
+  },
+  {
+   "id": "z_mvjz4tkh2",
+   "type": "stage",
+   "name": "DJ booth corner",
+   "pts": [
+    {
+     "x": 5.6,
+     "y": 5.6
+    },
+    {
+     "x": 9.8,
+     "y": 5.6
+    },
+    {
+     "x": 9.8,
+     "y": 9.8
+    },
+    {
+     "x": 5.6,
+     "y": 9.8
+    }
+   ],
+   "guests": 0
+  },
+  {
+   "id": "z_mvjz4tkh3",
+   "type": "walk",
+   "name": "South gallery",
+   "pts": [
+    {
+     "x": 0.8,
+     "y": 5.2
+    },
+    {
+     "x": 4.8,
+     "y": 5.2
+    },
+    {
+     "x": 4.8,
+     "y": 25.2
+    },
+    {
+     "x": 0.8,
+     "y": 25.2
+    }
+   ],
+   "guests": 0
+  },
+  {
+   "id": "z_mvjz4tkh4",
+   "type": "walk",
+   "name": "East gallery",
+   "pts": [
+    {
+     "x": 5.2,
+     "y": 0.8
+    },
+    {
+     "x": 25.2,
+     "y": 0.8
+    },
+    {
+     "x": 25.2,
+     "y": 4.8
+    },
+    {
+     "x": 5.2,
+     "y": 4.8
+    }
+   ],
+   "guests": 0
+  },
+  {
+   "id": "z_mvjz4tkh5",
+   "type": "walk",
+   "name": "North gallery",
+   "pts": [
+    {
+     "x": 25.6,
+     "y": 5.2
+    },
+    {
+     "x": 29.6,
+     "y": 5.2
+    },
+    {
+     "x": 29.6,
+     "y": 25.2
+    },
+    {
+     "x": 25.6,
+     "y": 25.2
+    }
+   ],
+   "guests": 0
+  },
+  {
+   "id": "z_mvjz4tkh6",
+   "type": "walk",
+   "name": "West gallery",
+   "pts": [
+    {
+     "x": 5.2,
+     "y": 25.6
+    },
+    {
+     "x": 25.2,
+     "y": 25.6
+    },
+    {
+     "x": 25.2,
+     "y": 29.6
+    },
+    {
+     "x": 5.2,
+     "y": 29.6
+    }
+   ],
+   "guests": 0
+  }
+ ],
+ "stage": [],
+ "rules": {
+  "frontClear": false,
+  "noFloor": true,
+  "limits": [],
+  "curfew": "",
+  "target": 98
+ },
+ "rig": [
+  {
+   "model": "custom-l-acoustics-sb18-card2",
+   "qty": 2,
+   "role": "sub"
+  },
+  {
+   "model": "custom-l-acoustics-x15-hiq-60",
+   "qty": 2,
+   "role": "main"
+  },
+  {
+   "model": "custom-l-acoustics-x15-hiq-60",
+   "qty": 3,
+   "role": "fill"
+  },
+  {
+   "model": "custom-l-acoustics-x15-hiq-60",
+   "qty": 2,
+   "role": "delay"
+  },
+  {
+   "model": "jbl-srx812p",
+   "qty": 4,
+   "role": "fill"
+  },
+  {
+   "model": "jbl-srx812p",
+   "qty": 2,
+   "role": "mon"
+  }
+ ],
+ "options": [
+  {
+   "id": "o_mvjz4tkh7",
+   "name": "Option 4 · Team layout 15 Oct, tuned",
+   "desc": "Your 15 Oct layout with three changes: F1 turned away from the booth, one added 15\" top (F3) hidden behind the NE corner palm to fill the weak NE corner of the floor, and gallery speakers kept tucked behind the corner piers. Needs 1 extra top from FPS.",
+   "speakers": [
+    {
+     "id": "S1",
+     "model": "custom-l-acoustics-sb18-card2",
+     "role": "sub",
+     "x": 10.4,
+     "y": 7,
+     "h": 0.5,
+     "aim": {
+      "x": 18.2,
+      "y": 14.2
+     },
+     "trim": -3,
+     "extra": 0,
+     "pol": 1,
+     "mount": "floor",
+     "note": "East flank: 1 forward + 1 reversed (cardioid) · 2 × L-Acoustics 18\" sub, cardioid · Tune at P1"
+    },
+    {
+     "id": "S2",
+     "model": "custom-l-acoustics-sb18-card2",
+     "role": "sub",
+     "x": 7,
+     "y": 10.4,
+     "h": 0.5,
+     "aim": {
+      "x": 14.2,
+      "y": 18.2
+     },
+     "trim": -3,
+     "extra": 0,
+     "pol": 1,
+     "mount": "floor",
+     "note": "South flank: 1 forward + 1 reversed (cardioid) · 2 × L-Acoustics 18\" sub, cardioid · Tune at P1"
+    },
+    {
+     "id": "A",
+     "model": "custom-l-acoustics-x15-hiq-60",
+     "role": "main",
+     "x": 10.4,
+     "y": 7,
+     "h": 2.8,
+     "aim": {
+      "x": 13.2,
+      "y": 15.4
+     },
+     "trim": 0,
+     "extra": 0,
+     "pol": 1,
+     "mount": "pole",
+     "note": "Pole on the east sub stack · L-Acoustics 15\" coaxial top · Tune at P1"
+    },
+    {
+     "id": "B",
+     "model": "custom-l-acoustics-x15-hiq-60",
+     "role": "main",
+     "x": 7,
+     "y": 10.4,
+     "h": 2.8,
+     "aim": {
+      "x": 15.4,
+      "y": 13.2
+     },
+     "trim": 0,
+     "extra": 0,
+     "pol": 1,
+     "mount": "pole",
+     "note": "Pole on the south sub stack · L-Acoustics 15\" coaxial top · Tune at P1"
+    },
+    {
+     "id": "F1",
+     "model": "custom-l-acoustics-x15-hiq-60",
+     "role": "fill",
+     "x": 23.3,
+     "y": 13.7,
+     "h": 2.6,
+     "aim": {
+      "x": 18.2,
+      "y": 19.2
+     },
+     "trim": -8,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "L-Acoustics 15\" coaxial top · Tune at P5"
+    },
+    {
+     "id": "F2",
+     "model": "custom-l-acoustics-x15-hiq-60",
+     "role": "fill",
+     "x": 7,
+     "y": 21.4,
+     "h": 2.6,
+     "aim": {
+      "x": 14.2,
+      "y": 22.7
+     },
+     "trim": -8,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "L-Acoustics 15\" coaxial top · Tune at P4"
+    },
+    {
+     "id": "F3",
+     "model": "custom-l-acoustics-x15-hiq-60",
+     "role": "fill",
+     "x": 21.4,
+     "y": 6.9,
+     "h": 2.4,
+     "aim": {
+      "x": 20.2,
+      "y": 13.2
+     },
+     "trim": -10,
+     "extra": 0,
+     "pol": 1,
+     "mount": "pole",
+     "note": "Short pole hidden behind the NE corner palm · L-Acoustics 15\" coaxial top (ADD to FPS quote) · Tune at P3"
+    },
+    {
+     "id": "D1",
+     "model": "custom-l-acoustics-x15-hiq-60",
+     "role": "delay",
+     "x": 23.5,
+     "y": 23.4,
+     "h": 2.6,
+     "aim": {
+      "x": 25.3,
+      "y": 15.4
+     },
+     "trim": -6,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "L-Acoustics 15\" coaxial top · Tune at P5"
+    },
+    {
+     "id": "D2",
+     "model": "custom-l-acoustics-x15-hiq-60",
+     "role": "delay",
+     "x": 23.4,
+     "y": 23.5,
+     "h": 2.6,
+     "aim": {
+      "x": 15.4,
+      "y": 25.2
+     },
+     "trim": -6,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "L-Acoustics 15\" coaxial top · Tune at P11"
+    },
+    {
+     "id": "G1",
+     "model": "jbl-srx812p",
+     "role": "fill",
+     "x": 4.9,
+     "y": 5.8,
+     "h": 2,
+     "aim": {
+      "x": 4,
+      "y": 26.2
+     },
+     "trim": -14,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "Behind the SE corner pier, south gallery · JBL SRX812P · Ambience filler on the tuning map · Tune at P7"
+    },
+    {
+     "id": "G2",
+     "model": "jbl-srx812p",
+     "role": "fill",
+     "x": 5.9,
+     "y": 4.8,
+     "h": 2,
+     "aim": {
+      "x": 26.2,
+      "y": 3.4
+     },
+     "trim": -14,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "Behind the SE corner pier, east gallery · JBL SRX812P · Ambience filler on the tuning map · Tune at P8"
+    },
+    {
+     "id": "G3",
+     "model": "jbl-srx812p",
+     "role": "fill",
+     "x": 25.1,
+     "y": 5.4,
+     "h": 2,
+     "aim": {
+      "x": 26.6,
+      "y": 26.2
+     },
+     "trim": -18,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "Behind the NE corner pier, north gallery · JBL SRX812P · Ambience filler on the tuning map · Tune at P9"
+    },
+    {
+     "id": "G4",
+     "model": "jbl-srx812p",
+     "role": "fill",
+     "x": 5.2,
+     "y": 25.6,
+     "h": 2,
+     "aim": {
+      "x": 26.2,
+      "y": 26.6
+     },
+     "trim": -18,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "Behind the SW corner pier, west gallery · JBL SRX812P · Ambience filler on the tuning map · Tune at P10"
+    },
+    {
+     "id": "M1",
+     "model": "jbl-srx812p",
+     "role": "mon",
+     "x": 9,
+     "y": 6.7,
+     "h": 1.4,
+     "aim": {
+      "x": 7.6,
+      "y": 7.6
+     },
+     "trim": 0,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "Booth end, DJ side · JBL SRX812P · Tune at P6"
+    },
+    {
+     "id": "M2",
+     "model": "jbl-srx812p",
+     "role": "mon",
+     "x": 6.7,
+     "y": 9,
+     "h": 1.4,
+     "aim": {
+      "x": 7.6,
+      "y": 7.6
+     },
+     "trim": 0,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "Booth end; singer’s wedge · JBL SRX812P · Tune at P6"
+    }
+   ],
+   "points": [
+    {
+     "id": "REF",
+     "kind": "ref",
+     "name": "Reference: P1 (FOH)",
+     "x": 16.2,
+     "y": 16.2
+    },
+    {
+     "id": "P1",
+     "kind": "check",
+     "name": "FOH reference · target 98–100 dB(A) LAeq at peak",
+     "x": 16.2,
+     "y": 16.2
+    },
+    {
+     "id": "P2",
+     "kind": "check",
+     "name": "Front of floor · target No more than P1 + 4 dB",
+     "x": 12.2,
+     "y": 12.2
+    },
+    {
+     "id": "P3",
+     "kind": "check",
+     "name": "NE floor corner · target P1 ± 3 dB",
+     "x": 20.7,
+     "y": 11.2
+    },
+    {
+     "id": "P4",
+     "kind": "check",
+     "name": "West band · target P1 ± 3 dB",
+     "x": 14.2,
+     "y": 22.2
+    },
+    {
+     "id": "P5",
+     "kind": "check",
+     "name": "North band · target P1 − 3 to 0 dB",
+     "x": 21.2,
+     "y": 18.2
+    },
+    {
+     "id": "P6",
+     "kind": "check",
+     "name": "DJ position · target 95–100 dB(A) from the monitors",
+     "x": 7.6,
+     "y": 7.6
+    },
+    {
+     "id": "P7",
+     "kind": "check",
+     "name": "South gallery · target 82–86 dB(A)",
+     "x": 2.8,
+     "y": 19.2
+    },
+    {
+     "id": "P8",
+     "kind": "check",
+     "name": "East gallery · target 82–86 dB(A)",
+     "x": 19.2,
+     "y": 2.8
+    },
+    {
+     "id": "P9",
+     "kind": "check",
+     "name": "North gallery · target 82–86 dB(A)",
+     "x": 27.8,
+     "y": 18.2
+    },
+    {
+     "id": "P10",
+     "kind": "check",
+     "name": "West gallery · target 82–86 dB(A)",
+     "x": 18.2,
+     "y": 27.8
+    },
+    {
+     "id": "P11",
+     "kind": "check",
+     "name": "West band · target P1 ± 3 dB",
+     "x": 18.2,
+     "y": 22.2
+    }
+   ],
+   "map": {
+    "name": "Option 4 · Team layout 15 Oct, tuned",
+    "desc": "Your 15 Oct layout with three changes: F1 turned away from the booth, one added 15\" top (F3) hidden behind the NE corner palm to fill the weak NE corner of the floor, and gallery speakers kept tucked behind the corner piers. Needs 1 extra top from FPS.",
+    "towers": [
+     {
+      "id": "T1",
+      "name": "Eye, east leg",
+      "x": 2.96,
+      "y": 0.84,
+      "h": 3.05,
+      "lights": "Sharpy Beam",
+      "masking": "Clad in the eye scenic",
+      "isNew": false
+     },
+     {
+      "id": "T2",
+      "name": "Eye, centre",
+      "x": 1.9,
+      "y": 1.9,
+      "h": 3.05,
+      "lights": "Robe Mega Pointe through the pupil",
+      "masking": "Clad in the eye scenic",
+      "isNew": false
+     },
+     {
+      "id": "T3",
+      "name": "Eye, south leg",
+      "x": 0.84,
+      "y": 2.96,
+      "h": 3.05,
+      "lights": "Sharpy Beam",
+      "masking": "Clad in the eye scenic",
+      "isNew": false
+     },
+     {
+      "id": "T4",
+      "name": "North wall",
+      "x": 18.1,
+      "y": 8.5,
+      "h": 3.05,
+      "lights": "Sharpy Beam + laser, hazer at base",
+      "masking": "Scrim wrap, open speaker front",
+      "isNew": false
+     },
+     {
+      "id": "T5",
+      "name": "SW corner",
+      "x": 1.8,
+      "y": 16.2,
+      "h": 3.05,
+      "lights": "Sharpy Beam + laser, hazer at base",
+      "masking": "Scrim wrap, open speaker front",
+      "isNew": false
+     },
+     {
+      "id": "T6",
+      "name": "NW corner",
+      "x": 18.25,
+      "y": 18.25,
+      "h": 3.05,
+      "lights": "Sharpy Beam + laser, hazer at base",
+      "masking": "Full drape on the corner faces: soaks the corner echo",
+      "isNew": false
+     }
+    ],
+    "speakers": [
+     {
+      "model": "2 × L-Acoustics 18\" sub, cardioid",
+      "cov": 0,
+      "r": 0,
+      "kg": 0,
+      "trim": -3,
+      "h": 0.5,
+      "mount": "floor",
+      "where": "East flank: 1 forward + 1 reversed (cardioid)",
+      "id": "S1",
+      "role": "sub",
+      "qty": 2,
+      "x": 5.2,
+      "y": 1.8,
+      "aim": {
+       "x": 13,
+       "y": 9
+      },
+      "tune": "P1",
+      "lib": "lac-sb18-card2",
+      "boxes": 1
+     },
+     {
+      "model": "2 × L-Acoustics 18\" sub, cardioid",
+      "cov": 0,
+      "r": 0,
+      "kg": 0,
+      "trim": -3,
+      "h": 0.5,
+      "mount": "floor",
+      "where": "South flank: 1 forward + 1 reversed (cardioid)",
+      "id": "S2",
+      "role": "sub",
+      "qty": 2,
+      "x": 1.8,
+      "y": 5.2,
+      "aim": {
+       "x": 9,
+       "y": 13
+      },
+      "tune": "P1",
+      "lib": "lac-sb18-card2",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 15\" coaxial top",
+      "cov": 60,
+      "r": 17,
+      "kg": 30,
+      "trim": 0,
+      "h": 2.8,
+      "mount": "pole",
+      "where": "Pole on the east sub stack",
+      "id": "A",
+      "role": "main",
+      "x": 5.2,
+      "y": 1.8,
+      "aim": {
+       "x": 8,
+       "y": 10.2
+      },
+      "tune": "P1",
+      "lib": "lac-x15-60",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 15\" coaxial top",
+      "cov": 60,
+      "r": 17,
+      "kg": 30,
+      "trim": 0,
+      "h": 2.8,
+      "mount": "pole",
+      "where": "Pole on the south sub stack",
+      "id": "B",
+      "role": "main",
+      "x": 1.8,
+      "y": 5.2,
+      "aim": {
+       "x": 10.2,
+       "y": 8
+      },
+      "tune": "P1",
+      "lib": "lac-x15-60",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 15\" coaxial top",
+      "cov": 90,
+      "r": 9,
+      "kg": 30,
+      "trim": -8,
+      "h": 2.6,
+      "mount": "T4",
+      "where": "",
+      "id": "F1",
+      "role": "fill",
+      "x": 18.1,
+      "y": 8.5,
+      "aim": {
+       "x": 13,
+       "y": 14
+      },
+      "tune": "P5",
+      "lib": "lac-x15-60",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 15\" coaxial top",
+      "cov": 90,
+      "r": 9,
+      "kg": 30,
+      "trim": -8,
+      "h": 2.6,
+      "mount": "T5",
+      "where": "",
+      "id": "F2",
+      "role": "fill",
+      "x": 1.8,
+      "y": 16.2,
+      "aim": {
+       "x": 9,
+       "y": 17.5
+      },
+      "tune": "P4",
+      "lib": "lac-x15-60",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 15\" coaxial top (ADD to FPS quote)",
+      "cov": 90,
+      "r": 9,
+      "kg": 30,
+      "trim": -10,
+      "h": 2.4,
+      "mount": "pole",
+      "where": "Short pole hidden behind the NE corner palm",
+      "id": "F3",
+      "role": "fill",
+      "x": 16.2,
+      "y": 1.7,
+      "aim": {
+       "x": 15,
+       "y": 8
+      },
+      "tune": "P3",
+      "lib": "lac-x15-60",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 15\" coaxial top",
+      "cov": 90,
+      "r": 11,
+      "kg": 30,
+      "trim": -6,
+      "h": 2.6,
+      "mount": "T6",
+      "where": "",
+      "id": "D1",
+      "role": "delay",
+      "x": 18.3,
+      "y": 18.2,
+      "aim": {
+       "x": 20.1,
+       "y": 10.2
+      },
+      "tune": "P5",
+      "lib": "lac-x15-60",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 15\" coaxial top",
+      "cov": 90,
+      "r": 11,
+      "kg": 30,
+      "trim": -6,
+      "h": 2.6,
+      "mount": "T6",
+      "where": "",
+      "id": "D2",
+      "role": "delay",
+      "x": 18.2,
+      "y": 18.3,
+      "aim": {
+       "x": 10.2,
+       "y": 20
+      },
+      "tune": "P11",
+      "lib": "lac-x15-60",
+      "boxes": 1
+     },
+     {
+      "model": "JBL SRX812P",
+      "cov": 50,
+      "r": 16,
+      "kg": 26,
+      "trim": -14,
+      "h": 2,
+      "mount": "stand",
+      "where": "Behind the SE corner pier, south gallery",
+      "id": "G1",
+      "role": "gal",
+      "x": -0.3,
+      "y": 0.6,
+      "aim": {
+       "x": -1.2,
+       "y": 21
+      },
+      "tune": "P7",
+      "lib": "jbl-srx812p",
+      "boxes": 1
+     },
+     {
+      "model": "JBL SRX812P",
+      "cov": 50,
+      "r": 16,
+      "kg": 26,
+      "trim": -14,
+      "h": 2,
+      "mount": "stand",
+      "where": "Behind the SE corner pier, east gallery",
+      "id": "G2",
+      "role": "gal",
+      "x": 0.7,
+      "y": -0.4,
+      "aim": {
+       "x": 21,
+       "y": -1.8
+      },
+      "tune": "P8",
+      "lib": "jbl-srx812p",
+      "boxes": 1
+     },
+     {
+      "model": "JBL SRX812P",
+      "cov": 50,
+      "r": 16,
+      "kg": 26,
+      "trim": -18,
+      "h": 2,
+      "mount": "stand",
+      "where": "Behind the NE corner pier, north gallery",
+      "id": "G3",
+      "role": "gal",
+      "x": 19.9,
+      "y": 0.2,
+      "aim": {
+       "x": 21.4,
+       "y": 21
+      },
+      "tune": "P9",
+      "lib": "jbl-srx812p",
+      "boxes": 1
+     },
+     {
+      "model": "JBL SRX812P",
+      "cov": 50,
+      "r": 16,
+      "kg": 26,
+      "trim": -18,
+      "h": 2,
+      "mount": "stand",
+      "where": "Behind the SW corner pier, west gallery",
+      "id": "G4",
+      "role": "gal",
+      "x": 0,
+      "y": 20.4,
+      "aim": {
+       "x": 21,
+       "y": 21.4
+      },
+      "tune": "P10",
+      "lib": "jbl-srx812p",
+      "boxes": 1
+     },
+     {
+      "model": "JBL SRX812P",
+      "cov": 50,
+      "r": 3,
+      "kg": 26,
+      "trim": 0,
+      "h": 1.4,
+      "mount": "stand",
+      "where": "Booth end, DJ side",
+      "id": "M1",
+      "role": "mon",
+      "x": 3.8,
+      "y": 1.5,
+      "aim": "P6",
+      "tune": "P6",
+      "lib": "jbl-srx812p",
+      "boxes": 1
+     },
+     {
+      "model": "JBL SRX812P",
+      "cov": 50,
+      "r": 3,
+      "kg": 26,
+      "trim": 0,
+      "h": 1.4,
+      "mount": "stand",
+      "where": "Booth end; singer’s wedge",
+      "id": "M2",
+      "role": "mon",
+      "x": 1.5,
+      "y": 3.8,
+      "aim": "P6",
+      "tune": "P6",
+      "lib": "jbl-srx812p",
+      "boxes": 1
+     }
+    ],
+    "points": [
+     {
+      "id": "P1",
+      "name": "FOH reference",
+      "x": 11,
+      "y": 11,
+      "target": "98–100 dB(A) LAeq at peak",
+      "check": "System EQ for the mains; sub-to-top alignment"
+     },
+     {
+      "id": "P2",
+      "name": "Front of floor",
+      "x": 7,
+      "y": 7,
+      "target": "No more than P1 + 4 dB",
+      "check": "Front rows not overpowered"
+     },
+     {
+      "id": "P3",
+      "name": "NE floor corner",
+      "x": 15.5,
+      "y": 6,
+      "target": "P1 ± 3 dB",
+      "check": "Set F3"
+     },
+     {
+      "id": "P4",
+      "name": "West band",
+      "x": 9,
+      "y": 17,
+      "target": "P1 ± 3 dB",
+      "check": "Set F2"
+     },
+     {
+      "id": "P5",
+      "name": "North band",
+      "x": 16,
+      "y": 13,
+      "target": "P1 − 3 to 0 dB",
+      "check": "Set F1 and D1"
+     },
+     {
+      "id": "P6",
+      "name": "DJ position",
+      "x": 2.4,
+      "y": 2.4,
+      "target": "95–100 dB(A) from the monitors",
+      "check": "Sub quieter here than at P2"
+     },
+     {
+      "id": "P7",
+      "name": "South gallery",
+      "x": -2.4,
+      "y": 14,
+      "target": "82–86 dB(A)",
+      "check": "Set G1"
+     },
+     {
+      "id": "P8",
+      "name": "East gallery",
+      "x": 14,
+      "y": -2.4,
+      "target": "82–86 dB(A)",
+      "check": "Set G2"
+     },
+     {
+      "id": "P9",
+      "name": "North gallery",
+      "x": 22.6,
+      "y": 13,
+      "target": "82–86 dB(A)",
+      "check": "Set G3"
+     },
+     {
+      "id": "P10",
+      "name": "West gallery",
+      "x": 13,
+      "y": 22.6,
+      "target": "82–86 dB(A)",
+      "check": "Set G4"
+     },
+     {
+      "id": "P11",
+      "name": "West band",
+      "x": 13,
+      "y": 17,
+      "target": "P1 ± 3 dB",
+      "check": "Set D2"
+     }
+    ],
+    "items": [
+     {
+      "id": "MIC",
+      "kind": "mic",
+      "name": "Opera mic stand",
+      "x": 0.9,
+      "y": 6.2
+     }
+    ]
+   }
+  },
+  {
+   "id": "o_mvjz4tki8",
+   "name": "Option 5 · Clear booth, subs at the eye",
+   "desc": "Nothing in front of the booth. The two cardioid sub pairs move back to the feet of the outer eye towers, behind the booth line; the mains go on poles against the east and south arcades beside the stage. Fills, F3 and gallery speakers as Option 4.",
+   "speakers": [
+    {
+     "id": "S1",
+     "model": "custom-l-acoustics-sb18-card2",
+     "role": "sub",
+     "x": 8.9,
+     "y": 5.7,
+     "h": 0.5,
+     "aim": {
+      "x": 17.2,
+      "y": 15.2
+     },
+     "trim": -3,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "At the base of eye tower T1, behind the booth line: 1 forward + 1 reversed · 2 × L-Acoustics 18\" sub, cardioid · Tune at P1"
+    },
+    {
+     "id": "S2",
+     "model": "custom-l-acoustics-sb18-card2",
+     "role": "sub",
+     "x": 5.7,
+     "y": 8.9,
+     "h": 0.5,
+     "aim": {
+      "x": 15.2,
+      "y": 17.2
+     },
+     "trim": -3,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "At the base of eye tower T3, behind the booth line: 1 forward + 1 reversed · 2 × L-Acoustics 18\" sub, cardioid · Tune at P1"
+    },
+    {
+     "id": "A",
+     "model": "custom-l-acoustics-x15-hiq-60",
+     "role": "main",
+     "x": 12,
+     "y": 6.1,
+     "h": 2.8,
+     "aim": {
+      "x": 13.7,
+      "y": 16.2
+     },
+     "trim": 0,
+     "extra": 0,
+     "pol": 1,
+     "mount": "pole",
+     "note": "Pole against the east arcade, beside the stage, not in front of the booth · L-Acoustics 15\" coaxial top · Tune at P1"
+    },
+    {
+     "id": "B",
+     "model": "custom-l-acoustics-x15-hiq-60",
+     "role": "main",
+     "x": 6.1,
+     "y": 12,
+     "h": 2.8,
+     "aim": {
+      "x": 16.2,
+      "y": 13.7
+     },
+     "trim": 0,
+     "extra": 0,
+     "pol": 1,
+     "mount": "pole",
+     "note": "Pole against the south arcade, beside the stage, not in front of the booth · L-Acoustics 15\" coaxial top · Tune at P1"
+    },
+    {
+     "id": "F1",
+     "model": "custom-l-acoustics-x15-hiq-60",
+     "role": "fill",
+     "x": 23.3,
+     "y": 13.7,
+     "h": 2.6,
+     "aim": {
+      "x": 18.2,
+      "y": 19.2
+     },
+     "trim": -8,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "L-Acoustics 15\" coaxial top · Tune at P5"
+    },
+    {
+     "id": "F2",
+     "model": "custom-l-acoustics-x15-hiq-60",
+     "role": "fill",
+     "x": 7,
+     "y": 21.4,
+     "h": 2.6,
+     "aim": {
+      "x": 14.2,
+      "y": 22.7
+     },
+     "trim": -8,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "L-Acoustics 15\" coaxial top · Tune at P4"
+    },
+    {
+     "id": "F3",
+     "model": "custom-l-acoustics-x15-hiq-60",
+     "role": "fill",
+     "x": 21.4,
+     "y": 6.9,
+     "h": 2.4,
+     "aim": {
+      "x": 20.2,
+      "y": 13.2
+     },
+     "trim": -10,
+     "extra": 0,
+     "pol": 1,
+     "mount": "pole",
+     "note": "Short pole hidden behind the NE corner palm · L-Acoustics 15\" coaxial top (ADD to FPS quote) · Tune at P3"
+    },
+    {
+     "id": "D1",
+     "model": "custom-l-acoustics-x15-hiq-60",
+     "role": "delay",
+     "x": 23.5,
+     "y": 23.4,
+     "h": 2.6,
+     "aim": {
+      "x": 25.3,
+      "y": 15.4
+     },
+     "trim": -6,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "L-Acoustics 15\" coaxial top · Tune at P5"
+    },
+    {
+     "id": "D2",
+     "model": "custom-l-acoustics-x15-hiq-60",
+     "role": "delay",
+     "x": 23.4,
+     "y": 23.5,
+     "h": 2.6,
+     "aim": {
+      "x": 15.4,
+      "y": 25.2
+     },
+     "trim": -6,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "L-Acoustics 15\" coaxial top · Tune at P11"
+    },
+    {
+     "id": "G1",
+     "model": "jbl-srx812p",
+     "role": "fill",
+     "x": 4.9,
+     "y": 5.8,
+     "h": 2,
+     "aim": {
+      "x": 4,
+      "y": 26.2
+     },
+     "trim": -14,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "Behind the SE corner pier, south gallery · JBL SRX812P · Ambience filler on the tuning map · Tune at P7"
+    },
+    {
+     "id": "G2",
+     "model": "jbl-srx812p",
+     "role": "fill",
+     "x": 5.9,
+     "y": 4.8,
+     "h": 2,
+     "aim": {
+      "x": 26.2,
+      "y": 3.4
+     },
+     "trim": -14,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "Behind the SE corner pier, east gallery · JBL SRX812P · Ambience filler on the tuning map · Tune at P8"
+    },
+    {
+     "id": "G3",
+     "model": "jbl-srx812p",
+     "role": "fill",
+     "x": 25.1,
+     "y": 5.4,
+     "h": 2,
+     "aim": {
+      "x": 26.6,
+      "y": 26.2
+     },
+     "trim": -18,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "Behind the NE corner pier, north gallery · JBL SRX812P · Ambience filler on the tuning map · Tune at P9"
+    },
+    {
+     "id": "G4",
+     "model": "jbl-srx812p",
+     "role": "fill",
+     "x": 5.2,
+     "y": 25.6,
+     "h": 2,
+     "aim": {
+      "x": 26.2,
+      "y": 26.6
+     },
+     "trim": -18,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "Behind the SW corner pier, west gallery · JBL SRX812P · Ambience filler on the tuning map · Tune at P10"
+    },
+    {
+     "id": "M1",
+     "model": "jbl-srx812p",
+     "role": "mon",
+     "x": 9,
+     "y": 6.7,
+     "h": 1.4,
+     "aim": {
+      "x": 7.6,
+      "y": 7.6
+     },
+     "trim": 0,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "Booth end, DJ side · JBL SRX812P · Tune at P6"
+    },
+    {
+     "id": "M2",
+     "model": "jbl-srx812p",
+     "role": "mon",
+     "x": 6.7,
+     "y": 9,
+     "h": 1.4,
+     "aim": {
+      "x": 7.6,
+      "y": 7.6
+     },
+     "trim": 0,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "Booth end; singer’s wedge · JBL SRX812P · Tune at P6"
+    }
+   ],
+   "points": [
+    {
+     "id": "REF",
+     "kind": "ref",
+     "name": "Reference: P1 (FOH)",
+     "x": 16.2,
+     "y": 16.2
+    },
+    {
+     "id": "P1",
+     "kind": "check",
+     "name": "FOH reference · target 98–100 dB(A) LAeq at peak",
+     "x": 16.2,
+     "y": 16.2
+    },
+    {
+     "id": "P2",
+     "kind": "check",
+     "name": "Front of floor · target No more than P1 + 4 dB",
+     "x": 12.2,
+     "y": 12.2
+    },
+    {
+     "id": "P3",
+     "kind": "check",
+     "name": "NE floor corner · target P1 ± 3 dB",
+     "x": 20.7,
+     "y": 11.2
+    },
+    {
+     "id": "P4",
+     "kind": "check",
+     "name": "West band · target P1 ± 3 dB",
+     "x": 14.2,
+     "y": 22.2
+    },
+    {
+     "id": "P5",
+     "kind": "check",
+     "name": "North band · target P1 − 3 to 0 dB",
+     "x": 21.2,
+     "y": 18.2
+    },
+    {
+     "id": "P6",
+     "kind": "check",
+     "name": "DJ position · target 95–100 dB(A) from the monitors",
+     "x": 7.6,
+     "y": 7.6
+    },
+    {
+     "id": "P7",
+     "kind": "check",
+     "name": "South gallery · target 82–86 dB(A)",
+     "x": 2.8,
+     "y": 19.2
+    },
+    {
+     "id": "P8",
+     "kind": "check",
+     "name": "East gallery · target 82–86 dB(A)",
+     "x": 19.2,
+     "y": 2.8
+    },
+    {
+     "id": "P9",
+     "kind": "check",
+     "name": "North gallery · target 82–86 dB(A)",
+     "x": 27.8,
+     "y": 18.2
+    },
+    {
+     "id": "P10",
+     "kind": "check",
+     "name": "West gallery · target 82–86 dB(A)",
+     "x": 18.2,
+     "y": 27.8
+    },
+    {
+     "id": "P11",
+     "kind": "check",
+     "name": "West band · target P1 ± 3 dB",
+     "x": 18.2,
+     "y": 22.2
+    }
+   ],
+   "map": {
+    "name": "Option 5 · Clear booth, subs at the eye",
+    "desc": "Nothing in front of the booth. The two cardioid sub pairs move back to the feet of the outer eye towers, behind the booth line; the mains go on poles against the east and south arcades beside the stage. Fills, F3 and gallery speakers as Option 4.",
+    "towers": [
+     {
+      "id": "T1",
+      "name": "Eye, east leg",
+      "x": 2.96,
+      "y": 0.84,
+      "h": 3.05,
+      "lights": "Sharpy Beam",
+      "masking": "Clad in the eye scenic",
+      "isNew": false
+     },
+     {
+      "id": "T2",
+      "name": "Eye, centre",
+      "x": 1.9,
+      "y": 1.9,
+      "h": 3.05,
+      "lights": "Robe Mega Pointe through the pupil",
+      "masking": "Clad in the eye scenic",
+      "isNew": false
+     },
+     {
+      "id": "T3",
+      "name": "Eye, south leg",
+      "x": 0.84,
+      "y": 2.96,
+      "h": 3.05,
+      "lights": "Sharpy Beam",
+      "masking": "Clad in the eye scenic",
+      "isNew": false
+     },
+     {
+      "id": "T4",
+      "name": "North wall",
+      "x": 18.1,
+      "y": 8.5,
+      "h": 3.05,
+      "lights": "Sharpy Beam + laser, hazer at base",
+      "masking": "Scrim wrap, open speaker front",
+      "isNew": false
+     },
+     {
+      "id": "T5",
+      "name": "SW corner",
+      "x": 1.8,
+      "y": 16.2,
+      "h": 3.05,
+      "lights": "Sharpy Beam + laser, hazer at base",
+      "masking": "Scrim wrap, open speaker front",
+      "isNew": false
+     },
+     {
+      "id": "T6",
+      "name": "NW corner",
+      "x": 18.25,
+      "y": 18.25,
+      "h": 3.05,
+      "lights": "Sharpy Beam + laser, hazer at base",
+      "masking": "Full drape on the corner faces: soaks the corner echo",
+      "isNew": false
+     }
+    ],
+    "speakers": [
+     {
+      "model": "2 × L-Acoustics 18\" sub, cardioid",
+      "cov": 0,
+      "r": 0,
+      "kg": 0,
+      "trim": -3,
+      "h": 0.5,
+      "mount": "T1",
+      "where": "At the base of eye tower T1, behind the booth line: 1 forward + 1 reversed",
+      "id": "S1",
+      "role": "sub",
+      "qty": 2,
+      "x": 3.7,
+      "y": 0.5,
+      "aim": {
+       "x": 12,
+       "y": 10
+      },
+      "tune": "P1",
+      "lib": "lac-sb18-card2",
+      "boxes": 1
+     },
+     {
+      "model": "2 × L-Acoustics 18\" sub, cardioid",
+      "cov": 0,
+      "r": 0,
+      "kg": 0,
+      "trim": -3,
+      "h": 0.5,
+      "mount": "T3",
+      "where": "At the base of eye tower T3, behind the booth line: 1 forward + 1 reversed",
+      "id": "S2",
+      "role": "sub",
+      "qty": 2,
+      "x": 0.5,
+      "y": 3.7,
+      "aim": {
+       "x": 10,
+       "y": 12
+      },
+      "tune": "P1",
+      "lib": "lac-sb18-card2",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 15\" coaxial top",
+      "cov": 60,
+      "r": 17,
+      "kg": 30,
+      "trim": 0,
+      "h": 2.8,
+      "mount": "pole",
+      "where": "Pole against the east arcade, beside the stage, not in front of the booth",
+      "id": "A",
+      "role": "main",
+      "x": 6.8,
+      "y": 0.9,
+      "aim": {
+       "x": 8.5,
+       "y": 11
+      },
+      "tune": "P1",
+      "lib": "lac-x15-60",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 15\" coaxial top",
+      "cov": 60,
+      "r": 17,
+      "kg": 30,
+      "trim": 0,
+      "h": 2.8,
+      "mount": "pole",
+      "where": "Pole against the south arcade, beside the stage, not in front of the booth",
+      "id": "B",
+      "role": "main",
+      "x": 0.9,
+      "y": 6.8,
+      "aim": {
+       "x": 11,
+       "y": 8.5
+      },
+      "tune": "P1",
+      "lib": "lac-x15-60",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 15\" coaxial top",
+      "cov": 90,
+      "r": 9,
+      "kg": 30,
+      "trim": -8,
+      "h": 2.6,
+      "mount": "T4",
+      "where": "",
+      "id": "F1",
+      "role": "fill",
+      "x": 18.1,
+      "y": 8.5,
+      "aim": {
+       "x": 13,
+       "y": 14
+      },
+      "tune": "P5",
+      "lib": "lac-x15-60",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 15\" coaxial top",
+      "cov": 90,
+      "r": 9,
+      "kg": 30,
+      "trim": -8,
+      "h": 2.6,
+      "mount": "T5",
+      "where": "",
+      "id": "F2",
+      "role": "fill",
+      "x": 1.8,
+      "y": 16.2,
+      "aim": {
+       "x": 9,
+       "y": 17.5
+      },
+      "tune": "P4",
+      "lib": "lac-x15-60",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 15\" coaxial top (ADD to FPS quote)",
+      "cov": 90,
+      "r": 9,
+      "kg": 30,
+      "trim": -10,
+      "h": 2.4,
+      "mount": "pole",
+      "where": "Short pole hidden behind the NE corner palm",
+      "id": "F3",
+      "role": "fill",
+      "x": 16.2,
+      "y": 1.7,
+      "aim": {
+       "x": 15,
+       "y": 8
+      },
+      "tune": "P3",
+      "lib": "lac-x15-60",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 15\" coaxial top",
+      "cov": 90,
+      "r": 11,
+      "kg": 30,
+      "trim": -6,
+      "h": 2.6,
+      "mount": "T6",
+      "where": "",
+      "id": "D1",
+      "role": "delay",
+      "x": 18.3,
+      "y": 18.2,
+      "aim": {
+       "x": 20.1,
+       "y": 10.2
+      },
+      "tune": "P5",
+      "lib": "lac-x15-60",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 15\" coaxial top",
+      "cov": 90,
+      "r": 11,
+      "kg": 30,
+      "trim": -6,
+      "h": 2.6,
+      "mount": "T6",
+      "where": "",
+      "id": "D2",
+      "role": "delay",
+      "x": 18.2,
+      "y": 18.3,
+      "aim": {
+       "x": 10.2,
+       "y": 20
+      },
+      "tune": "P11",
+      "lib": "lac-x15-60",
+      "boxes": 1
+     },
+     {
+      "model": "JBL SRX812P",
+      "cov": 50,
+      "r": 16,
+      "kg": 26,
+      "trim": -14,
+      "h": 2,
+      "mount": "stand",
+      "where": "Behind the SE corner pier, south gallery",
+      "id": "G1",
+      "role": "gal",
+      "x": -0.3,
+      "y": 0.6,
+      "aim": {
+       "x": -1.2,
+       "y": 21
+      },
+      "tune": "P7",
+      "lib": "jbl-srx812p",
+      "boxes": 1
+     },
+     {
+      "model": "JBL SRX812P",
+      "cov": 50,
+      "r": 16,
+      "kg": 26,
+      "trim": -14,
+      "h": 2,
+      "mount": "stand",
+      "where": "Behind the SE corner pier, east gallery",
+      "id": "G2",
+      "role": "gal",
+      "x": 0.7,
+      "y": -0.4,
+      "aim": {
+       "x": 21,
+       "y": -1.8
+      },
+      "tune": "P8",
+      "lib": "jbl-srx812p",
+      "boxes": 1
+     },
+     {
+      "model": "JBL SRX812P",
+      "cov": 50,
+      "r": 16,
+      "kg": 26,
+      "trim": -18,
+      "h": 2,
+      "mount": "stand",
+      "where": "Behind the NE corner pier, north gallery",
+      "id": "G3",
+      "role": "gal",
+      "x": 19.9,
+      "y": 0.2,
+      "aim": {
+       "x": 21.4,
+       "y": 21
+      },
+      "tune": "P9",
+      "lib": "jbl-srx812p",
+      "boxes": 1
+     },
+     {
+      "model": "JBL SRX812P",
+      "cov": 50,
+      "r": 16,
+      "kg": 26,
+      "trim": -18,
+      "h": 2,
+      "mount": "stand",
+      "where": "Behind the SW corner pier, west gallery",
+      "id": "G4",
+      "role": "gal",
+      "x": 0,
+      "y": 20.4,
+      "aim": {
+       "x": 21,
+       "y": 21.4
+      },
+      "tune": "P10",
+      "lib": "jbl-srx812p",
+      "boxes": 1
+     },
+     {
+      "model": "JBL SRX812P",
+      "cov": 50,
+      "r": 3,
+      "kg": 26,
+      "trim": 0,
+      "h": 1.4,
+      "mount": "stand",
+      "where": "Booth end, DJ side",
+      "id": "M1",
+      "role": "mon",
+      "x": 3.8,
+      "y": 1.5,
+      "aim": "P6",
+      "tune": "P6",
+      "lib": "jbl-srx812p",
+      "boxes": 1
+     },
+     {
+      "model": "JBL SRX812P",
+      "cov": 50,
+      "r": 3,
+      "kg": 26,
+      "trim": 0,
+      "h": 1.4,
+      "mount": "stand",
+      "where": "Booth end; singer’s wedge",
+      "id": "M2",
+      "role": "mon",
+      "x": 1.5,
+      "y": 3.8,
+      "aim": "P6",
+      "tune": "P6",
+      "lib": "jbl-srx812p",
+      "boxes": 1
+     }
+    ],
+    "points": [
+     {
+      "id": "P1",
+      "name": "FOH reference",
+      "x": 11,
+      "y": 11,
+      "target": "98–100 dB(A) LAeq at peak",
+      "check": "System EQ for the mains; sub-to-top alignment"
+     },
+     {
+      "id": "P2",
+      "name": "Front of floor",
+      "x": 7,
+      "y": 7,
+      "target": "No more than P1 + 4 dB",
+      "check": "Front rows not overpowered"
+     },
+     {
+      "id": "P3",
+      "name": "NE floor corner",
+      "x": 15.5,
+      "y": 6,
+      "target": "P1 ± 3 dB",
+      "check": "Set F3"
+     },
+     {
+      "id": "P4",
+      "name": "West band",
+      "x": 9,
+      "y": 17,
+      "target": "P1 ± 3 dB",
+      "check": "Set F2"
+     },
+     {
+      "id": "P5",
+      "name": "North band",
+      "x": 16,
+      "y": 13,
+      "target": "P1 − 3 to 0 dB",
+      "check": "Set F1 and D1"
+     },
+     {
+      "id": "P6",
+      "name": "DJ position",
+      "x": 2.4,
+      "y": 2.4,
+      "target": "95–100 dB(A) from the monitors",
+      "check": "Sub quieter here than at P2"
+     },
+     {
+      "id": "P7",
+      "name": "South gallery",
+      "x": -2.4,
+      "y": 14,
+      "target": "82–86 dB(A)",
+      "check": "Set G1"
+     },
+     {
+      "id": "P8",
+      "name": "East gallery",
+      "x": 14,
+      "y": -2.4,
+      "target": "82–86 dB(A)",
+      "check": "Set G2"
+     },
+     {
+      "id": "P9",
+      "name": "North gallery",
+      "x": 22.6,
+      "y": 13,
+      "target": "82–86 dB(A)",
+      "check": "Set G3"
+     },
+     {
+      "id": "P10",
+      "name": "West gallery",
+      "x": 13,
+      "y": 22.6,
+      "target": "82–86 dB(A)",
+      "check": "Set G4"
+     },
+     {
+      "id": "P11",
+      "name": "West band",
+      "x": 13,
+      "y": 17,
+      "target": "P1 ± 3 dB",
+      "check": "Set D2"
+     }
+    ],
+    "items": [
+     {
+      "id": "MIC",
+      "kind": "mic",
+      "name": "Opera mic stand",
+      "x": 1.4,
+      "y": 4.8
+     }
+    ]
+   }
+  },
+  {
+   "id": "o_mvjz4tki9",
+   "name": "Option 6 · Clear booth, subs spread to the towers",
+   "desc": "Nothing in front of the booth. The four subs split up: one at each outer eye tower, one at the north wall tower T4, one at the SW tower T5, the far two delayed to the stage. Mains on arcade poles as Option 5. Shows what spreading the subs does to the bass.",
+   "speakers": [
+    {
+     "id": "S1",
+     "model": "l-acoustics-sb18",
+     "role": "sub",
+     "x": 8.9,
+     "y": 5.7,
+     "h": 0.5,
+     "aim": {
+      "x": 17.2,
+      "y": 15.2
+     },
+     "trim": -9,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "Base of eye tower T1 · L-Acoustics 18\" sub (single) · Tune at P1"
+    },
+    {
+     "id": "S2",
+     "model": "l-acoustics-sb18",
+     "role": "sub",
+     "x": 5.7,
+     "y": 8.9,
+     "h": 0.5,
+     "aim": {
+      "x": 15.2,
+      "y": 17.2
+     },
+     "trim": -9,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "Base of eye tower T3 · L-Acoustics 18\" sub (single) · Tune at P1"
+    },
+    {
+     "id": "S3",
+     "model": "l-acoustics-sb18",
+     "role": "sub",
+     "x": 23.8,
+     "y": 14.1,
+     "h": 0.5,
+     "aim": {
+      "x": 17.2,
+      "y": 17.2
+     },
+     "trim": -9,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "Base of north wall tower T4, delayed to the stage · L-Acoustics 18\" sub (single) · Tune at P5"
+    },
+    {
+     "id": "S4",
+     "model": "l-acoustics-sb18",
+     "role": "sub",
+     "x": 6.5,
+     "y": 21.9,
+     "h": 0.5,
+     "aim": {
+      "x": 17.2,
+      "y": 17.2
+     },
+     "trim": -9,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "Base of SW tower T5, delayed to the stage · L-Acoustics 18\" sub (single) · Tune at P4"
+    },
+    {
+     "id": "A",
+     "model": "custom-l-acoustics-x15-hiq-60",
+     "role": "main",
+     "x": 12,
+     "y": 6.1,
+     "h": 2.8,
+     "aim": {
+      "x": 13.7,
+      "y": 16.2
+     },
+     "trim": 0,
+     "extra": 0,
+     "pol": 1,
+     "mount": "pole",
+     "note": "Pole against the east arcade, beside the stage, not in front of the booth · L-Acoustics 15\" coaxial top · Tune at P1"
+    },
+    {
+     "id": "B",
+     "model": "custom-l-acoustics-x15-hiq-60",
+     "role": "main",
+     "x": 6.1,
+     "y": 12,
+     "h": 2.8,
+     "aim": {
+      "x": 16.2,
+      "y": 13.7
+     },
+     "trim": 0,
+     "extra": 0,
+     "pol": 1,
+     "mount": "pole",
+     "note": "Pole against the south arcade, beside the stage, not in front of the booth · L-Acoustics 15\" coaxial top · Tune at P1"
+    },
+    {
+     "id": "F1",
+     "model": "custom-l-acoustics-x15-hiq-60",
+     "role": "fill",
+     "x": 23.3,
+     "y": 13.7,
+     "h": 2.6,
+     "aim": {
+      "x": 18.2,
+      "y": 19.2
+     },
+     "trim": -8,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "L-Acoustics 15\" coaxial top · Tune at P5"
+    },
+    {
+     "id": "F2",
+     "model": "custom-l-acoustics-x15-hiq-60",
+     "role": "fill",
+     "x": 7,
+     "y": 21.4,
+     "h": 2.6,
+     "aim": {
+      "x": 14.2,
+      "y": 22.7
+     },
+     "trim": -8,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "L-Acoustics 15\" coaxial top · Tune at P4"
+    },
+    {
+     "id": "F3",
+     "model": "custom-l-acoustics-x15-hiq-60",
+     "role": "fill",
+     "x": 21.4,
+     "y": 6.9,
+     "h": 2.4,
+     "aim": {
+      "x": 20.2,
+      "y": 13.2
+     },
+     "trim": -10,
+     "extra": 0,
+     "pol": 1,
+     "mount": "pole",
+     "note": "Short pole hidden behind the NE corner palm · L-Acoustics 15\" coaxial top (ADD to FPS quote) · Tune at P3"
+    },
+    {
+     "id": "D1",
+     "model": "custom-l-acoustics-x15-hiq-60",
+     "role": "delay",
+     "x": 23.5,
+     "y": 23.4,
+     "h": 2.6,
+     "aim": {
+      "x": 25.3,
+      "y": 15.4
+     },
+     "trim": -6,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "L-Acoustics 15\" coaxial top · Tune at P5"
+    },
+    {
+     "id": "D2",
+     "model": "custom-l-acoustics-x15-hiq-60",
+     "role": "delay",
+     "x": 23.4,
+     "y": 23.5,
+     "h": 2.6,
+     "aim": {
+      "x": 15.4,
+      "y": 25.2
+     },
+     "trim": -6,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "L-Acoustics 15\" coaxial top · Tune at P11"
+    },
+    {
+     "id": "G1",
+     "model": "jbl-srx812p",
+     "role": "fill",
+     "x": 4.9,
+     "y": 5.8,
+     "h": 2,
+     "aim": {
+      "x": 4,
+      "y": 26.2
+     },
+     "trim": -14,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "Behind the SE corner pier, south gallery · JBL SRX812P · Ambience filler on the tuning map · Tune at P7"
+    },
+    {
+     "id": "G2",
+     "model": "jbl-srx812p",
+     "role": "fill",
+     "x": 5.9,
+     "y": 4.8,
+     "h": 2,
+     "aim": {
+      "x": 26.2,
+      "y": 3.4
+     },
+     "trim": -14,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "Behind the SE corner pier, east gallery · JBL SRX812P · Ambience filler on the tuning map · Tune at P8"
+    },
+    {
+     "id": "G3",
+     "model": "jbl-srx812p",
+     "role": "fill",
+     "x": 25.1,
+     "y": 5.4,
+     "h": 2,
+     "aim": {
+      "x": 26.6,
+      "y": 26.2
+     },
+     "trim": -18,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "Behind the NE corner pier, north gallery · JBL SRX812P · Ambience filler on the tuning map · Tune at P9"
+    },
+    {
+     "id": "G4",
+     "model": "jbl-srx812p",
+     "role": "fill",
+     "x": 5.2,
+     "y": 25.6,
+     "h": 2,
+     "aim": {
+      "x": 26.2,
+      "y": 26.6
+     },
+     "trim": -18,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "Behind the SW corner pier, west gallery · JBL SRX812P · Ambience filler on the tuning map · Tune at P10"
+    },
+    {
+     "id": "M1",
+     "model": "jbl-srx812p",
+     "role": "mon",
+     "x": 9,
+     "y": 6.7,
+     "h": 1.4,
+     "aim": {
+      "x": 7.6,
+      "y": 7.6
+     },
+     "trim": 0,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "Booth end, DJ side · JBL SRX812P · Tune at P6"
+    },
+    {
+     "id": "M2",
+     "model": "jbl-srx812p",
+     "role": "mon",
+     "x": 6.7,
+     "y": 9,
+     "h": 1.4,
+     "aim": {
+      "x": 7.6,
+      "y": 7.6
+     },
+     "trim": 0,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "Booth end; singer’s wedge · JBL SRX812P · Tune at P6"
+    }
+   ],
+   "points": [
+    {
+     "id": "REF",
+     "kind": "ref",
+     "name": "Reference: P1 (FOH)",
+     "x": 16.2,
+     "y": 16.2
+    },
+    {
+     "id": "P1",
+     "kind": "check",
+     "name": "FOH reference · target 98–100 dB(A) LAeq at peak",
+     "x": 16.2,
+     "y": 16.2
+    },
+    {
+     "id": "P2",
+     "kind": "check",
+     "name": "Front of floor · target No more than P1 + 4 dB",
+     "x": 12.2,
+     "y": 12.2
+    },
+    {
+     "id": "P3",
+     "kind": "check",
+     "name": "NE floor corner · target P1 ± 3 dB",
+     "x": 20.7,
+     "y": 11.2
+    },
+    {
+     "id": "P4",
+     "kind": "check",
+     "name": "West band · target P1 ± 3 dB",
+     "x": 14.2,
+     "y": 22.2
+    },
+    {
+     "id": "P5",
+     "kind": "check",
+     "name": "North band · target P1 − 3 to 0 dB",
+     "x": 21.2,
+     "y": 18.2
+    },
+    {
+     "id": "P6",
+     "kind": "check",
+     "name": "DJ position · target 95–100 dB(A) from the monitors",
+     "x": 7.6,
+     "y": 7.6
+    },
+    {
+     "id": "P7",
+     "kind": "check",
+     "name": "South gallery · target 82–86 dB(A)",
+     "x": 2.8,
+     "y": 19.2
+    },
+    {
+     "id": "P8",
+     "kind": "check",
+     "name": "East gallery · target 82–86 dB(A)",
+     "x": 19.2,
+     "y": 2.8
+    },
+    {
+     "id": "P9",
+     "kind": "check",
+     "name": "North gallery · target 82–86 dB(A)",
+     "x": 27.8,
+     "y": 18.2
+    },
+    {
+     "id": "P10",
+     "kind": "check",
+     "name": "West gallery · target 82–86 dB(A)",
+     "x": 18.2,
+     "y": 27.8
+    },
+    {
+     "id": "P11",
+     "kind": "check",
+     "name": "West band · target P1 ± 3 dB",
+     "x": 18.2,
+     "y": 22.2
+    }
+   ],
+   "map": {
+    "name": "Option 6 · Clear booth, subs spread to the towers",
+    "desc": "Nothing in front of the booth. The four subs split up: one at each outer eye tower, one at the north wall tower T4, one at the SW tower T5, the far two delayed to the stage. Mains on arcade poles as Option 5. Shows what spreading the subs does to the bass.",
+    "towers": [
+     {
+      "id": "T1",
+      "name": "Eye, east leg",
+      "x": 2.96,
+      "y": 0.84,
+      "h": 3.05,
+      "lights": "Sharpy Beam",
+      "masking": "Clad in the eye scenic",
+      "isNew": false
+     },
+     {
+      "id": "T2",
+      "name": "Eye, centre",
+      "x": 1.9,
+      "y": 1.9,
+      "h": 3.05,
+      "lights": "Robe Mega Pointe through the pupil",
+      "masking": "Clad in the eye scenic",
+      "isNew": false
+     },
+     {
+      "id": "T3",
+      "name": "Eye, south leg",
+      "x": 0.84,
+      "y": 2.96,
+      "h": 3.05,
+      "lights": "Sharpy Beam",
+      "masking": "Clad in the eye scenic",
+      "isNew": false
+     },
+     {
+      "id": "T4",
+      "name": "North wall",
+      "x": 18.1,
+      "y": 8.5,
+      "h": 3.05,
+      "lights": "Sharpy Beam + laser, hazer at base",
+      "masking": "Scrim wrap, open speaker front",
+      "isNew": false
+     },
+     {
+      "id": "T5",
+      "name": "SW corner",
+      "x": 1.8,
+      "y": 16.2,
+      "h": 3.05,
+      "lights": "Sharpy Beam + laser, hazer at base",
+      "masking": "Scrim wrap, open speaker front",
+      "isNew": false
+     },
+     {
+      "id": "T6",
+      "name": "NW corner",
+      "x": 18.25,
+      "y": 18.25,
+      "h": 3.05,
+      "lights": "Sharpy Beam + laser, hazer at base",
+      "masking": "Full drape on the corner faces: soaks the corner echo",
+      "isNew": false
+     }
+    ],
+    "speakers": [
+     {
+      "model": "L-Acoustics 18\" sub (single)",
+      "cov": 0,
+      "r": 0,
+      "kg": 0,
+      "trim": -9,
+      "h": 0.5,
+      "mount": "T1",
+      "where": "Base of eye tower T1",
+      "id": "S1",
+      "role": "sub",
+      "qty": 1,
+      "omni": true,
+      "x": 3.7,
+      "y": 0.5,
+      "aim": {
+       "x": 12,
+       "y": 10
+      },
+      "tune": "P1",
+      "lib": "lac-sb18",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 18\" sub (single)",
+      "cov": 0,
+      "r": 0,
+      "kg": 0,
+      "trim": -9,
+      "h": 0.5,
+      "mount": "T3",
+      "where": "Base of eye tower T3",
+      "id": "S2",
+      "role": "sub",
+      "qty": 1,
+      "omni": true,
+      "x": 0.5,
+      "y": 3.7,
+      "aim": {
+       "x": 10,
+       "y": 12
+      },
+      "tune": "P1",
+      "lib": "lac-sb18",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 18\" sub (single)",
+      "cov": 0,
+      "r": 0,
+      "kg": 0,
+      "trim": -9,
+      "h": 0.5,
+      "mount": "T4",
+      "where": "Base of north wall tower T4, delayed to the stage",
+      "id": "S3",
+      "role": "sub",
+      "qty": 1,
+      "omni": true,
+      "x": 18.6,
+      "y": 8.9,
+      "aim": {
+       "x": 12,
+       "y": 12
+      },
+      "tune": "P5",
+      "lib": "lac-sb18",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 18\" sub (single)",
+      "cov": 0,
+      "r": 0,
+      "kg": 0,
+      "trim": -9,
+      "h": 0.5,
+      "mount": "T5",
+      "where": "Base of SW tower T5, delayed to the stage",
+      "id": "S4",
+      "role": "sub",
+      "qty": 1,
+      "omni": true,
+      "x": 1.3,
+      "y": 16.7,
+      "aim": {
+       "x": 12,
+       "y": 12
+      },
+      "tune": "P4",
+      "lib": "lac-sb18",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 15\" coaxial top",
+      "cov": 60,
+      "r": 17,
+      "kg": 30,
+      "trim": 0,
+      "h": 2.8,
+      "mount": "pole",
+      "where": "Pole against the east arcade, beside the stage, not in front of the booth",
+      "id": "A",
+      "role": "main",
+      "x": 6.8,
+      "y": 0.9,
+      "aim": {
+       "x": 8.5,
+       "y": 11
+      },
+      "tune": "P1",
+      "lib": "lac-x15-60",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 15\" coaxial top",
+      "cov": 60,
+      "r": 17,
+      "kg": 30,
+      "trim": 0,
+      "h": 2.8,
+      "mount": "pole",
+      "where": "Pole against the south arcade, beside the stage, not in front of the booth",
+      "id": "B",
+      "role": "main",
+      "x": 0.9,
+      "y": 6.8,
+      "aim": {
+       "x": 11,
+       "y": 8.5
+      },
+      "tune": "P1",
+      "lib": "lac-x15-60",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 15\" coaxial top",
+      "cov": 90,
+      "r": 9,
+      "kg": 30,
+      "trim": -8,
+      "h": 2.6,
+      "mount": "T4",
+      "where": "",
+      "id": "F1",
+      "role": "fill",
+      "x": 18.1,
+      "y": 8.5,
+      "aim": {
+       "x": 13,
+       "y": 14
+      },
+      "tune": "P5",
+      "lib": "lac-x15-60",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 15\" coaxial top",
+      "cov": 90,
+      "r": 9,
+      "kg": 30,
+      "trim": -8,
+      "h": 2.6,
+      "mount": "T5",
+      "where": "",
+      "id": "F2",
+      "role": "fill",
+      "x": 1.8,
+      "y": 16.2,
+      "aim": {
+       "x": 9,
+       "y": 17.5
+      },
+      "tune": "P4",
+      "lib": "lac-x15-60",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 15\" coaxial top (ADD to FPS quote)",
+      "cov": 90,
+      "r": 9,
+      "kg": 30,
+      "trim": -10,
+      "h": 2.4,
+      "mount": "pole",
+      "where": "Short pole hidden behind the NE corner palm",
+      "id": "F3",
+      "role": "fill",
+      "x": 16.2,
+      "y": 1.7,
+      "aim": {
+       "x": 15,
+       "y": 8
+      },
+      "tune": "P3",
+      "lib": "lac-x15-60",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 15\" coaxial top",
+      "cov": 90,
+      "r": 11,
+      "kg": 30,
+      "trim": -6,
+      "h": 2.6,
+      "mount": "T6",
+      "where": "",
+      "id": "D1",
+      "role": "delay",
+      "x": 18.3,
+      "y": 18.2,
+      "aim": {
+       "x": 20.1,
+       "y": 10.2
+      },
+      "tune": "P5",
+      "lib": "lac-x15-60",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 15\" coaxial top",
+      "cov": 90,
+      "r": 11,
+      "kg": 30,
+      "trim": -6,
+      "h": 2.6,
+      "mount": "T6",
+      "where": "",
+      "id": "D2",
+      "role": "delay",
+      "x": 18.2,
+      "y": 18.3,
+      "aim": {
+       "x": 10.2,
+       "y": 20
+      },
+      "tune": "P11",
+      "lib": "lac-x15-60",
+      "boxes": 1
+     },
+     {
+      "model": "JBL SRX812P",
+      "cov": 50,
+      "r": 16,
+      "kg": 26,
+      "trim": -14,
+      "h": 2,
+      "mount": "stand",
+      "where": "Behind the SE corner pier, south gallery",
+      "id": "G1",
+      "role": "gal",
+      "x": -0.3,
+      "y": 0.6,
+      "aim": {
+       "x": -1.2,
+       "y": 21
+      },
+      "tune": "P7",
+      "lib": "jbl-srx812p",
+      "boxes": 1
+     },
+     {
+      "model": "JBL SRX812P",
+      "cov": 50,
+      "r": 16,
+      "kg": 26,
+      "trim": -14,
+      "h": 2,
+      "mount": "stand",
+      "where": "Behind the SE corner pier, east gallery",
+      "id": "G2",
+      "role": "gal",
+      "x": 0.7,
+      "y": -0.4,
+      "aim": {
+       "x": 21,
+       "y": -1.8
+      },
+      "tune": "P8",
+      "lib": "jbl-srx812p",
+      "boxes": 1
+     },
+     {
+      "model": "JBL SRX812P",
+      "cov": 50,
+      "r": 16,
+      "kg": 26,
+      "trim": -18,
+      "h": 2,
+      "mount": "stand",
+      "where": "Behind the NE corner pier, north gallery",
+      "id": "G3",
+      "role": "gal",
+      "x": 19.9,
+      "y": 0.2,
+      "aim": {
+       "x": 21.4,
+       "y": 21
+      },
+      "tune": "P9",
+      "lib": "jbl-srx812p",
+      "boxes": 1
+     },
+     {
+      "model": "JBL SRX812P",
+      "cov": 50,
+      "r": 16,
+      "kg": 26,
+      "trim": -18,
+      "h": 2,
+      "mount": "stand",
+      "where": "Behind the SW corner pier, west gallery",
+      "id": "G4",
+      "role": "gal",
+      "x": 0,
+      "y": 20.4,
+      "aim": {
+       "x": 21,
+       "y": 21.4
+      },
+      "tune": "P10",
+      "lib": "jbl-srx812p",
+      "boxes": 1
+     },
+     {
+      "model": "JBL SRX812P",
+      "cov": 50,
+      "r": 3,
+      "kg": 26,
+      "trim": 0,
+      "h": 1.4,
+      "mount": "stand",
+      "where": "Booth end, DJ side",
+      "id": "M1",
+      "role": "mon",
+      "x": 3.8,
+      "y": 1.5,
+      "aim": "P6",
+      "tune": "P6",
+      "lib": "jbl-srx812p",
+      "boxes": 1
+     },
+     {
+      "model": "JBL SRX812P",
+      "cov": 50,
+      "r": 3,
+      "kg": 26,
+      "trim": 0,
+      "h": 1.4,
+      "mount": "stand",
+      "where": "Booth end; singer’s wedge",
+      "id": "M2",
+      "role": "mon",
+      "x": 1.5,
+      "y": 3.8,
+      "aim": "P6",
+      "tune": "P6",
+      "lib": "jbl-srx812p",
+      "boxes": 1
+     }
+    ],
+    "points": [
+     {
+      "id": "P1",
+      "name": "FOH reference",
+      "x": 11,
+      "y": 11,
+      "target": "98–100 dB(A) LAeq at peak",
+      "check": "System EQ for the mains; sub-to-top alignment"
+     },
+     {
+      "id": "P2",
+      "name": "Front of floor",
+      "x": 7,
+      "y": 7,
+      "target": "No more than P1 + 4 dB",
+      "check": "Front rows not overpowered"
+     },
+     {
+      "id": "P3",
+      "name": "NE floor corner",
+      "x": 15.5,
+      "y": 6,
+      "target": "P1 ± 3 dB",
+      "check": "Set F3"
+     },
+     {
+      "id": "P4",
+      "name": "West band",
+      "x": 9,
+      "y": 17,
+      "target": "P1 ± 3 dB",
+      "check": "Set F2"
+     },
+     {
+      "id": "P5",
+      "name": "North band",
+      "x": 16,
+      "y": 13,
+      "target": "P1 − 3 to 0 dB",
+      "check": "Set F1 and D1"
+     },
+     {
+      "id": "P6",
+      "name": "DJ position",
+      "x": 2.4,
+      "y": 2.4,
+      "target": "95–100 dB(A) from the monitors",
+      "check": "Sub quieter here than at P2"
+     },
+     {
+      "id": "P7",
+      "name": "South gallery",
+      "x": -2.4,
+      "y": 14,
+      "target": "82–86 dB(A)",
+      "check": "Set G1"
+     },
+     {
+      "id": "P8",
+      "name": "East gallery",
+      "x": 14,
+      "y": -2.4,
+      "target": "82–86 dB(A)",
+      "check": "Set G2"
+     },
+     {
+      "id": "P9",
+      "name": "North gallery",
+      "x": 22.6,
+      "y": 13,
+      "target": "82–86 dB(A)",
+      "check": "Set G3"
+     },
+     {
+      "id": "P10",
+      "name": "West gallery",
+      "x": 13,
+      "y": 22.6,
+      "target": "82–86 dB(A)",
+      "check": "Set G4"
+     },
+     {
+      "id": "P11",
+      "name": "West band",
+      "x": 13,
+      "y": 17,
+      "target": "P1 ± 3 dB",
+      "check": "Set D2"
+     }
+    ],
+    "items": [
+     {
+      "id": "MIC",
+      "kind": "mic",
+      "name": "Opera mic stand",
+      "x": 1.4,
+      "y": 4.8
+     }
+    ]
+   }
+  },
+  {
+   "id": "o_mvjz4tkia",
+   "name": "Option 1 · Poles over subs, corner towers",
+   "desc": "Recommended. Mains on poles above two sub stacks either side of the booth. The 3 eye towers carry the eye, the Mega Pointe and 2 Sharpys. Fill speakers, lights and lasers on the NE, SW and NW corner towers. Nothing on the dance floor.",
+   "speakers": [
+    {
+     "id": "S1",
+     "model": "custom-l-acoustics-sb18-card2",
+     "role": "sub",
+     "x": 10.4,
+     "y": 7,
+     "h": 0.5,
+     "aim": {
+      "x": 18.2,
+      "y": 14.2
+     },
+     "trim": -3,
+     "extra": 0,
+     "pol": 1,
+     "mount": "floor",
+     "note": "East flank: 1 forward + 1 reversed (cardioid) · 2 × L-Acoustics 18\" sub, cardioid · Tune at P1"
+    },
+    {
+     "id": "S2",
+     "model": "custom-l-acoustics-sb18-card2",
+     "role": "sub",
+     "x": 7,
+     "y": 10.4,
+     "h": 0.5,
+     "aim": {
+      "x": 14.2,
+      "y": 18.2
+     },
+     "trim": -3,
+     "extra": 0,
+     "pol": 1,
+     "mount": "floor",
+     "note": "South flank: 1 forward + 1 reversed (cardioid) · 2 × L-Acoustics 18\" sub, cardioid · Tune at P1"
+    },
+    {
+     "id": "A",
+     "model": "custom-l-acoustics-x15-hiq-60",
+     "role": "main",
+     "x": 10.4,
+     "y": 7,
+     "h": 2.8,
+     "aim": {
+      "x": 13.2,
+      "y": 15.4
+     },
+     "trim": 0,
+     "extra": 0,
+     "pol": 1,
+     "mount": "pole",
+     "note": "Pole on the east sub stack · L-Acoustics 15\" coaxial top · Tune at P1"
+    },
+    {
+     "id": "B",
+     "model": "custom-l-acoustics-x15-hiq-60",
+     "role": "main",
+     "x": 7,
+     "y": 10.4,
+     "h": 2.8,
+     "aim": {
+      "x": 15.4,
+      "y": 13.2
+     },
+     "trim": 0,
+     "extra": 0,
+     "pol": 1,
+     "mount": "pole",
+     "note": "Pole on the south sub stack · L-Acoustics 15\" coaxial top · Tune at P1"
+    },
+    {
+     "id": "F1",
+     "model": "custom-l-acoustics-x15-hiq-60",
+     "role": "fill",
+     "x": 21.4,
+     "y": 6.9,
+     "h": 2.6,
+     "aim": {
+      "x": 22.7,
+      "y": 14.2
+     },
+     "trim": -8,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "L-Acoustics 15\" coaxial top · Tune at P3"
+    },
+    {
+     "id": "F2",
+     "model": "custom-l-acoustics-x15-hiq-60",
+     "role": "fill",
+     "x": 6.9,
+     "y": 21.4,
+     "h": 2.6,
+     "aim": {
+      "x": 14.2,
+      "y": 22.7
+     },
+     "trim": -8,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "L-Acoustics 15\" coaxial top · Tune at P4"
+    },
+    {
+     "id": "D1",
+     "model": "custom-l-acoustics-x15-hiq-60",
+     "role": "delay",
+     "x": 23.5,
+     "y": 23.2,
+     "h": 2.6,
+     "aim": {
+      "x": 25.3,
+      "y": 15.4
+     },
+     "trim": -6,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "L-Acoustics 15\" coaxial top · Tune at P5"
+    },
+    {
+     "id": "D2",
+     "model": "custom-l-acoustics-x15-hiq-60",
+     "role": "delay",
+     "x": 23.2,
+     "y": 23.5,
+     "h": 2.6,
+     "aim": {
+      "x": 15.4,
+      "y": 25.3
+     },
+     "trim": -6,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "L-Acoustics 15\" coaxial top · Tune at P11"
+    },
+    {
+     "id": "G1",
+     "model": "jbl-srx812p",
+     "role": "fill",
+     "x": 3.4,
+     "y": 8.2,
+     "h": 2,
+     "aim": {
+      "x": 3.4,
+      "y": 26.2
+     },
+     "trim": -14,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "South gallery, SE end, on stand · JBL SRX812P · Ambience filler on the tuning map · Tune at P7"
+    },
+    {
+     "id": "G2",
+     "model": "jbl-srx812p",
+     "role": "fill",
+     "x": 8.2,
+     "y": 3.4,
+     "h": 2,
+     "aim": {
+      "x": 26.2,
+      "y": 3.4
+     },
+     "trim": -14,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "East gallery, SE end, on stand · JBL SRX812P · Ambience filler on the tuning map · Tune at P8"
+    },
+    {
+     "id": "G3",
+     "model": "jbl-srx812p",
+     "role": "fill",
+     "x": 27,
+     "y": 5.8,
+     "h": 2,
+     "aim": {
+      "x": 27,
+      "y": 26.2
+     },
+     "trim": -20,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "North gallery, NE end, on stand; bring up if quiet · JBL SRX812P · Ambience filler on the tuning map · Tune at P9"
+    },
+    {
+     "id": "G4",
+     "model": "jbl-srx812p",
+     "role": "fill",
+     "x": 5.8,
+     "y": 27,
+     "h": 2,
+     "aim": {
+      "x": 26.2,
+      "y": 27
+     },
+     "trim": -20,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "West gallery, SW end, on stand; bring up if quiet · JBL SRX812P · Ambience filler on the tuning map · Tune at P10"
+    },
+    {
+     "id": "M1",
+     "model": "jbl-srx812p",
+     "role": "mon",
+     "x": 9,
+     "y": 6.7,
+     "h": 1.4,
+     "aim": {
+      "x": 7.6,
+      "y": 7.6
+     },
+     "trim": 0,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "Booth end, DJ side · JBL SRX812P · Tune at P6"
+    },
+    {
+     "id": "M2",
+     "model": "jbl-srx812p",
+     "role": "mon",
+     "x": 6.7,
+     "y": 9,
+     "h": 1.4,
+     "aim": {
+      "x": 7.6,
+      "y": 7.6
+     },
+     "trim": 0,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "Booth end; singer’s wedge · JBL SRX812P · Tune at P6"
+    }
+   ],
+   "points": [
+    {
+     "id": "REF",
+     "kind": "ref",
+     "name": "Reference: P1 (FOH)",
+     "x": 16.2,
+     "y": 16.2
+    },
+    {
+     "id": "P1",
+     "kind": "check",
+     "name": "FOH reference · target 98–100 dB(A) LAeq at peak",
+     "x": 16.2,
+     "y": 16.2
+    },
+    {
+     "id": "P2",
+     "kind": "check",
+     "name": "Front of floor · target No more than P1 + 4 dB",
+     "x": 12.2,
+     "y": 12.2
+    },
+    {
+     "id": "P3",
+     "kind": "check",
+     "name": "NE quarter · target P1 ± 3 dB",
+     "x": 19.7,
+     "y": 11.2
+    },
+    {
+     "id": "P4",
+     "kind": "check",
+     "name": "SW quarter · target P1 ± 3 dB",
+     "x": 11.2,
+     "y": 19.7
+    },
+    {
+     "id": "P5",
+     "kind": "check",
+     "name": "North band · target P1 − 3 to 0 dB",
+     "x": 22.2,
+     "y": 18.2
+    },
+    {
+     "id": "P6",
+     "kind": "check",
+     "name": "DJ position · target 95–100 dB(A) from the monitors",
+     "x": 7.6,
+     "y": 7.6
+    },
+    {
+     "id": "P7",
+     "kind": "check",
+     "name": "South gallery · target 82–86 dB(A)",
+     "x": 2.8,
+     "y": 19.2
+    },
+    {
+     "id": "P8",
+     "kind": "check",
+     "name": "East gallery · target 82–86 dB(A)",
+     "x": 19.2,
+     "y": 2.8
+    },
+    {
+     "id": "P9",
+     "kind": "check",
+     "name": "North gallery · target 82–86 dB(A)",
+     "x": 27.8,
+     "y": 18.2
+    },
+    {
+     "id": "P10",
+     "kind": "check",
+     "name": "West gallery · target 82–86 dB(A)",
+     "x": 18.2,
+     "y": 27.8
+    },
+    {
+     "id": "P11",
+     "kind": "check",
+     "name": "West band · target P1 ± 3 dB",
+     "x": 18.2,
+     "y": 22.2
+    }
+   ],
+   "map": {
+    "name": "Option 1 · Poles over subs, corner towers",
+    "desc": "Recommended. Mains on poles above two sub stacks either side of the booth. The 3 eye towers carry the eye, the Mega Pointe and 2 Sharpys. Fill speakers, lights and lasers on the NE, SW and NW corner towers. Nothing on the dance floor.",
+    "towers": [
+     {
+      "id": "T1",
+      "name": "Eye, east leg",
+      "x": 2.96,
+      "y": 0.84,
+      "h": 3.05,
+      "lights": "Sharpy Beam",
+      "masking": "Clad in the eye scenic",
+      "isNew": false
+     },
+     {
+      "id": "T2",
+      "name": "Eye, centre",
+      "x": 1.9,
+      "y": 1.9,
+      "h": 3.05,
+      "lights": "Robe Mega Pointe through the pupil",
+      "masking": "Clad in the eye scenic",
+      "isNew": false
+     },
+     {
+      "id": "T3",
+      "name": "Eye, south leg",
+      "x": 0.84,
+      "y": 2.96,
+      "h": 3.05,
+      "lights": "Sharpy Beam",
+      "masking": "Clad in the eye scenic",
+      "isNew": false
+     },
+     {
+      "id": "T4",
+      "name": "NE corner",
+      "x": 16.2,
+      "y": 1.7,
+      "h": 3.05,
+      "lights": "Sharpy Beam + laser, hazer at base",
+      "masking": "Scrim wrap, open speaker front",
+      "isNew": false
+     },
+     {
+      "id": "T5",
+      "name": "SW corner",
+      "x": 1.7,
+      "y": 16.2,
+      "h": 3.05,
+      "lights": "Sharpy Beam + laser, hazer at base",
+      "masking": "Scrim wrap, open speaker front",
+      "isNew": false
+     },
+     {
+      "id": "T6",
+      "name": "NW corner",
+      "x": 18.15,
+      "y": 18.15,
+      "h": 3.05,
+      "lights": "Sharpy Beam + laser, hazer at base",
+      "masking": "Full drape on the corner faces: soaks the corner echo",
+      "isNew": false
+     }
+    ],
+    "speakers": [
+     {
+      "model": "2 × L-Acoustics 18\" sub, cardioid",
+      "cov": 0,
+      "r": 0,
+      "kg": 0,
+      "trim": -3,
+      "h": 0.5,
+      "mount": "floor",
+      "where": "East flank: 1 forward + 1 reversed (cardioid)",
+      "id": "S1",
+      "role": "sub",
+      "qty": 2,
+      "x": 5.2,
+      "y": 1.8,
+      "aim": {
+       "x": 13,
+       "y": 9
+      },
+      "tune": "P1",
+      "lib": "lac-sb18-card2",
+      "boxes": 1
+     },
+     {
+      "model": "2 × L-Acoustics 18\" sub, cardioid",
+      "cov": 0,
+      "r": 0,
+      "kg": 0,
+      "trim": -3,
+      "h": 0.5,
+      "mount": "floor",
+      "where": "South flank: 1 forward + 1 reversed (cardioid)",
+      "id": "S2",
+      "role": "sub",
+      "qty": 2,
+      "x": 1.8,
+      "y": 5.2,
+      "aim": {
+       "x": 9,
+       "y": 13
+      },
+      "tune": "P1",
+      "lib": "lac-sb18-card2",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 15\" coaxial top",
+      "cov": 60,
+      "r": 17,
+      "kg": 30,
+      "trim": 0,
+      "h": 2.8,
+      "mount": "pole",
+      "where": "Pole on the east sub stack",
+      "id": "A",
+      "role": "main",
+      "x": 5.2,
+      "y": 1.8,
+      "aim": {
+       "x": 8,
+       "y": 10.2
+      },
+      "tune": "P1",
+      "lib": "lac-x15-60",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 15\" coaxial top",
+      "cov": 60,
+      "r": 17,
+      "kg": 30,
+      "trim": 0,
+      "h": 2.8,
+      "mount": "pole",
+      "where": "Pole on the south sub stack",
+      "id": "B",
+      "role": "main",
+      "x": 1.8,
+      "y": 5.2,
+      "aim": {
+       "x": 10.2,
+       "y": 8
+      },
+      "tune": "P1",
+      "lib": "lac-x15-60",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 15\" coaxial top",
+      "cov": 90,
+      "r": 9,
+      "kg": 30,
+      "trim": -8,
+      "h": 2.6,
+      "mount": "T4",
+      "where": "",
+      "id": "F1",
+      "role": "fill",
+      "x": 16.2,
+      "y": 1.7,
+      "aim": {
+       "x": 17.5,
+       "y": 9
+      },
+      "tune": "P3",
+      "lib": "lac-x15-60",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 15\" coaxial top",
+      "cov": 90,
+      "r": 9,
+      "kg": 30,
+      "trim": -8,
+      "h": 2.6,
+      "mount": "T5",
+      "where": "",
+      "id": "F2",
+      "role": "fill",
+      "x": 1.7,
+      "y": 16.2,
+      "aim": {
+       "x": 9,
+       "y": 17.5
+      },
+      "tune": "P4",
+      "lib": "lac-x15-60",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 15\" coaxial top",
+      "cov": 90,
+      "r": 11,
+      "kg": 30,
+      "trim": -6,
+      "h": 2.6,
+      "mount": "T6",
+      "where": "",
+      "id": "D1",
+      "role": "delay",
+      "x": 18.3,
+      "y": 18,
+      "aim": {
+       "x": 20.1,
+       "y": 10.2
+      },
+      "tune": "P5",
+      "lib": "lac-x15-60",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 15\" coaxial top",
+      "cov": 90,
+      "r": 11,
+      "kg": 30,
+      "trim": -6,
+      "h": 2.6,
+      "mount": "T6",
+      "where": "",
+      "id": "D2",
+      "role": "delay",
+      "x": 18,
+      "y": 18.3,
+      "aim": {
+       "x": 10.2,
+       "y": 20.1
+      },
+      "tune": "P11",
+      "lib": "lac-x15-60",
+      "boxes": 1
+     },
+     {
+      "model": "JBL SRX812P",
+      "cov": 50,
+      "r": 16,
+      "kg": 26,
+      "trim": -14,
+      "h": 2,
+      "mount": "stand",
+      "where": "South gallery, SE end, on stand",
+      "id": "G1",
+      "role": "gal",
+      "x": -1.8,
+      "y": 3,
+      "aim": {
+       "x": -1.8,
+       "y": 21
+      },
+      "tune": "P7",
+      "lib": "jbl-srx812p",
+      "boxes": 1
+     },
+     {
+      "model": "JBL SRX812P",
+      "cov": 50,
+      "r": 16,
+      "kg": 26,
+      "trim": -14,
+      "h": 2,
+      "mount": "stand",
+      "where": "East gallery, SE end, on stand",
+      "id": "G2",
+      "role": "gal",
+      "x": 3,
+      "y": -1.8,
+      "aim": {
+       "x": 21,
+       "y": -1.8
+      },
+      "tune": "P8",
+      "lib": "jbl-srx812p",
+      "boxes": 1
+     },
+     {
+      "model": "JBL SRX812P",
+      "cov": 50,
+      "r": 16,
+      "kg": 26,
+      "trim": -20,
+      "h": 2,
+      "mount": "stand",
+      "where": "North gallery, NE end, on stand; bring up if quiet",
+      "id": "G3",
+      "role": "gal",
+      "x": 21.8,
+      "y": 0.6,
+      "aim": {
+       "x": 21.8,
+       "y": 21
+      },
+      "tune": "P9",
+      "lib": "jbl-srx812p",
+      "boxes": 1
+     },
+     {
+      "model": "JBL SRX812P",
+      "cov": 50,
+      "r": 16,
+      "kg": 26,
+      "trim": -20,
+      "h": 2,
+      "mount": "stand",
+      "where": "West gallery, SW end, on stand; bring up if quiet",
+      "id": "G4",
+      "role": "gal",
+      "x": 0.6,
+      "y": 21.8,
+      "aim": {
+       "x": 21,
+       "y": 21.8
+      },
+      "tune": "P10",
+      "lib": "jbl-srx812p",
+      "boxes": 1
+     },
+     {
+      "model": "JBL SRX812P",
+      "cov": 50,
+      "r": 3,
+      "kg": 26,
+      "trim": 0,
+      "h": 1.4,
+      "mount": "stand",
+      "where": "Booth end, DJ side",
+      "id": "M1",
+      "role": "mon",
+      "x": 3.8,
+      "y": 1.5,
+      "aim": "P6",
+      "tune": "P6",
+      "lib": "jbl-srx812p",
+      "boxes": 1
+     },
+     {
+      "model": "JBL SRX812P",
+      "cov": 50,
+      "r": 3,
+      "kg": 26,
+      "trim": 0,
+      "h": 1.4,
+      "mount": "stand",
+      "where": "Booth end; singer’s wedge",
+      "id": "M2",
+      "role": "mon",
+      "x": 1.5,
+      "y": 3.8,
+      "aim": "P6",
+      "tune": "P6",
+      "lib": "jbl-srx812p",
+      "boxes": 1
+     }
+    ],
+    "points": [
+     {
+      "id": "P1",
+      "name": "FOH reference",
+      "x": 11,
+      "y": 11,
+      "target": "98–100 dB(A) LAeq at peak",
+      "check": "System EQ for the mains; sub-to-top alignment"
+     },
+     {
+      "id": "P2",
+      "name": "Front of floor",
+      "x": 7,
+      "y": 7,
+      "target": "No more than P1 + 4 dB",
+      "check": "Front rows not overpowered"
+     },
+     {
+      "id": "P3",
+      "name": "NE quarter",
+      "x": 14.5,
+      "y": 6,
+      "target": "P1 ± 3 dB",
+      "check": "Set F1"
+     },
+     {
+      "id": "P4",
+      "name": "SW quarter",
+      "x": 6,
+      "y": 14.5,
+      "target": "P1 ± 3 dB",
+      "check": "Set F2"
+     },
+     {
+      "id": "P5",
+      "name": "North band",
+      "x": 17,
+      "y": 13,
+      "target": "P1 − 3 to 0 dB",
+      "check": "Set D1"
+     },
+     {
+      "id": "P6",
+      "name": "DJ position",
+      "x": 2.4,
+      "y": 2.4,
+      "target": "95–100 dB(A) from the monitors",
+      "check": "Sub quieter here than at P2"
+     },
+     {
+      "id": "P7",
+      "name": "South gallery",
+      "x": -2.4,
+      "y": 14,
+      "target": "82–86 dB(A)",
+      "check": "Set G1"
+     },
+     {
+      "id": "P8",
+      "name": "East gallery",
+      "x": 14,
+      "y": -2.4,
+      "target": "82–86 dB(A)",
+      "check": "Set G2"
+     },
+     {
+      "id": "P9",
+      "name": "North gallery",
+      "x": 22.6,
+      "y": 13,
+      "target": "82–86 dB(A)",
+      "check": "Set G3"
+     },
+     {
+      "id": "P10",
+      "name": "West gallery",
+      "x": 13,
+      "y": 22.6,
+      "target": "82–86 dB(A)",
+      "check": "Set G4"
+     },
+     {
+      "id": "P11",
+      "name": "West band",
+      "x": 13,
+      "y": 17,
+      "target": "P1 ± 3 dB",
+      "check": "Set D2"
+     }
+    ],
+    "items": [
+     {
+      "id": "MIC",
+      "kind": "mic",
+      "name": "Opera mic stand",
+      "x": 0.9,
+      "y": 6.2
+     }
+    ]
+   }
+  },
+  {
+   "id": "o_mvjz4tkib",
+   "name": "Option 2 · Mains on the eye towers",
+   "desc": "Mains hang on the two outer eye towers and the 4 subs stay in one block in the booth front. Cleanest look, no poles. But the mains sit right behind the DJ: the booth gets about as loud as FOH and the opera mic stands in front of the speakers.",
+   "speakers": [
+    {
+     "id": "SUB",
+     "model": "custom-l-acoustics-sb18-card4",
+     "role": "sub",
+     "x": 9.6,
+     "y": 9.6,
+     "h": 0.5,
+     "aim": {
+      "x": 17.2,
+      "y": 17.2
+     },
+     "trim": 0,
+     "extra": 0,
+     "pol": 1,
+     "mount": "floor",
+     "note": "Booth front, 3 forward + 1 reversed · 4 × L-Acoustics 18\" sub, cardioid · Tune at P1"
+    },
+    {
+     "id": "A",
+     "model": "custom-l-acoustics-x15-hiq-60",
+     "role": "main",
+     "x": 8.16,
+     "y": 6.04,
+     "h": 2.6,
+     "aim": {
+      "x": 13.2,
+      "y": 15.4
+     },
+     "trim": 0,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "L-Acoustics 15\" coaxial top · Tune at P1"
+    },
+    {
+     "id": "B",
+     "model": "custom-l-acoustics-x15-hiq-60",
+     "role": "main",
+     "x": 6.04,
+     "y": 8.16,
+     "h": 2.6,
+     "aim": {
+      "x": 15.4,
+      "y": 13.2
+     },
+     "trim": 0,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "L-Acoustics 15\" coaxial top · Tune at P1"
+    },
+    {
+     "id": "F1",
+     "model": "custom-l-acoustics-x15-hiq-60",
+     "role": "fill",
+     "x": 21.4,
+     "y": 6.9,
+     "h": 2.6,
+     "aim": {
+      "x": 22.7,
+      "y": 14.2
+     },
+     "trim": -8,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "L-Acoustics 15\" coaxial top · Tune at P3"
+    },
+    {
+     "id": "F2",
+     "model": "custom-l-acoustics-x15-hiq-60",
+     "role": "fill",
+     "x": 6.9,
+     "y": 21.4,
+     "h": 2.6,
+     "aim": {
+      "x": 14.2,
+      "y": 22.7
+     },
+     "trim": -8,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "L-Acoustics 15\" coaxial top · Tune at P4"
+    },
+    {
+     "id": "D1",
+     "model": "custom-l-acoustics-x15-hiq-60",
+     "role": "delay",
+     "x": 23.5,
+     "y": 23.2,
+     "h": 2.6,
+     "aim": {
+      "x": 25.3,
+      "y": 15.4
+     },
+     "trim": -6,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "L-Acoustics 15\" coaxial top · Tune at P5"
+    },
+    {
+     "id": "D2",
+     "model": "custom-l-acoustics-x15-hiq-60",
+     "role": "delay",
+     "x": 23.2,
+     "y": 23.5,
+     "h": 2.6,
+     "aim": {
+      "x": 15.4,
+      "y": 25.3
+     },
+     "trim": -6,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "L-Acoustics 15\" coaxial top · Tune at P11"
+    },
+    {
+     "id": "G1",
+     "model": "jbl-srx812p",
+     "role": "fill",
+     "x": 3.4,
+     "y": 8.2,
+     "h": 2,
+     "aim": {
+      "x": 3.4,
+      "y": 26.2
+     },
+     "trim": -14,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "South gallery, SE end, on stand · JBL SRX812P · Ambience filler on the tuning map · Tune at P7"
+    },
+    {
+     "id": "G2",
+     "model": "jbl-srx812p",
+     "role": "fill",
+     "x": 8.2,
+     "y": 3.4,
+     "h": 2,
+     "aim": {
+      "x": 26.2,
+      "y": 3.4
+     },
+     "trim": -14,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "East gallery, SE end, on stand · JBL SRX812P · Ambience filler on the tuning map · Tune at P8"
+    },
+    {
+     "id": "G3",
+     "model": "jbl-srx812p",
+     "role": "fill",
+     "x": 27,
+     "y": 5.8,
+     "h": 2,
+     "aim": {
+      "x": 27,
+      "y": 26.2
+     },
+     "trim": -20,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "North gallery, NE end, on stand; bring up if quiet · JBL SRX812P · Ambience filler on the tuning map · Tune at P9"
+    },
+    {
+     "id": "G4",
+     "model": "jbl-srx812p",
+     "role": "fill",
+     "x": 5.8,
+     "y": 27,
+     "h": 2,
+     "aim": {
+      "x": 26.2,
+      "y": 27
+     },
+     "trim": -20,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "West gallery, SW end, on stand; bring up if quiet · JBL SRX812P · Ambience filler on the tuning map · Tune at P10"
+    },
+    {
+     "id": "M1",
+     "model": "jbl-srx812p",
+     "role": "mon",
+     "x": 9,
+     "y": 6.7,
+     "h": 1.4,
+     "aim": {
+      "x": 7.6,
+      "y": 7.6
+     },
+     "trim": 0,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "Booth end, DJ side · JBL SRX812P · Tune at P6"
+    },
+    {
+     "id": "M2",
+     "model": "jbl-srx812p",
+     "role": "mon",
+     "x": 6.7,
+     "y": 9,
+     "h": 1.4,
+     "aim": {
+      "x": 7.6,
+      "y": 7.6
+     },
+     "trim": 0,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "Booth end; singer’s wedge · JBL SRX812P · Tune at P6"
+    }
+   ],
+   "points": [
+    {
+     "id": "REF",
+     "kind": "ref",
+     "name": "Reference: P1 (FOH)",
+     "x": 16.2,
+     "y": 16.2
+    },
+    {
+     "id": "P1",
+     "kind": "check",
+     "name": "FOH reference · target 98–100 dB(A) LAeq at peak",
+     "x": 16.2,
+     "y": 16.2
+    },
+    {
+     "id": "P2",
+     "kind": "check",
+     "name": "Front of floor · target No more than P1 + 4 dB",
+     "x": 12.2,
+     "y": 12.2
+    },
+    {
+     "id": "P3",
+     "kind": "check",
+     "name": "NE quarter · target P1 ± 3 dB",
+     "x": 19.7,
+     "y": 11.2
+    },
+    {
+     "id": "P4",
+     "kind": "check",
+     "name": "SW quarter · target P1 ± 3 dB",
+     "x": 11.2,
+     "y": 19.7
+    },
+    {
+     "id": "P5",
+     "kind": "check",
+     "name": "North band · target P1 − 3 to 0 dB",
+     "x": 22.2,
+     "y": 18.2
+    },
+    {
+     "id": "P6",
+     "kind": "check",
+     "name": "DJ position · target 95–100 dB(A) from the monitors",
+     "x": 7.6,
+     "y": 7.6
+    },
+    {
+     "id": "P7",
+     "kind": "check",
+     "name": "South gallery · target 82–86 dB(A)",
+     "x": 2.8,
+     "y": 19.2
+    },
+    {
+     "id": "P8",
+     "kind": "check",
+     "name": "East gallery · target 82–86 dB(A)",
+     "x": 19.2,
+     "y": 2.8
+    },
+    {
+     "id": "P9",
+     "kind": "check",
+     "name": "North gallery · target 82–86 dB(A)",
+     "x": 27.8,
+     "y": 18.2
+    },
+    {
+     "id": "P10",
+     "kind": "check",
+     "name": "West gallery · target 82–86 dB(A)",
+     "x": 18.2,
+     "y": 27.8
+    },
+    {
+     "id": "P11",
+     "kind": "check",
+     "name": "West band · target P1 ± 3 dB",
+     "x": 18.2,
+     "y": 22.2
+    }
+   ],
+   "map": {
+    "name": "Option 2 · Mains on the eye towers",
+    "desc": "Mains hang on the two outer eye towers and the 4 subs stay in one block in the booth front. Cleanest look, no poles. But the mains sit right behind the DJ: the booth gets about as loud as FOH and the opera mic stands in front of the speakers.",
+    "towers": [
+     {
+      "id": "T1",
+      "name": "Eye, east leg",
+      "x": 2.96,
+      "y": 0.84,
+      "h": 3.05,
+      "lights": "Sharpy Beam",
+      "masking": "Clad in the eye scenic",
+      "isNew": false
+     },
+     {
+      "id": "T2",
+      "name": "Eye, centre",
+      "x": 1.9,
+      "y": 1.9,
+      "h": 3.05,
+      "lights": "Robe Mega Pointe through the pupil",
+      "masking": "Clad in the eye scenic",
+      "isNew": false
+     },
+     {
+      "id": "T3",
+      "name": "Eye, south leg",
+      "x": 0.84,
+      "y": 2.96,
+      "h": 3.05,
+      "lights": "Sharpy Beam",
+      "masking": "Clad in the eye scenic",
+      "isNew": false
+     },
+     {
+      "id": "T4",
+      "name": "NE corner",
+      "x": 16.2,
+      "y": 1.7,
+      "h": 3.05,
+      "lights": "Sharpy Beam + laser, hazer at base",
+      "masking": "Scrim wrap, open speaker front",
+      "isNew": false
+     },
+     {
+      "id": "T5",
+      "name": "SW corner",
+      "x": 1.7,
+      "y": 16.2,
+      "h": 3.05,
+      "lights": "Sharpy Beam + laser, hazer at base",
+      "masking": "Scrim wrap, open speaker front",
+      "isNew": false
+     },
+     {
+      "id": "T6",
+      "name": "NW corner",
+      "x": 18.15,
+      "y": 18.15,
+      "h": 3.05,
+      "lights": "Sharpy Beam + laser, hazer at base",
+      "masking": "Full drape on the corner faces: soaks the corner echo",
+      "isNew": false
+     }
+    ],
+    "speakers": [
+     {
+      "model": "4 × L-Acoustics 18\" sub, cardioid",
+      "cov": 0,
+      "r": 0,
+      "kg": 0,
+      "trim": 0,
+      "h": 0.5,
+      "mount": "floor",
+      "where": "Booth front, 3 forward + 1 reversed",
+      "id": "SUB",
+      "role": "sub",
+      "qty": 4,
+      "x": 4.4,
+      "y": 4.4,
+      "aim": {
+       "x": 12,
+       "y": 12
+      },
+      "tune": "P1",
+      "lib": "lac-sb18-card4",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 15\" coaxial top",
+      "cov": 60,
+      "r": 17,
+      "kg": 30,
+      "trim": 0,
+      "h": 2.6,
+      "mount": "T1",
+      "where": "",
+      "id": "A",
+      "role": "main",
+      "x": 2.96,
+      "y": 0.84,
+      "aim": {
+       "x": 8,
+       "y": 10.2
+      },
+      "tune": "P1",
+      "lib": "lac-x15-60",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 15\" coaxial top",
+      "cov": 60,
+      "r": 17,
+      "kg": 30,
+      "trim": 0,
+      "h": 2.6,
+      "mount": "T3",
+      "where": "",
+      "id": "B",
+      "role": "main",
+      "x": 0.84,
+      "y": 2.96,
+      "aim": {
+       "x": 10.2,
+       "y": 8
+      },
+      "tune": "P1",
+      "lib": "lac-x15-60",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 15\" coaxial top",
+      "cov": 90,
+      "r": 9,
+      "kg": 30,
+      "trim": -8,
+      "h": 2.6,
+      "mount": "T4",
+      "where": "",
+      "id": "F1",
+      "role": "fill",
+      "x": 16.2,
+      "y": 1.7,
+      "aim": {
+       "x": 17.5,
+       "y": 9
+      },
+      "tune": "P3",
+      "lib": "lac-x15-60",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 15\" coaxial top",
+      "cov": 90,
+      "r": 9,
+      "kg": 30,
+      "trim": -8,
+      "h": 2.6,
+      "mount": "T5",
+      "where": "",
+      "id": "F2",
+      "role": "fill",
+      "x": 1.7,
+      "y": 16.2,
+      "aim": {
+       "x": 9,
+       "y": 17.5
+      },
+      "tune": "P4",
+      "lib": "lac-x15-60",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 15\" coaxial top",
+      "cov": 90,
+      "r": 11,
+      "kg": 30,
+      "trim": -6,
+      "h": 2.6,
+      "mount": "T6",
+      "where": "",
+      "id": "D1",
+      "role": "delay",
+      "x": 18.3,
+      "y": 18,
+      "aim": {
+       "x": 20.1,
+       "y": 10.2
+      },
+      "tune": "P5",
+      "lib": "lac-x15-60",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 15\" coaxial top",
+      "cov": 90,
+      "r": 11,
+      "kg": 30,
+      "trim": -6,
+      "h": 2.6,
+      "mount": "T6",
+      "where": "",
+      "id": "D2",
+      "role": "delay",
+      "x": 18,
+      "y": 18.3,
+      "aim": {
+       "x": 10.2,
+       "y": 20.1
+      },
+      "tune": "P11",
+      "lib": "lac-x15-60",
+      "boxes": 1
+     },
+     {
+      "model": "JBL SRX812P",
+      "cov": 50,
+      "r": 16,
+      "kg": 26,
+      "trim": -14,
+      "h": 2,
+      "mount": "stand",
+      "where": "South gallery, SE end, on stand",
+      "id": "G1",
+      "role": "gal",
+      "x": -1.8,
+      "y": 3,
+      "aim": {
+       "x": -1.8,
+       "y": 21
+      },
+      "tune": "P7",
+      "lib": "jbl-srx812p",
+      "boxes": 1
+     },
+     {
+      "model": "JBL SRX812P",
+      "cov": 50,
+      "r": 16,
+      "kg": 26,
+      "trim": -14,
+      "h": 2,
+      "mount": "stand",
+      "where": "East gallery, SE end, on stand",
+      "id": "G2",
+      "role": "gal",
+      "x": 3,
+      "y": -1.8,
+      "aim": {
+       "x": 21,
+       "y": -1.8
+      },
+      "tune": "P8",
+      "lib": "jbl-srx812p",
+      "boxes": 1
+     },
+     {
+      "model": "JBL SRX812P",
+      "cov": 50,
+      "r": 16,
+      "kg": 26,
+      "trim": -20,
+      "h": 2,
+      "mount": "stand",
+      "where": "North gallery, NE end, on stand; bring up if quiet",
+      "id": "G3",
+      "role": "gal",
+      "x": 21.8,
+      "y": 0.6,
+      "aim": {
+       "x": 21.8,
+       "y": 21
+      },
+      "tune": "P9",
+      "lib": "jbl-srx812p",
+      "boxes": 1
+     },
+     {
+      "model": "JBL SRX812P",
+      "cov": 50,
+      "r": 16,
+      "kg": 26,
+      "trim": -20,
+      "h": 2,
+      "mount": "stand",
+      "where": "West gallery, SW end, on stand; bring up if quiet",
+      "id": "G4",
+      "role": "gal",
+      "x": 0.6,
+      "y": 21.8,
+      "aim": {
+       "x": 21,
+       "y": 21.8
+      },
+      "tune": "P10",
+      "lib": "jbl-srx812p",
+      "boxes": 1
+     },
+     {
+      "model": "JBL SRX812P",
+      "cov": 50,
+      "r": 3,
+      "kg": 26,
+      "trim": 0,
+      "h": 1.4,
+      "mount": "stand",
+      "where": "Booth end, DJ side",
+      "id": "M1",
+      "role": "mon",
+      "x": 3.8,
+      "y": 1.5,
+      "aim": "P6",
+      "tune": "P6",
+      "lib": "jbl-srx812p",
+      "boxes": 1
+     },
+     {
+      "model": "JBL SRX812P",
+      "cov": 50,
+      "r": 3,
+      "kg": 26,
+      "trim": 0,
+      "h": 1.4,
+      "mount": "stand",
+      "where": "Booth end; singer’s wedge",
+      "id": "M2",
+      "role": "mon",
+      "x": 1.5,
+      "y": 3.8,
+      "aim": "P6",
+      "tune": "P6",
+      "lib": "jbl-srx812p",
+      "boxes": 1
+     }
+    ],
+    "points": [
+     {
+      "id": "P1",
+      "name": "FOH reference",
+      "x": 11,
+      "y": 11,
+      "target": "98–100 dB(A) LAeq at peak",
+      "check": "System EQ for the mains; sub-to-top alignment"
+     },
+     {
+      "id": "P2",
+      "name": "Front of floor",
+      "x": 7,
+      "y": 7,
+      "target": "No more than P1 + 4 dB",
+      "check": "Front rows not overpowered"
+     },
+     {
+      "id": "P3",
+      "name": "NE quarter",
+      "x": 14.5,
+      "y": 6,
+      "target": "P1 ± 3 dB",
+      "check": "Set F1"
+     },
+     {
+      "id": "P4",
+      "name": "SW quarter",
+      "x": 6,
+      "y": 14.5,
+      "target": "P1 ± 3 dB",
+      "check": "Set F2"
+     },
+     {
+      "id": "P5",
+      "name": "North band",
+      "x": 17,
+      "y": 13,
+      "target": "P1 − 3 to 0 dB",
+      "check": "Set D1"
+     },
+     {
+      "id": "P6",
+      "name": "DJ position",
+      "x": 2.4,
+      "y": 2.4,
+      "target": "95–100 dB(A) from the monitors",
+      "check": "Sub quieter here than at P2"
+     },
+     {
+      "id": "P7",
+      "name": "South gallery",
+      "x": -2.4,
+      "y": 14,
+      "target": "82–86 dB(A)",
+      "check": "Set G1"
+     },
+     {
+      "id": "P8",
+      "name": "East gallery",
+      "x": 14,
+      "y": -2.4,
+      "target": "82–86 dB(A)",
+      "check": "Set G2"
+     },
+     {
+      "id": "P9",
+      "name": "North gallery",
+      "x": 22.6,
+      "y": 13,
+      "target": "82–86 dB(A)",
+      "check": "Set G3"
+     },
+     {
+      "id": "P10",
+      "name": "West gallery",
+      "x": 13,
+      "y": 22.6,
+      "target": "82–86 dB(A)",
+      "check": "Set G4"
+     },
+     {
+      "id": "P11",
+      "name": "West band",
+      "x": 13,
+      "y": 17,
+      "target": "P1 ± 3 dB",
+      "check": "Set D2"
+     }
+    ],
+    "items": [
+     {
+      "id": "MIC",
+      "kind": "mic",
+      "name": "Opera mic stand",
+      "x": 0.9,
+      "y": 5
+     }
+    ]
+   }
+  },
+  {
+   "id": "o_mvjz4tkic",
+   "name": "Option 3 · Poles over subs, edge towers",
+   "desc": "Same as Option 1, but the NE and SW fill towers move to the middle of the north and west walls and fire along the walls. Slightly less even than Option 1.",
+   "speakers": [
+    {
+     "id": "S1",
+     "model": "custom-l-acoustics-sb18-card2",
+     "role": "sub",
+     "x": 10.4,
+     "y": 7,
+     "h": 0.5,
+     "aim": {
+      "x": 18.2,
+      "y": 14.2
+     },
+     "trim": -3,
+     "extra": 0,
+     "pol": 1,
+     "mount": "floor",
+     "note": "East flank: 1 forward + 1 reversed (cardioid) · 2 × L-Acoustics 18\" sub, cardioid · Tune at P1"
+    },
+    {
+     "id": "S2",
+     "model": "custom-l-acoustics-sb18-card2",
+     "role": "sub",
+     "x": 7,
+     "y": 10.4,
+     "h": 0.5,
+     "aim": {
+      "x": 14.2,
+      "y": 18.2
+     },
+     "trim": -3,
+     "extra": 0,
+     "pol": 1,
+     "mount": "floor",
+     "note": "South flank: 1 forward + 1 reversed (cardioid) · 2 × L-Acoustics 18\" sub, cardioid · Tune at P1"
+    },
+    {
+     "id": "A",
+     "model": "custom-l-acoustics-x15-hiq-60",
+     "role": "main",
+     "x": 10.4,
+     "y": 7,
+     "h": 2.8,
+     "aim": {
+      "x": 13.2,
+      "y": 15.4
+     },
+     "trim": 0,
+     "extra": 0,
+     "pol": 1,
+     "mount": "pole",
+     "note": "Pole on the east sub stack · L-Acoustics 15\" coaxial top · Tune at P1"
+    },
+    {
+     "id": "B",
+     "model": "custom-l-acoustics-x15-hiq-60",
+     "role": "main",
+     "x": 7,
+     "y": 10.4,
+     "h": 2.8,
+     "aim": {
+      "x": 15.4,
+      "y": 13.2
+     },
+     "trim": 0,
+     "extra": 0,
+     "pol": 1,
+     "mount": "pole",
+     "note": "Pole on the south sub stack · L-Acoustics 15\" coaxial top · Tune at P1"
+    },
+    {
+     "id": "F1",
+     "model": "custom-l-acoustics-x15-hiq-60",
+     "role": "fill",
+     "x": 23.5,
+     "y": 13.2,
+     "h": 2.6,
+     "aim": {
+      "x": 23.5,
+      "y": 5.2
+     },
+     "trim": -8,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "L-Acoustics 15\" coaxial top · Tune at P3"
+    },
+    {
+     "id": "F2",
+     "model": "custom-l-acoustics-x15-hiq-60",
+     "role": "fill",
+     "x": 13.2,
+     "y": 23.5,
+     "h": 2.6,
+     "aim": {
+      "x": 5.2,
+      "y": 23.5
+     },
+     "trim": -8,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "L-Acoustics 15\" coaxial top · Tune at P4"
+    },
+    {
+     "id": "D1",
+     "model": "custom-l-acoustics-x15-hiq-60",
+     "role": "delay",
+     "x": 23.5,
+     "y": 23.2,
+     "h": 2.6,
+     "aim": {
+      "x": 25.3,
+      "y": 15.4
+     },
+     "trim": -6,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "L-Acoustics 15\" coaxial top · Tune at P5"
+    },
+    {
+     "id": "D2",
+     "model": "custom-l-acoustics-x15-hiq-60",
+     "role": "delay",
+     "x": 23.2,
+     "y": 23.5,
+     "h": 2.6,
+     "aim": {
+      "x": 15.4,
+      "y": 25.3
+     },
+     "trim": -6,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "L-Acoustics 15\" coaxial top · Tune at P11"
+    },
+    {
+     "id": "G1",
+     "model": "jbl-srx812p",
+     "role": "fill",
+     "x": 3.4,
+     "y": 8.2,
+     "h": 2,
+     "aim": {
+      "x": 3.4,
+      "y": 26.2
+     },
+     "trim": -14,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "South gallery, SE end, on stand · JBL SRX812P · Ambience filler on the tuning map · Tune at P7"
+    },
+    {
+     "id": "G2",
+     "model": "jbl-srx812p",
+     "role": "fill",
+     "x": 8.2,
+     "y": 3.4,
+     "h": 2,
+     "aim": {
+      "x": 26.2,
+      "y": 3.4
+     },
+     "trim": -14,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "East gallery, SE end, on stand · JBL SRX812P · Ambience filler on the tuning map · Tune at P8"
+    },
+    {
+     "id": "G3",
+     "model": "jbl-srx812p",
+     "role": "fill",
+     "x": 27,
+     "y": 5.8,
+     "h": 2,
+     "aim": {
+      "x": 27,
+      "y": 26.2
+     },
+     "trim": -20,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "North gallery, NE end, on stand; bring up if quiet · JBL SRX812P · Ambience filler on the tuning map · Tune at P9"
+    },
+    {
+     "id": "G4",
+     "model": "jbl-srx812p",
+     "role": "fill",
+     "x": 5.8,
+     "y": 27,
+     "h": 2,
+     "aim": {
+      "x": 26.2,
+      "y": 27
+     },
+     "trim": -20,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "West gallery, SW end, on stand; bring up if quiet · JBL SRX812P · Ambience filler on the tuning map · Tune at P10"
+    },
+    {
+     "id": "M1",
+     "model": "jbl-srx812p",
+     "role": "mon",
+     "x": 9,
+     "y": 6.7,
+     "h": 1.4,
+     "aim": {
+      "x": 7.6,
+      "y": 7.6
+     },
+     "trim": 0,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "Booth end, DJ side · JBL SRX812P · Tune at P6"
+    },
+    {
+     "id": "M2",
+     "model": "jbl-srx812p",
+     "role": "mon",
+     "x": 6.7,
+     "y": 9,
+     "h": 1.4,
+     "aim": {
+      "x": 7.6,
+      "y": 7.6
+     },
+     "trim": 0,
+     "extra": 0,
+     "pol": 1,
+     "mount": "stand",
+     "note": "Booth end; singer’s wedge · JBL SRX812P · Tune at P6"
+    }
+   ],
+   "points": [
+    {
+     "id": "REF",
+     "kind": "ref",
+     "name": "Reference: P1 (FOH)",
+     "x": 16.2,
+     "y": 16.2
+    },
+    {
+     "id": "P1",
+     "kind": "check",
+     "name": "FOH reference · target 98–100 dB(A) LAeq at peak",
+     "x": 16.2,
+     "y": 16.2
+    },
+    {
+     "id": "P2",
+     "kind": "check",
+     "name": "Front of floor · target No more than P1 + 4 dB",
+     "x": 12.2,
+     "y": 12.2
+    },
+    {
+     "id": "P3",
+     "kind": "check",
+     "name": "North band, east · target P1 ± 3 dB",
+     "x": 21.2,
+     "y": 8.7
+    },
+    {
+     "id": "P4",
+     "kind": "check",
+     "name": "West band, south · target P1 ± 3 dB",
+     "x": 8.7,
+     "y": 21.2
+    },
+    {
+     "id": "P5",
+     "kind": "check",
+     "name": "North band · target P1 − 3 to 0 dB",
+     "x": 22.2,
+     "y": 18.2
+    },
+    {
+     "id": "P6",
+     "kind": "check",
+     "name": "DJ position · target 95–100 dB(A) from the monitors",
+     "x": 7.6,
+     "y": 7.6
+    },
+    {
+     "id": "P7",
+     "kind": "check",
+     "name": "South gallery · target 82–86 dB(A)",
+     "x": 2.8,
+     "y": 19.2
+    },
+    {
+     "id": "P8",
+     "kind": "check",
+     "name": "East gallery · target 82–86 dB(A)",
+     "x": 19.2,
+     "y": 2.8
+    },
+    {
+     "id": "P9",
+     "kind": "check",
+     "name": "North gallery · target 82–86 dB(A)",
+     "x": 27.8,
+     "y": 18.2
+    },
+    {
+     "id": "P10",
+     "kind": "check",
+     "name": "West gallery · target 82–86 dB(A)",
+     "x": 18.2,
+     "y": 27.8
+    },
+    {
+     "id": "P11",
+     "kind": "check",
+     "name": "West band · target P1 ± 3 dB",
+     "x": 18.2,
+     "y": 22.2
+    }
+   ],
+   "map": {
+    "name": "Option 3 · Poles over subs, edge towers",
+    "desc": "Same as Option 1, but the NE and SW fill towers move to the middle of the north and west walls and fire along the walls. Slightly less even than Option 1.",
+    "towers": [
+     {
+      "id": "T1",
+      "name": "Eye, east leg",
+      "x": 2.96,
+      "y": 0.84,
+      "h": 3.05,
+      "lights": "Sharpy Beam",
+      "masking": "Clad in the eye scenic",
+      "isNew": false
+     },
+     {
+      "id": "T2",
+      "name": "Eye, centre",
+      "x": 1.9,
+      "y": 1.9,
+      "h": 3.05,
+      "lights": "Robe Mega Pointe through the pupil",
+      "masking": "Clad in the eye scenic",
+      "isNew": false
+     },
+     {
+      "id": "T3",
+      "name": "Eye, south leg",
+      "x": 0.84,
+      "y": 2.96,
+      "h": 3.05,
+      "lights": "Sharpy Beam",
+      "masking": "Clad in the eye scenic",
+      "isNew": false
+     },
+     {
+      "id": "T4",
+      "name": "North edge",
+      "x": 18.3,
+      "y": 8,
+      "h": 3.05,
+      "lights": "Sharpy Beam + laser, hazer at base",
+      "masking": "Scrim wrap, open speaker front",
+      "isNew": false
+     },
+     {
+      "id": "T5",
+      "name": "West edge",
+      "x": 8,
+      "y": 18.3,
+      "h": 3.05,
+      "lights": "Sharpy Beam + laser, hazer at base",
+      "masking": "Scrim wrap, open speaker front",
+      "isNew": false
+     },
+     {
+      "id": "T6",
+      "name": "NW corner",
+      "x": 18.15,
+      "y": 18.15,
+      "h": 3.05,
+      "lights": "Sharpy Beam + laser, hazer at base",
+      "masking": "Full drape on the corner faces: soaks the corner echo",
+      "isNew": false
+     }
+    ],
+    "speakers": [
+     {
+      "model": "2 × L-Acoustics 18\" sub, cardioid",
+      "cov": 0,
+      "r": 0,
+      "kg": 0,
+      "trim": -3,
+      "h": 0.5,
+      "mount": "floor",
+      "where": "East flank: 1 forward + 1 reversed (cardioid)",
+      "id": "S1",
+      "role": "sub",
+      "qty": 2,
+      "x": 5.2,
+      "y": 1.8,
+      "aim": {
+       "x": 13,
+       "y": 9
+      },
+      "tune": "P1",
+      "lib": "lac-sb18-card2",
+      "boxes": 1
+     },
+     {
+      "model": "2 × L-Acoustics 18\" sub, cardioid",
+      "cov": 0,
+      "r": 0,
+      "kg": 0,
+      "trim": -3,
+      "h": 0.5,
+      "mount": "floor",
+      "where": "South flank: 1 forward + 1 reversed (cardioid)",
+      "id": "S2",
+      "role": "sub",
+      "qty": 2,
+      "x": 1.8,
+      "y": 5.2,
+      "aim": {
+       "x": 9,
+       "y": 13
+      },
+      "tune": "P1",
+      "lib": "lac-sb18-card2",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 15\" coaxial top",
+      "cov": 60,
+      "r": 17,
+      "kg": 30,
+      "trim": 0,
+      "h": 2.8,
+      "mount": "pole",
+      "where": "Pole on the east sub stack",
+      "id": "A",
+      "role": "main",
+      "x": 5.2,
+      "y": 1.8,
+      "aim": {
+       "x": 8,
+       "y": 10.2
+      },
+      "tune": "P1",
+      "lib": "lac-x15-60",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 15\" coaxial top",
+      "cov": 60,
+      "r": 17,
+      "kg": 30,
+      "trim": 0,
+      "h": 2.8,
+      "mount": "pole",
+      "where": "Pole on the south sub stack",
+      "id": "B",
+      "role": "main",
+      "x": 1.8,
+      "y": 5.2,
+      "aim": {
+       "x": 10.2,
+       "y": 8
+      },
+      "tune": "P1",
+      "lib": "lac-x15-60",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 15\" coaxial top",
+      "cov": 90,
+      "r": 9,
+      "kg": 30,
+      "trim": -8,
+      "h": 2.6,
+      "mount": "T4",
+      "where": "",
+      "id": "F1",
+      "role": "fill",
+      "x": 18.3,
+      "y": 8,
+      "aim": {
+       "x": 18.3,
+       "y": 0
+      },
+      "tune": "P3",
+      "lib": "lac-x15-60",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 15\" coaxial top",
+      "cov": 90,
+      "r": 9,
+      "kg": 30,
+      "trim": -8,
+      "h": 2.6,
+      "mount": "T5",
+      "where": "",
+      "id": "F2",
+      "role": "fill",
+      "x": 8,
+      "y": 18.3,
+      "aim": {
+       "x": 0,
+       "y": 18.3
+      },
+      "tune": "P4",
+      "lib": "lac-x15-60",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 15\" coaxial top",
+      "cov": 90,
+      "r": 11,
+      "kg": 30,
+      "trim": -6,
+      "h": 2.6,
+      "mount": "T6",
+      "where": "",
+      "id": "D1",
+      "role": "delay",
+      "x": 18.3,
+      "y": 18,
+      "aim": {
+       "x": 20.1,
+       "y": 10.2
+      },
+      "tune": "P5",
+      "lib": "lac-x15-60",
+      "boxes": 1
+     },
+     {
+      "model": "L-Acoustics 15\" coaxial top",
+      "cov": 90,
+      "r": 11,
+      "kg": 30,
+      "trim": -6,
+      "h": 2.6,
+      "mount": "T6",
+      "where": "",
+      "id": "D2",
+      "role": "delay",
+      "x": 18,
+      "y": 18.3,
+      "aim": {
+       "x": 10.2,
+       "y": 20.1
+      },
+      "tune": "P11",
+      "lib": "lac-x15-60",
+      "boxes": 1
+     },
+     {
+      "model": "JBL SRX812P",
+      "cov": 50,
+      "r": 16,
+      "kg": 26,
+      "trim": -14,
+      "h": 2,
+      "mount": "stand",
+      "where": "South gallery, SE end, on stand",
+      "id": "G1",
+      "role": "gal",
+      "x": -1.8,
+      "y": 3,
+      "aim": {
+       "x": -1.8,
+       "y": 21
+      },
+      "tune": "P7",
+      "lib": "jbl-srx812p",
+      "boxes": 1
+     },
+     {
+      "model": "JBL SRX812P",
+      "cov": 50,
+      "r": 16,
+      "kg": 26,
+      "trim": -14,
+      "h": 2,
+      "mount": "stand",
+      "where": "East gallery, SE end, on stand",
+      "id": "G2",
+      "role": "gal",
+      "x": 3,
+      "y": -1.8,
+      "aim": {
+       "x": 21,
+       "y": -1.8
+      },
+      "tune": "P8",
+      "lib": "jbl-srx812p",
+      "boxes": 1
+     },
+     {
+      "model": "JBL SRX812P",
+      "cov": 50,
+      "r": 16,
+      "kg": 26,
+      "trim": -20,
+      "h": 2,
+      "mount": "stand",
+      "where": "North gallery, NE end, on stand; bring up if quiet",
+      "id": "G3",
+      "role": "gal",
+      "x": 21.8,
+      "y": 0.6,
+      "aim": {
+       "x": 21.8,
+       "y": 21
+      },
+      "tune": "P9",
+      "lib": "jbl-srx812p",
+      "boxes": 1
+     },
+     {
+      "model": "JBL SRX812P",
+      "cov": 50,
+      "r": 16,
+      "kg": 26,
+      "trim": -20,
+      "h": 2,
+      "mount": "stand",
+      "where": "West gallery, SW end, on stand; bring up if quiet",
+      "id": "G4",
+      "role": "gal",
+      "x": 0.6,
+      "y": 21.8,
+      "aim": {
+       "x": 21,
+       "y": 21.8
+      },
+      "tune": "P10",
+      "lib": "jbl-srx812p",
+      "boxes": 1
+     },
+     {
+      "model": "JBL SRX812P",
+      "cov": 50,
+      "r": 3,
+      "kg": 26,
+      "trim": 0,
+      "h": 1.4,
+      "mount": "stand",
+      "where": "Booth end, DJ side",
+      "id": "M1",
+      "role": "mon",
+      "x": 3.8,
+      "y": 1.5,
+      "aim": "P6",
+      "tune": "P6",
+      "lib": "jbl-srx812p",
+      "boxes": 1
+     },
+     {
+      "model": "JBL SRX812P",
+      "cov": 50,
+      "r": 3,
+      "kg": 26,
+      "trim": 0,
+      "h": 1.4,
+      "mount": "stand",
+      "where": "Booth end; singer’s wedge",
+      "id": "M2",
+      "role": "mon",
+      "x": 1.5,
+      "y": 3.8,
+      "aim": "P6",
+      "tune": "P6",
+      "lib": "jbl-srx812p",
+      "boxes": 1
+     }
+    ],
+    "points": [
+     {
+      "id": "P1",
+      "name": "FOH reference",
+      "x": 11,
+      "y": 11,
+      "target": "98–100 dB(A) LAeq at peak",
+      "check": "System EQ for the mains; sub-to-top alignment"
+     },
+     {
+      "id": "P2",
+      "name": "Front of floor",
+      "x": 7,
+      "y": 7,
+      "target": "No more than P1 + 4 dB",
+      "check": "Front rows not overpowered"
+     },
+     {
+      "id": "P3",
+      "name": "North band, east",
+      "x": 16,
+      "y": 3.5,
+      "target": "P1 ± 3 dB",
+      "check": "Set F1"
+     },
+     {
+      "id": "P4",
+      "name": "West band, south",
+      "x": 3.5,
+      "y": 16,
+      "target": "P1 ± 3 dB",
+      "check": "Set F2"
+     },
+     {
+      "id": "P5",
+      "name": "North band",
+      "x": 17,
+      "y": 13,
+      "target": "P1 − 3 to 0 dB",
+      "check": "Set D1"
+     },
+     {
+      "id": "P6",
+      "name": "DJ position",
+      "x": 2.4,
+      "y": 2.4,
+      "target": "95–100 dB(A) from the monitors",
+      "check": "Sub quieter here than at P2"
+     },
+     {
+      "id": "P7",
+      "name": "South gallery",
+      "x": -2.4,
+      "y": 14,
+      "target": "82–86 dB(A)",
+      "check": "Set G1"
+     },
+     {
+      "id": "P8",
+      "name": "East gallery",
+      "x": 14,
+      "y": -2.4,
+      "target": "82–86 dB(A)",
+      "check": "Set G2"
+     },
+     {
+      "id": "P9",
+      "name": "North gallery",
+      "x": 22.6,
+      "y": 13,
+      "target": "82–86 dB(A)",
+      "check": "Set G3"
+     },
+     {
+      "id": "P10",
+      "name": "West gallery",
+      "x": 13,
+      "y": 22.6,
+      "target": "82–86 dB(A)",
+      "check": "Set G4"
+     },
+     {
+      "id": "P11",
+      "name": "West band",
+      "x": 13,
+      "y": 17,
+      "target": "P1 ± 3 dB",
+      "check": "Set D2"
+     }
+    ],
+    "items": [
+     {
+      "id": "MIC",
+      "kind": "mic",
+      "name": "Opera mic stand",
+      "x": 0.9,
+      "y": 6.2
+     }
+    ]
+   }
+  }
+ ],
+ "cur": 0,
+ "crowd": {
+  "on": true,
+  "pct": 100
+ },
+ "custom": [
+  {
+   "id": "custom-l-acoustics-x15-hiq-60",
+   "d": "custom",
+   "pw": true,
+   "cd": false,
+   "c": "moderate",
+   "b": "L-Acoustics",
+   "m": "X15 HiQ, horn 60° wide",
+   "t": "top",
+   "h": 60,
+   "v": 40,
+   "spl": 138,
+   "lo": 55,
+   "kg": 21
+  },
+  {
+   "id": "custom-l-acoustics-sb18-card2",
+   "d": "custom",
+   "pw": true,
+   "cd": true,
+   "c": "moderate",
+   "b": "L-Acoustics",
+   "m": "SB18 pair, cardioid",
+   "t": "sub",
+   "h": 360,
+   "v": 360,
+   "spl": 140,
+   "lo": 32,
+   "kg": 104
+  },
+  {
+   "id": "custom-l-acoustics-sb18-card4",
+   "d": "custom",
+   "pw": true,
+   "cd": true,
+   "c": "moderate",
+   "b": "L-Acoustics",
+   "m": "SB18 block of 4, cardioid",
+   "t": "sub",
+   "h": 360,
+   "v": 360,
+   "spl": 146,
+   "lo": 32,
+   "kg": 208
+  }
+ ],
+ "survey": {
+  "tempC": 24,
+  "rh": 70
+ },
+ "tuneitMap": {
+  "site": "cloister",
+  "ver": 2,
+  "frame": {
+   "off": 5.2
+  },
+  "skipped": 0
+ }
+}
