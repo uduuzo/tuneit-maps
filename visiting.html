@@ -45,6 +45,7 @@ h2{font-family:var(--f-display);font-weight:700;font-size:28px;text-transform:up
 .tabs{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
 .tab{font:600 14px var(--f-body);border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:7px 12px;border-radius:4px;cursor:pointer;display:flex;gap:8px;align-items:center}
 .tab[aria-selected="true"]{border-color:var(--ink);box-shadow:inset 0 -3px 0 var(--accent)}
+.tab .tb{font:600 10.5px var(--f-mono);letter-spacing:.06em;padding:2px 7px;border-radius:999px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}.tab .tb.in{background:#3F86BD;border-color:#3F86BD;color:#fff}
 .tab .sc{font:500 12px var(--f-mono);color:var(--muted)}
 .chip{font:500 13px var(--f-body);border:1px solid var(--line);background:transparent;color:var(--ink);padding:5px 10px;border-radius:999px;cursor:pointer}
 .chip[aria-pressed="true"]{background:var(--ink);color:var(--panel);border-color:var(--ink)}
@@ -587,8 +588,9 @@ function scoreBoth(){const o=O();if(!o.tent)return {off:tuneScore(false),on:null
   o.tent.on=false;bump();const off=tuneScore(false);o.tent.on=true;bump();const on=tuneScore(false);o.tent.on=was;bump();return {off,on}}
 function renderTentBar(){const el=document.getElementById('tentbar');if(!el)return;const o=O(),T=o.tent,isOn=tentOn(o);let sc=renderTentBar.last||{off:null,on:null};if(!(typeof drag!=='undefined'&&drag&&drag.moved)){try{sc=scoreBoth();renderTentBar.last=sc}catch(e){}}
   const sz=T?Math.round(T.w/FT_M)+'x'+Math.round(T.l/FT_M):'';
-  el.innerHTML=`<div class="bar" style="gap:6px;flex-wrap:wrap;align-items:center">
-    <span class="lbl">Tent</span>
+  el.innerHTML=`<div class="bar" style="gap:6px;flex-wrap:wrap;align-items:center"><span class="lbl">Layout</span><select class="mini" id="tb-opt" aria-label="Choose a layout" style="max-width:100%;font-weight:600">${ST.options.map((op,i)=>`<option value="${i}" ${i===ST.cur?'selected':''}>${tentOn(op)?'WITH TENT':'NO TENT'} · ${esc(op.name)}</option>`).join('')}</select></div>
+  <div class="bar" style="gap:6px;flex-wrap:wrap;align-items:center">
+    <span class="lbl">This layout</span><span style="font:700 13px var(--f-mono);letter-spacing:.06em;padding:4px 10px;border-radius:999px;${isOn?'background:#3F86BD;color:#fff':'border:1px solid var(--line);color:var(--muted)'}">${isOn?'WITH TENT':'NO TENT'}</span><span class="lbl" style="margin-left:6px">Switch</span>
     <button class="chip" id="tb-off" aria-pressed="${!isOn}">No tent${sc.off?` · ${sc.off.overall}`:''}</button>
     <button class="chip" id="tb-on" aria-pressed="${isOn}">With tent${sc.on?` · ${sc.on.overall}`:''}</button>
     ${isOn?`<span class="spacer" style="flex:0 0 6px"></span>
@@ -604,6 +606,7 @@ function renderTentBar(){const el=document.getElementById('tentbar');if(!el)retu
   <p class="hint" style="margin:2px 0 8px">${isOn?`Drag the tent on the map or use the arrows. Roof bounce ${sc.on&&sc.on.roof!=null?f1(sc.on.roof)+' dB':'–'} (under −9 dB is clean). Switching the tent keeps every speaker where it is, so you can tune this layout both ways; use <b>Copy this option</b> first to keep a tent and a no-tent version side by side.`:`No tent on this layout. Press <b>With tent</b> to put the ${SITE.id==='visiting'?'40 × 80 ft':'40 × 40 ft'} clear-top tent in and see what it changes.`}</p>`;
   const tw=()=>O().tent;
   const nudge=(du,dv)=>commit(()=>{const t=tw(),[u,v]=U(t.x,t.y),q=P(u+du,v+dv);t.x=+q.x.toFixed(2);t.y=+q.y.toFixed(2)});
+  on('tb-opt','change',e=>{ST.cur=+e.target.value;UNDO=[];document.getElementById('undo').disabled=true;fixSel();save();renderAll()});
   on('tb-off','click',()=>{if(tentOn(O()))commit(()=>{O().tent.on=false;if(ST.sel==='tn')ST.sel=(O().speakers[0]||{}).id})});
   on('tb-on','click',()=>{if(!tentOn(O()))commit(()=>{if(!O().tent)O().tent=SITE.tentDefault();O().tent.on=true})});
   if(!isOn)return;
@@ -994,7 +997,7 @@ on('tuneBtn','click',e=>{const b=e.currentTarget;b.disabled=true;b.textContent='
 function renderTabs(){
   const el=document.getElementById('tabs'); const cur=ST.cur; document.getElementById('optDesc').textContent=O().desc||'';
   const keep=ST.cur;
-  renderTabs.c=renderTabs.c||new WeakMap();el.innerHTML=ST.options.map((op,i)=>{let sc='';try{if(i===keep||!drag||!renderTabs.c.has(op)){ST.cur=i;renderTabs.c.set(op,tuneScore(false).overall)}sc=renderTabs.c.get(op)}catch(e){}return `<button class="tab" role="tab" aria-selected="${i===cur}" data-i="${i}">${esc(op.name)}<span class="sc">score ${sc}</span></button>`}).join('');
+  renderTabs.c=renderTabs.c||new WeakMap();el.innerHTML=ST.options.map((op,i)=>{let sc='';try{if(i===keep||!drag||!renderTabs.c.has(op)){ST.cur=i;renderTabs.c.set(op,tuneScore(false).overall)}sc=renderTabs.c.get(op)}catch(e){}return `<button class="tab" role="tab" aria-selected="${i===cur}" data-i="${i}"><span class="tb ${tentOn(op)?'in':'out'}">${tentOn(op)?'TENT':'NO TENT'}</span>${esc(op.name)}<span class="sc">score ${sc}</span></button>`}).join('');
   ST.cur=keep;
   el.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{ST.cur=+b.dataset.i;UNDO=[];document.getElementById('undo').disabled=true;fixSel();save();renderAll()}));
 }
