@@ -159,6 +159,7 @@ ol.steps li.done .t{color:var(--muted);text-decoration:line-through}
       <button class="btn" id="addSpk">+ Speaker</button>
       <button class="btn" id="addTwr">+ Tower</button>
       <button class="btn" id="addPt">+ Tuning point</button>
+      <button class="btn" id="addTent" title="Rumbas Frame Tent, Clear Top">+ Tent</button>
       <button class="btn" id="tuneBtn" title="Keeps every position; searches aim, height and trims">Optimal Tune</button>
       <button class="btn ghost" id="trimBtn" title="Level each fill and delay to the mains where it takes over">Auto trims</button>
       <span class="spacer"></span>
@@ -551,7 +552,7 @@ function prep(){const o=O();let E=ENGC.get(o);if(E)return E;
     let r=[f[1],-f[0],0],rl=Math.hypot(r[0],r[1]);if(rl<1e-6){r=[1,0,0];rl=1}r=[r[0]/rl,r[1]/rl,0];
     const u=[r[1]*f[2]-r[2]*f[1],r[2]*f[0]-r[0]*f[2],r[0]*f[1]-r[1]*f[0]],pl=Math.hypot(fx,fy)||1,n=Math.max(1,+s.boxes||1);
     return {s,id:s.id,role:s.role,x:s.x,y:s.y,h:+s.h||0,m,f,r,u,ax:fx/pl,ay:fy/pl,L1:m.spl-PROGRAM_OFFSET+(+s.trim||0)+20*Math.log10(n),hw:Math.max(5,m.h/2),vw:Math.max(5,(m.t==='la'?m.v*n:m.v)/2),pol:s.pol===-1?-1:1,sub:s.role==='sub',mon:s.role==='mon',aim:a}});
-  E={o,sp,ref,delays:{},subAdj:0};ENGC.set(o,E);
+  E={o,sp,ref,delays:{},subAdj:0,tent:tentGeo(o)};ENGC.set(o,E);
   E.delays=calcDelaysT(E);
   const subs=sp.filter(k=>k.sub);
   if(subs.length&&sp.some(TOPS)){const t=splK(E,ref,TOPS),b=splK(E,ref,SUBS);if(t>-90&&b>-90){E.subAdj=t-b;subs.forEach(k=>k.L1+=E.subAdj)}}
@@ -563,7 +564,7 @@ function patGainT(k,p){const dx=p.x-k.x,dy=p.y-k.y,dz=EAR-k.h;
   const ah=Math.atan2(Math.abs(dr),df)*DEG,av=Math.atan2(Math.abs(du),df)*DEG;
   return Math.max(-24,-6*((ah/k.hw)**2+(av/k.vw)**2))}
 function lvlK(k,p){const r=Math.max(1,Math.hypot(p.x-k.x,p.y-k.y,EAR-k.h));return k.L1-20*Math.log10(r)+patGainT(k,p)-(k.sub?0:crowdLoss(k.s,p))-SITE.extraLoss(k,p)}
-function splK(E,p,kf){let e=0;for(const k of E.sp){if(k.mon&&!(kf&&kf(k)))continue;if(kf&&!kf(k))continue;e+=Math.pow(10,lvlK(k,p)/10)}return e>0?10*Math.log10(e):-99}
+function splK(E,p,kf){let e=0;for(const k of E.sp){if(k.mon&&!(kf&&kf(k)))continue;if(kf&&!kf(k))continue;e+=Math.pow(10,lvlK(k,p)/10);if(E.tent){const rr=roofLvl(E,k,p);if(rr>-90)e+=Math.pow(10,rr/10)}}return e>0?10*Math.log10(e):-99}
 function spl(p,filt){return splK(prep(),p,filt?(k=>filt(k.s)):null)}
 function subCoh(p){const E=prep(),subs=E.sp.filter(k=>k.sub);if(!subs.length)return -99;let e=0;
   for(const fr of [50,63,80]){const kk=2*Math.PI*fr/CS;let re=0,im=0;for(const k of subs){const r=Math.max(1,Math.hypot(p.x-k.x,p.y-k.y,EAR-k.h));const A=k.pol*Math.pow(10,(k.L1+patGainT(k,p)-SITE.extraLoss(k,p))/20)/r;const ph=kk*r+2*Math.PI*fr*(E.delays[k.id]||0)/1000;re+=A*Math.cos(ph);im+=A*Math.sin(ph)}e+=re*re+im*im}
@@ -581,15 +582,15 @@ function calcDelaysT(E){const D={},mains=E.sp.filter(k=>k.role==='main'),subs=E.
   E.sp.filter(k=>k.mon).forEach(k=>D[k.id]=null);return D}
 function delayOf(s){if(s.role==='mon')return null;const v=prep().delays[s.id];return v==null?0:v}
 function predAt(p){const E=prep();return splK(E,p,ALLK)-splK(E,E.ref,ALLK)+TARGET}
-function ruleIssues(){const out=[];for(const s of O().speakers){if(s.role==='mon')continue;if(SITE.onFloor(s))out.push(s.id+' stands on the dance floor.');if(SITE.frontClear(s))out.push(s.id+' is in the clear strip in front of the stage.')}return out}
+function ruleIssues(){const out=[];for(const s of O().speakers){if(s.role==='mon')continue;if(SITE.onFloor(s))out.push(s.id+' stands on the dance floor.');if(SITE.frontClear(s))out.push(s.id+' is in the clear strip in front of the stage.')}return out.concat(tentIssues())}
 function tuneScore(quick){const E=prep(),ref=E.ref;const pts=SITE.floor(quick?1.4:0.8);const EV=E.sp.some(TOPS)?TOPS:ALLK;const LrefE=splK(E,ref,EV);
   const rel=pts.map(p=>splK(E,p,EV)-LrefE);const pc=f=>rel.length?Math.round(100*rel.filter(f).length/rel.length):0;
   const res={even:pc(v=>Math.abs(v)<=3),cov6:pc(v=>Math.abs(v)<=6),Lref:splK(E,ref,ALLK)};
   if(E.sp.some(SUBS)){const sp=pts.length>160?pts.filter((_,i)=>i%Math.ceil(pts.length/160)===0):pts;const v=sp.map(subCoh).sort((a,b)=>a-b);res.swing=v.length?v[Math.floor(v.length*.9)]-v[Math.floor(v.length*.1)]:0}else res.swing=null;
   const ss=SITE.stageSamples();res.stage=ss.length&&E.sp.some(TOPS)?ss.reduce((t,p)=>t+splK(E,p,TOPS),0)/ss.length-splK(E,ref,TOPS):null;
-  res.headroom=res.Lref-TARGET;res.issues=ruleIssues();
-  const pE=0.45*res.even,pC=0.25*res.cov6,pB=res.swing==null?10:20*clampT(1-(res.swing-4)/12,0,1),pS=res.stage==null?5:10*clampT(1-(res.stage+3)/9,0,1),penH=res.headroom<3?Math.min(20,2*(3-res.headroom)):0,penR=5*res.issues.length;
-  res.parts={pE,pC,pB,pS,penH,penR};res.raw=clampT(pE+pC+pB+pS-penH-penR,0,100);res.overall=Math.round(res.raw);return res}
+  res.headroom=res.Lref-TARGET;res.issues=ruleIssues();res.roof=roofBounce(E,pts);
+  const pE=0.45*res.even,pC=0.25*res.cov6,pB=res.swing==null?10:20*clampT(1-(res.swing-4)/12,0,1),pS=res.stage==null?5:10*clampT(1-(res.stage+3)/9,0,1),penH=res.headroom<3?Math.min(20,2*(3-res.headroom)):0,penR=5*res.issues.length,penT=res.roof==null?0:clampT((res.roof+9)*1.2,0,12);
+  res.parts={pE,pC,pB,pS,penH,penR,penT};res.raw=clampT(pE+pC+pB+pS-penH-penR-penT,0,100);res.overall=Math.round(res.raw);return res}
 /* TuneiT auto-trim: each fill and delay is levelled to match the mains where it takes over */
 function autoTrimsT(){for(let it=0;it<2;it++){bump();const E=prep();for(const k of E.sp){if(k.role!=='fill'&&k.role!=='delay')continue;const T=k.aim,Lm=splK(E,T,x=>x.role==='main');if(Lm<-90)continue;
   const own=lvlK({...k,L1:k.m.spl-PROGRAM_OFFSET+20*Math.log10(Math.max(1,+k.s.boxes||1))},T);k.s.trim=clampT(Math.round((Lm-own)*2)/2,-24,3)}}bump()}
@@ -607,12 +608,78 @@ function optimalTuneKeep(){const src=O(),o=clone(src);o.speakers.forEach(normSpk
   o.desc=`Built by Optimal Tune from “${src.name}”: every box kept where you placed it; aim, height and fill trims searched over ${tested} tries. TuneiT score ${before.overall} → ${after.overall}.`;
   ST.cur=ST.options.length-1;void keepCur;bump();return {before:before.overall,after:after.overall,tested}}
 /* Move layouts between copies of this map (Claude and the online page) */
+/* ---------- Tent: Rumbas Frame Tent, Clear Top. Footprint, legs, roof shape and a one-bounce roof reflection in the TuneiT engine ---------- */
+const FT_M=0.3048;
+function tentGeo(o){const T=o&&o.tent;if(!T||T.on===false)return null;const a=(T.rot||0)*Math.PI/180,c=Math.cos(a),s=Math.sin(a);
+  return {T,c,s,hl:T.l/2,hw:T.w/2,eave:+T.eave||3.05,ridge:Math.max(+T.ridge||5.6,+T.eave||3.05),R:T.roof==='white'?-2:-2,Rsub:-12}}
+const tLocal=(G,p)=>{const dx=p.x-G.T.x,dy=p.y-G.T.y;return {a:dx*G.c+dy*G.s,b:-dx*G.s+dy*G.c}};
+const tWorld=(G,a,b)=>({x:G.T.x+a*G.c-b*G.s,y:G.T.y+a*G.s+b*G.c});
+/* roof height at a plan point, null outside the footprint; ridge runs along the length, hipped ends (a 40 × 40 is a pyramid) */
+function roofAt(G,p){const q=tLocal(G,p);if(Math.abs(q.a)>G.hl+1e-6||Math.abs(q.b)>G.hw+1e-6)return null;
+  const f=Math.max(0,Math.min(1-Math.abs(q.b)/G.hw,(G.hl-Math.abs(q.a))/G.hw));return G.eave+(G.ridge-G.eave)*f}
+function tentLegs(G){const out=[],step=10*FT_M;const side=(len,fixed,alongA)=>{const n=Math.max(1,Math.round(len/step));for(let i=0;i<=n;i++){const t=-len/2+len*i/n;out.push(alongA?tWorld(G,t,fixed):tWorld(G,fixed,t))}};
+  side(G.T.l,-G.hw,true);side(G.T.l,G.hw,true);side(G.T.w,-G.hl,false);side(G.T.w,G.hl,false);
+  const seen=new Set();return out.filter(p=>{const k=p.x.toFixed(1)+','+p.y.toFixed(1);if(seen.has(k))return false;seen.add(k);return true})}
+function patGainV(k,vx,vy,vz){if(k.sub){if(!k.m.cd)return 0;const l=Math.hypot(vx,vy)||1;const c=(vx*k.ax+vy*k.ay)/l;return 20*Math.log10(Math.max(0.1,(1+c)/2))}
+  const df=vx*k.f[0]+vy*k.f[1]+vz*k.f[2];if(df<=0.02)return -24;
+  const dr=vx*k.r[0]+vy*k.r[1]+vz*k.r[2],du=vx*k.u[0]+vy*k.u[1]+vz*k.u[2];
+  const ah=Math.atan2(Math.abs(dr),df)*DEG,av=Math.atan2(Math.abs(du),df)*DEG;return Math.max(-24,-6*((ah/k.hw)**2+(av/k.vw)**2))}
+/* one bounce off the roof: image source in the roof plane at the reflection point (local roof treated as flat). Clear PVC reflects the mid and high range (about −2 dB) and lets most of the sub range through (about −12 dB). */
+function roofLvl(E,k,p){const G=E.tent;if(!G)return -99;const zs=k.h,zr=EAR,dx=p.x-k.x,dy=p.y-k.y;
+  let H=roofAt(G,{x:k.x+dx/2,y:k.y+dy/2});if(H==null||H<=zs+0.05||H<=zr)return -99;
+  let t=(H-zs)/((H-zs)+(H-zr)),rp={x:k.x+t*dx,y:k.y+t*dy};H=roofAt(G,rp);if(H==null||H<=zs+0.05)return -99;
+  t=(H-zs)/((H-zs)+(H-zr));rp={x:k.x+t*dx,y:k.y+t*dy};if(roofAt(G,rp)==null)return -99;
+  const d=Math.max(1,Math.hypot(dx,dy,(H-zs)+(H-zr)));
+  return k.L1-20*Math.log10(d)+patGainV(k,t*dx,t*dy,H-zs)+(k.sub?G.Rsub:G.R)-SITE.extraLoss(k,p)}
+/* roof bounce on the floor under the tent: reflected energy vs direct energy from the tops, in dB */
+function roofBounce(E,pts){if(!E.tent)return null;let ed=0,er=0,n=0;const tops=E.sp.filter(TOPS);if(!tops.length)return null;
+  for(const p of pts){if(roofAt(E.tent,p)==null)continue;n++;for(const k of tops){ed+=Math.pow(10,lvlK(k,p)/10);const r=roofLvl(E,k,p);if(r>-90)er+=Math.pow(10,r/10)}}
+  if(!n||ed<=0)return null;return er>0?10*Math.log10(er/ed):-30}
+function tentIssues(){const o=O(),G=tentGeo(o);if(!G)return [];const out=[],legs=tentLegs(G);
+  for(const s of o.speakers){const H=roofAt(G,s);if(H!=null&&+s.h+0.35>H)out.push(`${s.id} is too tall for the tent roof (${f1(H)} m there).`);
+    if(legs.some(l=>Math.hypot(l.x-s.x,l.y-s.y)<0.45))out.push(`${s.id} sits on a tent leg.`)}
+  for(const t of o.towers||[]){const H=roofAt(G,t);if(H!=null&&+t.h+0.6>H)out.push(`Tower ${t.id} and its lights hit the tent roof (${f1(H)} m there).`)}
+  return out}
+function drawTent(){const o=O(),G=tentGeo(o);if(!G)return '';const isS=ST.sel==='tn';
+  const cs=[[-G.hl,-G.hw],[G.hl,-G.hw],[G.hl,G.hw],[-G.hl,G.hw]].map(([a,b])=>U(...Object.values(tWorld(G,a,b))));
+  const r0=U(...Object.values(tWorld(G,-(G.hl-G.hw>0?G.hl-G.hw:0),0))),r1=U(...Object.values(tWorld(G,(G.hl-G.hw>0?G.hl-G.hw:0),0)));
+  let g=`<g data-id="tn:0" style="cursor:move"><path d="M${cs.map(p=>p[0].toFixed(2)+' '+p[1].toFixed(2)).join('L')}Z" fill="var(--tent,#7FB6D9)" fill-opacity="${o.tent.roof==='white'?.18:.08}" stroke="var(--tent,#4A90C2)" stroke-width="${isS?.2:.11}" stroke-dasharray=".9 .3 .2 .3" pointer-events="none"/>`;
+  [0,1,2,3].forEach(i=>{g+=`<line x1="${cs[i][0]}" y1="${cs[i][1]}" x2="${(i===1||i===2?r1:r0)[0]}" y2="${(i===1||i===2?r1:r0)[1]}" stroke="var(--tent,#4A90C2)" stroke-width=".05" stroke-opacity=".7" pointer-events="none"/>`});
+  g+=`<line x1="${r0[0]}" y1="${r0[1]}" x2="${r1[0]}" y2="${r1[1]}" stroke="var(--tent,#4A90C2)" stroke-width=".07" pointer-events="none"/>`;
+  [[0,1],[1,2],[2,3],[3,0]].forEach(([i,j])=>{const mx=(cs[i][0]+cs[j][0])/2,my=(cs[i][1]+cs[j][1])/2;g+=`<circle cx="${mx}" cy="${my}" r=".55" fill="var(--panel)" stroke="var(--tent,#4A90C2)" stroke-width=".08"/>`});
+  tentLegs(G).forEach(l=>{const [u,v]=U(l.x,l.y);g+=`<rect x="${u-.15}" y="${v-.15}" width=".3" height=".3" fill="var(--tent,#4A90C2)" pointer-events="none"/>`});
+  const lab=U(...Object.values(tWorld(G,0,G.hw>3?(G.hw-0.9):0)));
+  g+=`<text x="${lab[0]}" y="${lab[1]}" font-size=".62" text-anchor="middle" font-family="var(--f-body)" font-weight="600" fill="var(--tent,#4A90C2)" pointer-events="none">TENT ${Math.round(o.tent.w/FT_M)} × ${Math.round(o.tent.l/FT_M)} ft · ${o.tent.roof==='white'?'white':'clear'} top</text></g>`;
+  return g}
+function tentInsp(){const o=O(),T=o.tent,G=tentGeo(o);const legs=tentLegs(G).length,rb=tuneScore(true).roof;
+  const sz=Math.round(T.w/FT_M)+'x'+Math.round(T.l/FT_M);
+  return `<div class="insp-head"><div class="swatch" style="background:#4A90C2">TN</div><div><div class="insp-title">Tent</div><div class="insp-model">Rumbas Event Rentals · Frame Tent, ${T.roof==='white'?'White':'Clear'} Top</div></div></div>
+  <div class="fields"><label class="field"><span class="lbl">Size</span><select id="tn-size">${opts([['40x40','40 × 40 ft (12.2 × 12.2 m)'],['40x80','40 × 80 ft (12.2 × 24.4 m)'],['40x60','40 × 60 ft (12.2 × 18.3 m)'],['30x60','30 × 60 ft (9.1 × 18.3 m)'],['custom','Custom']],['40x40','40x80','40x60','30x60'].includes(sz)?sz:'custom')}</select></label>
+  <label class="field"><span class="lbl">Roof</span><select id="tn-roof">${opts([['clear','Clear PVC top'],['white','White vinyl top']],T.roof||'clear')}</select></label>
+  <label class="field"><span class="lbl">Width (m)</span><input id="tn-w" type="number" step="0.1" value="${T.w}"></label>
+  <label class="field"><span class="lbl">Length (m)</span><input id="tn-l" type="number" step="0.1" value="${T.l}"></label>
+  <label class="field"><span class="lbl">Eave / leg height (m)</span><input id="tn-e" type="number" step="0.05" value="${T.eave}"></label>
+  <label class="field"><span class="lbl">Ridge / peak height (m)</span><input id="tn-r" type="number" step="0.1" value="${T.ridge}"></label>
+  <label class="field"><span class="lbl">Turn (°)</span><input id="tn-rot" type="number" step="5" value="${T.rot||0}"></label>
+  <label class="field"><span class="lbl">Sides</span><select id="tn-sides">${opts([['open','Open (no sidewalls)'],['clear','Clear sidewalls down']],T.sides||'open')}</select></label></div>
+  <div class="readouts"><div class="ro"><span class="lbl">Roof bounce on the floor</span><span class="v">${rb==null?'–':(rb>0?'+':'')+f1(rb)+'<small> dB</small>'}</span><span class="n">roof reflection vs direct sound from the tops; under −9 dB is clean, above −4 dB sounds boxy</span></div>
+  <div class="ro"><span class="lbl">Legs</span><span class="v">${legs}</span><span class="n">one every 3 m (10 ft) round the edge; keep speakers and stands clear of them</span></div></div>
+  ${T.sides==='clear'?'<p class="note warn">Clear sidewalls are not in the model. With them down, expect the floor 2 to 4 dB louder, a longer tail and less level outside: re-measure and pull the fills down.</p>':''}
+  <p class="note">Drag the tent to move it. Rumbas lists the Frame Tent, Clear Top in 40 × 40 and 40 × 80 ft. Leg height 3.05 m (10 ft) as planned; the 5.6 m peak is a typical figure for a 40 ft wide frame tent: confirm the peak, any centre poles and what the frame may carry with Rumbas before hanging anything from it.</p>
+  <div class="bar"><button class="btn danger" id="tn-del">Remove tent from this option</button></div>`}
+function bindTent(){const T=()=>O().tent;const num=(id,key,min,max)=>on(id,'change',e=>{const v=parseFloat(e.target.value);if(!isNaN(v))commit(()=>T()[key]=Math.max(min,Math.min(max,v)))});
+  on('tn-size','change',e=>{const v=e.target.value;if(v==='custom')return;const [w,l]=v.split('x').map(n=>+(+n*FT_M).toFixed(2));commit(()=>{T().w=w;T().l=l})});
+  on('tn-roof','change',e=>commit(()=>T().roof=e.target.value));on('tn-sides','change',e=>commit(()=>T().sides=e.target.value));
+  num('tn-w','w',3,40);num('tn-l','l',3,60);num('tn-e','eave',2.1,5);num('tn-r','ridge',2.1,12);num('tn-rot','rot',-360,360);
+  on('tn-del','click',()=>commit(()=>{delete O().tent;ST.sel=(O().speakers[0]||{}).id}))}
+function addTent(){commit(()=>{if(!O().tent)O().tent=SITE.tentDefault();ST.sel='tn'})}
+
 /* ---------- Files: TuneiT Space project export / import, and the PDF sound plan (same logic as TuneiT Space) ---------- */
 async function saveBlob(name,blob){let DL=null;try{if(window.claude&&window.claude.use)DL=await window.claude.use('downloads')}catch(e){DL=null}
   if(DL){try{await DL.save({filename:name,data:blob});toast('Saved '+name)}catch(e){toast(e&&e.code==='declined'?'Download cancelled':'Could not save the file here')}return}
   try{const u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=name;a.rel='noopener';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),8000);toast('Saved '+name)}catch(e){toast('Could not save the file here')}}
 function loadScript(src){return new Promise((res,rej)=>{const s=document.createElement('script');s.src=src;s.onload=res;s.onerror=()=>rej(new Error('Could not load '+src));document.head.appendChild(s)})}
-const slugF=t=>String(t).normalize('NFKD').replace(/[^\w\s-]/g,' ').trim().replace(/\s+/g,'-').replace(/-+/g,'-');const fileBase=()=>slugF(SITE.fileName)+'_'+slugF(O().name.split(' · ')[0]);
+const slugF=t=>String(t).normalize('NFKD').replace(/[^\w\s-]/g,' ').trim().replace(/\s+/g,'-').replace(/-+/g,'-');const fileBase=()=>slugF(SITE.fileName)+'_'+slugF(O().name);
 /* TuneiT Space library ids for the map's library */
 const SPACE_CUSTOM={
  'custom-jbl-vrx932la-x1':{b:'JBL',m:'VRX932LA, 1 box',t:'top',h:100,v:15,spl:136,lo:55,kg:22},
@@ -646,7 +713,7 @@ function spaceProject(){const G=SITE.spaceGeom();
   const custom=Object.entries(SPACE_CUSTOM).filter(([id])=>used.has(id)).map(([id,c])=>Object.assign({id,d:'custom',pw:true,cd:false,c:'moderate'},c));
   const by={};opts[0].speakers.forEach(s=>{const k=s.model+'|'+s.role;by[k]=(by[k]||0)+1});
   const rig=Object.entries(by).map(([k,q])=>{const [model,role]=k.split('|');return {model,qty:q,role}});
-  const cur=Math.max(0,G.ops.indexOf(O()));
+  const cur=Math.max(0,G.ops.indexOf(O()));if(G.ops.some(o=>o.tent))G.notes+=' Layouts with a tent: the Rumbas clear-top frame tent is drawn on the tuning map only; TuneiT Space has no roof model, so expect slightly more level and reflection under the tent than TuneiT Space shows.';
   return {v:1,id:suid('p_'),name:G.name,updated:Date.now(),example:false,notes:G.notes,space:G.space,zones:G.zones,stage:[],rules:G.rules,rig,options:opts,cur,crowd:{on:true,pct:100},custom,survey:{tempC:24,rh:70},
     tuneitMap:{site:SITE.id,ver:2,frame:G.frame,skipped:G.skipped}}}
 async function exportSpace(){try{const p=spaceProject();await saveBlob(slugF(SITE.fileName)+'.tuneit.json',new Blob([JSON.stringify(p,null,1)],{type:'application/json'}));
@@ -734,6 +801,7 @@ async function buildPdf(){if(!window.jspdf)await loadScript('https://cdnjs.cloud
    r.stage!=null?`Tops on the stage: ${(r.stage>0?'+':'')+f1(r.stage)} dB against the floor${r.stage<=-6?', which keeps the stage clean':''}.`:'',
    `Level available at ${SITE.refName}: about ${Math.round(r.Lref)} dB, ${(r.headroom>=0?'+':'')+f1(r.headroom)} dB over a ${TARGET} dB show.`,
    r.issues.length?`Rules broken: ${r.issues.join(' ')}.`:'Every rule kept: nothing on the dance floor'+(SITE.hasStageRule?', the front of the stage clear.':'.'),
+   o.tent?`Tent: Rumbas Frame Tent, ${o.tent.roof==='white'?'white':'clear'} top, ${Math.round(o.tent.w/FT_M)} × ${Math.round(o.tent.l/FT_M)} ft, ${f1(o.tent.eave)} m legs, about ${f1(o.tent.ridge)} m at the peak (confirm with Rumbas). Roof bounce on the floor ${r.roof==null?'not measurable':f1(r.roof)+' dB'} against the direct sound; sides open. Nothing hangs from the tent frame unless Rumbas signs off the loads.`:'',
    `Air ${AIR.T} °C, ${AIR.RH}% humidity, sound at ${f1(CS)} m/s.`].filter(Boolean).forEach(bullet);
   const tw_=domTable('twrs');if(tw_){y+=3;sect('Towers','Towers and what they carry');table(tw_.head.map(h=>[h,1]),tw_.rows)}
   const sch=domTable('sched');if(sch){y+=3;sect('Speakers','Speaker schedule','Position from the reference shown on the map. Delays and trims as set in the map; confirm by measurement.');table(sch.head.map((h,i)=>[h,i===1?2.2:i===0?0.7:1]),sch.rows)}
@@ -753,11 +821,12 @@ SITE.spaceGeom=function(){const off=5.2,T=p=>({x:p.x+off,y:p.y+off}),sq=(x0,y0,x
     name:'Intergalactic Ball · Shared Ball (cloister)',notes:'Ancient Spanish Monastery cloister: the open courtyard is the dance floor, the booth in the corner, galleries all round. Built from the Cloister Tuning Map, designed by Uzo Udu. TuneiT Space does not model the arcade columns between the courtyard and the galleries; the map takes 6 to 12 dB off for them, so gallery levels read higher in TuneiT Space. Towers and lights are listed in the speaker notes only.',
     space:{outline:sRect(0,0,30.4,30.4),src:'rect',env:'courtyard',ceil:0,floor:'concrete',walls:'concrete',ceilm:'open',trees:true,water:false,bg:null,gps:null},
     zones,rules:{frontClear:false,noFloor:true,limits:[],curfew:'',target:TARGET}}};
+SITE.tentDefault=()=>({on:true,x:13.9,y:13.9,w:12.19,l:12.19,rot:0,eave:3.05,ridge:5.6,roof:'clear',sides:'open'});
 SITE.spaceInv=f=>p=>({x:p.x-f.off,y:p.y-f.off});
 function tuneCell(){const t=tuneScore(false),P=t.parts;const warn=t.overall<70;
-  return `<div><span class="lbl">TuneiT score</span><span class="v" style="color:var(${warn?'--warn':'--ok'})">${t.overall}<small style="font-size:13px"> /100</small></span><span class="n">even ${Math.round(P.pE)} · coverage ${Math.round(P.pC)} · bass ${Math.round(P.pB)} · stage ${Math.round(P.pS)}${P.penH?` · level −${Math.round(P.penH)}`:''}${P.penR?` · rules −${Math.round(P.penR)}`:''}</span></div>`+
+  return `<div><span class="lbl">TuneiT score</span><span class="v" style="color:var(${warn?'--warn':'--ok'})">${t.overall}<small style="font-size:13px"> /100</small></span><span class="n">even ${Math.round(P.pE)} · coverage ${Math.round(P.pC)} · bass ${Math.round(P.pB)} · stage ${Math.round(P.pS)}${P.penH?` · level −${Math.round(P.penH)}`:''}${P.penR?` · rules −${Math.round(P.penR)}`:''}${P.penT?` · tent roof −${Math.round(P.penT)}`:''}</span></div>`+
   `<div><span class="lbl">Level at REF</span><span class="v" style="color:var(${t.headroom<3?'--warn':'--ink'})">${Math.round(t.Lref)}<small style="font-size:13px"> dB max</small></span><span class="n">${t.headroom>=0?'+':''}${f1(t.headroom)} dB headroom over a ${TARGET} dB show · ${SITE.refName}</span></div>`+
-  `<div><span class="lbl">Rules</span><span class="v" style="color:var(${t.issues.length?'--warn':'--ok'})">${t.issues.length?t.issues.length+' broken':'All kept'}</span><span class="n">${t.issues.length?esc(t.issues.slice(0,2).join(' ')):'no speakers on the dance floor'+(SITE.hasStageRule?', stage front clear':'')}</span></div>`}
+  `<div><span class="lbl">Rules</span><span class="v" style="color:var(${t.issues.length?'--warn':'--ok'})">${t.issues.length?t.issues.length+' broken':'All kept'}</span><span class="n">${t.issues.length?esc(t.issues.slice(0,2).join(' ')):'no speakers on the dance floor'+(SITE.hasStageRule?', stage front clear':'')}</span></div>`+(t.roof==null?'':`<div><span class="lbl">Tent roof bounce</span><span class="v" style="color:var(${t.roof>-4?'--warn':'--ink'})">${t.roof>0?'+':''}${f1(t.roof)}<small style="font-size:13px"> dB</small></span><span class="n">roof reflection vs direct on the floor under the tent; under −9 dB is clean</span></div>`)}
 
 /* ---------- dynamic ---------- */
 let lastScore=null;
@@ -783,7 +852,7 @@ function render(){
   bump();const L=ST.layers,o=O(),sel=ST.sel,g=[];
   document.getElementById('gridL').style.display=L.grid?'':'none';
   renderHeat();
-  g.push(drawTrunk());
+  g.push(drawTrunk());g.push(drawTent());
   if(L.cov)o.speakers.forEach(s=>g.push(wedge(s)));
   o.towers.forEach(t=>{const [u,v]=U(t.x,t.y),isS=sel==='tw:'+t.id,st=t.isNew?'var(--new)':'var(--ink)';
     g.push(`<g data-id="tw:${t.id}" style="cursor:move"><rect x="${u-.75}" y="${v-.75}" width="1.5" height="1.5" fill="var(--panel)" fill-opacity=".35" stroke="${st}" stroke-width="${isS?.14:.07}" stroke-dasharray=".2 .12"/><text x="${u+.95}" y="${v-.55}" font-size=".46" font-family="var(--f-mono)" fill="${st}" font-weight="500">${esc(t.id)}${t.isNew?' NEW':''}</text><circle cx="${u}" cy="${v}" r="1" fill="transparent"/></g>`)});
@@ -823,6 +892,7 @@ function renderInsp(){
   if(sel&&sel.startsWith('pt:')&&o.points.find(p=>p.id===sel.slice(3))){el.innerHTML=ptInsp(pt(sel.slice(3)));bindPt(pt(sel.slice(3)));return}
   if(sel&&sel.startsWith('tw:')&&twr(sel.slice(3))){el.innerHTML=twInsp(twr(sel.slice(3)));bindTw(twr(sel.slice(3)));return}
   if(sel==='MIC'){el.innerHTML=micInsp();return}
+  if(sel==='tn'&&o.tent){el.innerHTML=tentInsp();bindTent();return}
   const s=spk(sel);if(!s){el.innerHTML='<p class="hint">Select a speaker, tower or tuning point on the map or in the tables.</p>';return}
   const T=pt(s.tune),d=delayOf(s),b=bearing(s),tb=(b+TRUE_OFF+360)%360,tl=tilt(s),len=d3(s,s.h,T,EAR),loss=mainLoss(T),tw=twr(s.mount);
   const mounts=[['pole','Pole on sub'],['stand','Speaker stand'],['floor','Floor']].concat(o.towers.map(t=>[t.id,`${t.id} · ${t.name}`]));
@@ -947,9 +1017,10 @@ function delSel(){
   else if(spk(sel)){const s=spk(sel);if(s.role==='sub'){toast('The sub block stays; set its trim instead');return}snap();o.speakers=o.speakers.filter(x=>x!==s);ST.sel=(o.speakers[0]||{}).id;done1('Speaker '+sel+' deleted')}
 }
 function done1(t){save();render();toast(t,true)}
-function fixSel(){const s=ST.sel||'';if(s.startsWith('tw:')&&twr(s.slice(3)))return;if(s.startsWith('pt:')&&O().points.find(p=>p.id===s.slice(3)))return;if(s==='MIC'||spk(s))return;ST.sel=(O().speakers[0]||{}).id}
+function fixSel(){const s=ST.sel||'';if(s==='tn'&&O().tent)return;if(s.startsWith('tw:')&&twr(s.slice(3)))return;if(s.startsWith('pt:')&&O().points.find(p=>p.id===s.slice(3)))return;if(s==='MIC'||spk(s))return;ST.sel=(O().speakers[0]||{}).id}
 on('addSpk','click',()=>{const r=document.getElementById('addRole').value;commit(()=>{const s=newSpk(r,10,6);O().speakers.push(s);ST.sel=s.id});toast('Added. Drag it into place or mount it on a tower.')});
 on('addTwr','click',()=>{commit(()=>{const id=nextId('T',O().towers);O().towers.push({id,name:'New tower',x:10,y:10,h:3.05,lights:'Moving light',masking:'Scrim wrap',isNew:true});ST.sel='tw:'+id});toast('Tower added, marked new for the FPS quote')});
+on('addTent','click',addTent);
 on('addPt','click',()=>{commit(()=>{const id=nextId('P',O().points);O().points.push({id,name:'New point',x:9,y:9,target:'P1 ± 3 dB',check:''});ST.sel='pt:'+id})});
 on('undo','click',undo);
 on('optExport','click',()=>xferPanel('export'));on('optImport','click',()=>xferPanel('import'));
@@ -1001,7 +1072,7 @@ function moveGroup(tid,dx,dy){const t=twr(tid);t.x+=dx;t.y+=dy;O().speakers.forE
 svg.addEventListener('pointerdown',e=>{
   const g=e.target.closest('[data-id]');if(!g)return;
   const [kind,id]=g.getAttribute('data-id').split(':');
-  ST.sel=kind==='sp'?id:kind==='pt'?'pt:'+id:kind==='tw'?'tw:'+id:kind==='it'?id:kind==='aim'?id:ST.sel;
+  ST.sel=kind==='sp'?id:kind==='pt'?'pt:'+id:kind==='tw'?'tw:'+id:kind==='it'?id:kind==='aim'?id:kind==='tn'?'tn':ST.sel;
   const q=svgPt(e),m=P(q.x,q.y);drag={kind,id,last:m,moved:false};svg.setPointerCapture(e.pointerId);e.preventDefault();render();
 });
 svg.addEventListener('pointermove',e=>{
@@ -1013,6 +1084,7 @@ svg.addEventListener('pointermove',e=>{
   else if(drag.kind==='tw'){const t=twr(drag.id);moveGroup(drag.id,x-t.x,y-t.y)}
   else if(drag.kind==='sp'){const s=spk(drag.id);if(!s)return;const t=twr(s.mount);if(t)moveGroup(t.id,x-s.x,y-s.y);else{s.x=x;s.y=y}}
   else if(drag.kind==='pt'){const p=o.points.find(p=>p.id===drag.id);if(p){p.x=x;p.y=y}}
+  else if(drag.kind==='tn'){const t=O().tent;if(t){t.x=x;t.y=y}}
   else if(drag.kind==='it'){const it=o.items.find(i=>i.id===drag.id);if(it){it.x=x;it.y=y}}
   o.towers.forEach(t=>{t.x=Math.round(t.x*10)/10;t.y=Math.round(t.y*10)/10});o.speakers.forEach(s=>{s.x=Math.round(s.x*10)/10;s.y=Math.round(s.y*10)/10});
   if(!raf)raf=requestAnimationFrame(()=>{raf=0;render()});
@@ -1047,6 +1119,7 @@ if(!ST.v7){ST.options.unshift(opt4());ST.v7=true;ST.cur=0;ST.sel='F1';UNDO=[];sa
 if(!ST.v8){ST.options.splice(1,0,clearBooth(false),clearBooth(true));ST.v8=true;save()}
 if(ST.layers.crowd===undefined)ST.layers.crowd=true;if(ST.crowdN==null)ST.crowdN=300;
 on('crowdN','change',e=>{const v=parseInt(e.target.value,10);if(!isNaN(v)){ST.crowdN=Math.max(0,Math.min(5000,v));save();render()}});
+if(!ST.v8tent){const i=ST.options.findIndex(o=>/^Option 4 · Team layout/.test(o.name));const a={"name": "Option 4 · tuned, no tent", "desc": "The team layout from 15 Oct after Optimal Tune, nothing moved: main A up to 3.1 m, both mains re-aimed, fills and delays trimmed 1.5 to 3 dB down. Use this without the tent.", "towers": [{"id": "T1", "name": "Eye, east leg", "x": 2.96, "y": 0.84, "h": 3.05, "lights": "Sharpy Beam", "masking": "Clad in the eye scenic", "isNew": false}, {"id": "T2", "name": "Eye, centre", "x": 1.9, "y": 1.9, "h": 3.05, "lights": "Robe Mega Pointe through the pupil", "masking": "Clad in the eye scenic", "isNew": false}, {"id": "T3", "name": "Eye, south leg", "x": 0.84, "y": 2.96, "h": 3.05, "lights": "Sharpy Beam", "masking": "Clad in the eye scenic", "isNew": false}, {"id": "T4", "name": "North wall", "x": 18.1, "y": 8.5, "h": 3.05, "lights": "Sharpy Beam + laser, hazer at base", "masking": "Scrim wrap, open speaker front", "isNew": false}, {"id": "T5", "name": "SW corner", "x": 1.8, "y": 16.2, "h": 3.05, "lights": "Sharpy Beam + laser, hazer at base", "masking": "Scrim wrap, open speaker front", "isNew": false}, {"id": "T6", "name": "NW corner", "x": 18.25, "y": 18.25, "h": 3.05, "lights": "Sharpy Beam + laser, hazer at base", "masking": "Full drape on the corner faces: soaks the corner echo", "isNew": false}], "speakers": [{"model": "2 × L-Acoustics 18\" sub, cardioid", "cov": 0, "r": 0, "kg": 0, "trim": -3, "h": 0.5, "mount": "floor", "where": "East flank: 1 forward + 1 reversed (cardioid)", "id": "S1", "role": "sub", "qty": 2, "x": 5.2, "y": 1.8, "aim": {"x": 13, "y": 9}, "tune": "P1", "lib": "lac-sb18-card2", "boxes": 1}, {"model": "2 × L-Acoustics 18\" sub, cardioid", "cov": 0, "r": 0, "kg": 0, "trim": -3, "h": 0.5, "mount": "floor", "where": "South flank: 1 forward + 1 reversed (cardioid)", "id": "S2", "role": "sub", "qty": 2, "x": 1.8, "y": 5.2, "aim": {"x": 9, "y": 13}, "tune": "P1", "lib": "lac-sb18-card2", "boxes": 1}, {"model": "L-Acoustics 15\" coaxial top", "cov": 60, "r": 17, "kg": 30, "trim": 0, "h": 3.1, "mount": "pole", "where": "Pole on the east sub stack", "id": "A", "role": "main", "x": 5.2, "y": 1.8, "aim": {"x": 5.6, "y": 11.2}, "tune": "P1", "lib": "lac-x15-60", "boxes": 1}, {"model": "L-Acoustics 15\" coaxial top", "cov": 60, "r": 17, "kg": 30, "trim": 0, "h": 2.8, "mount": "pole", "where": "Pole on the south sub stack", "id": "B", "role": "main", "x": 1.8, "y": 5.2, "aim": {"x": 11.4, "y": 6}, "tune": "P1", "lib": "lac-x15-60", "boxes": 1}, {"model": "L-Acoustics 15\" coaxial top", "cov": 90, "r": 9, "kg": 30, "trim": -9.5, "h": 2.6, "mount": "T4", "where": "", "id": "F1", "role": "fill", "x": 18.1, "y": 8.5, "aim": {"x": 13, "y": 14}, "tune": "P5", "lib": "lac-x15-60", "boxes": 1}, {"model": "L-Acoustics 15\" coaxial top", "cov": 90, "r": 9, "kg": 30, "trim": -8, "h": 2.6, "mount": "T5", "where": "", "id": "F2", "role": "fill", "x": 1.8, "y": 16.2, "aim": {"x": 9, "y": 17.5}, "tune": "P4", "lib": "lac-x15-60", "boxes": 1}, {"model": "L-Acoustics 15\" coaxial top (ADD to FPS quote)", "cov": 90, "r": 9, "kg": 30, "trim": -8, "h": 2.4, "mount": "pole", "where": "Short pole hidden behind the NE corner palm", "id": "F3", "role": "fill", "x": 16.2, "y": 1.7, "aim": {"x": 16.2, "y": 8}, "tune": "P3", "lib": "lac-x15-60", "boxes": 1}, {"model": "L-Acoustics 15\" coaxial top", "cov": 90, "r": 11, "kg": 30, "trim": -9, "h": 2.6, "mount": "T6", "where": "", "id": "D1", "role": "delay", "x": 18.3, "y": 18.2, "aim": {"x": 20.1, "y": 10.2}, "tune": "P5", "lib": "lac-x15-60", "boxes": 1}, {"model": "L-Acoustics 15\" coaxial top", "cov": 90, "r": 11, "kg": 30, "trim": -9, "h": 2.6, "mount": "T6", "where": "", "id": "D2", "role": "delay", "x": 18.2, "y": 18.3, "aim": {"x": 10.2, "y": 20}, "tune": "P11", "lib": "lac-x15-60", "boxes": 1}, {"model": "JBL SRX812P", "cov": 50, "r": 16, "kg": 26, "trim": -14, "h": 2, "mount": "stand", "where": "Behind the SE corner pier, south gallery", "id": "G1", "role": "gal", "x": -0.3, "y": 0.6, "aim": {"x": -1.2, "y": 21}, "tune": "P7", "lib": "jbl-srx812p", "boxes": 1}, {"model": "JBL SRX812P", "cov": 50, "r": 16, "kg": 26, "trim": -14, "h": 2, "mount": "stand", "where": "Behind the SE corner pier, east gallery", "id": "G2", "role": "gal", "x": 0.7, "y": -0.4, "aim": {"x": 21, "y": -1.8}, "tune": "P8", "lib": "jbl-srx812p", "boxes": 1}, {"model": "JBL SRX812P", "cov": 50, "r": 16, "kg": 26, "trim": -18, "h": 2, "mount": "stand", "where": "Behind the NE corner pier, north gallery", "id": "G3", "role": "gal", "x": 19.9, "y": 0.2, "aim": {"x": 21.4, "y": 21}, "tune": "P9", "lib": "jbl-srx812p", "boxes": 1}, {"model": "JBL SRX812P", "cov": 50, "r": 16, "kg": 26, "trim": -18, "h": 2, "mount": "stand", "where": "Behind the SW corner pier, west gallery", "id": "G4", "role": "gal", "x": 0, "y": 20.4, "aim": {"x": 21, "y": 21.4}, "tune": "P10", "lib": "jbl-srx812p", "boxes": 1}, {"model": "JBL SRX812P", "cov": 50, "r": 3, "kg": 26, "trim": 0, "h": 1.4, "mount": "stand", "where": "Booth end, DJ side", "id": "M1", "role": "mon", "x": 3.8, "y": 1.5, "aim": "P6", "tune": "P6", "lib": "jbl-srx812p", "boxes": 1}, {"model": "JBL SRX812P", "cov": 50, "r": 3, "kg": 26, "trim": 0, "h": 1.4, "mount": "stand", "where": "Booth end; singer’s wedge", "id": "M2", "role": "mon", "x": 1.5, "y": 3.8, "aim": "P6", "tune": "P6", "lib": "jbl-srx812p", "boxes": 1}], "points": [{"id": "P1", "name": "FOH reference", "x": 11, "y": 11, "target": "98–100 dB(A) LAeq at peak", "check": "System EQ for the mains; sub-to-top alignment"}, {"id": "P2", "name": "Front of floor", "x": 7, "y": 7, "target": "No more than P1 + 4 dB", "check": "Front rows not overpowered"}, {"id": "P3", "name": "NE floor corner", "x": 15.5, "y": 6, "target": "P1 ± 3 dB", "check": "Set F3"}, {"id": "P4", "name": "West band", "x": 9, "y": 17, "target": "P1 ± 3 dB", "check": "Set F2"}, {"id": "P5", "name": "North band", "x": 16, "y": 13, "target": "P1 − 3 to 0 dB", "check": "Set F1 and D1"}, {"id": "P6", "name": "DJ position", "x": 2.4, "y": 2.4, "target": "95–100 dB(A) from the monitors", "check": "Sub quieter here than at P2"}, {"id": "P7", "name": "South gallery", "x": -2.4, "y": 14, "target": "82–86 dB(A)", "check": "Set G1"}, {"id": "P8", "name": "East gallery", "x": 14, "y": -2.4, "target": "82–86 dB(A)", "check": "Set G2"}, {"id": "P9", "name": "North gallery", "x": 22.6, "y": 13, "target": "82–86 dB(A)", "check": "Set G3"}, {"id": "P10", "name": "West gallery", "x": 13, "y": 22.6, "target": "82–86 dB(A)", "check": "Set G4"}, {"id": "P11", "name": "West band", "x": 13, "y": 17, "target": "P1 ± 3 dB", "check": "Set D2"}], "items": [{"id": "MIC", "kind": "mic", "name": "Opera mic stand", "x": 0.9, "y": 6.2}], "trimmed": true},b={"name": "Option 4 · with the tent", "desc": "The team layout with the Rumbas 40 × 40 ft clear-top frame tent (3.05 m legs) over the floor north-west of the oak, from the north arcade to the west arcade; FOH sits under it. Tower T4 and fill F1 move 1.5 m east so the tower and its lights clear the tent edge. Main B drops to 2.5 m, both mains re-aimed, fills and delays trimmed. Keep beam lights on T6 off the clear roof.", "towers": [{"id": "T1", "name": "Eye, east leg", "x": 2.96, "y": 0.84, "h": 3.05, "lights": "Sharpy Beam", "masking": "Clad in the eye scenic", "isNew": false}, {"id": "T2", "name": "Eye, centre", "x": 1.9, "y": 1.9, "h": 3.05, "lights": "Robe Mega Pointe through the pupil", "masking": "Clad in the eye scenic", "isNew": false}, {"id": "T3", "name": "Eye, south leg", "x": 0.84, "y": 2.96, "h": 3.05, "lights": "Sharpy Beam", "masking": "Clad in the eye scenic", "isNew": false}, {"id": "T4", "name": "North wall", "x": 18.1, "y": 7, "h": 3.05, "lights": "Sharpy Beam + laser, hazer at base", "masking": "Scrim wrap, open speaker front", "isNew": false}, {"id": "T5", "name": "SW corner", "x": 1.8, "y": 16.2, "h": 3.05, "lights": "Sharpy Beam + laser, hazer at base", "masking": "Scrim wrap, open speaker front", "isNew": false}, {"id": "T6", "name": "NW corner", "x": 18.25, "y": 18.25, "h": 3.05, "lights": "Sharpy Beam + laser, hazer at base", "masking": "Full drape on the corner faces: soaks the corner echo", "isNew": false}], "speakers": [{"model": "2 × L-Acoustics 18\" sub, cardioid", "cov": 0, "r": 0, "kg": 0, "trim": -3, "h": 0.5, "mount": "floor", "where": "East flank: 1 forward + 1 reversed (cardioid)", "id": "S1", "role": "sub", "qty": 2, "x": 5.2, "y": 1.8, "aim": {"x": 13, "y": 9}, "tune": "P1", "lib": "lac-sb18-card2", "boxes": 1}, {"model": "2 × L-Acoustics 18\" sub, cardioid", "cov": 0, "r": 0, "kg": 0, "trim": -3, "h": 0.5, "mount": "floor", "where": "South flank: 1 forward + 1 reversed (cardioid)", "id": "S2", "role": "sub", "qty": 2, "x": 1.8, "y": 5.2, "aim": {"x": 9, "y": 13}, "tune": "P1", "lib": "lac-sb18-card2", "boxes": 1}, {"model": "L-Acoustics 15\" coaxial top", "cov": 60, "r": 17, "kg": 30, "trim": 0, "h": 2.8, "mount": "pole", "where": "Pole on the east sub stack", "id": "A", "role": "main", "x": 5.2, "y": 1.8, "aim": {"x": 5.6, "y": 11.2}, "tune": "P1", "lib": "lac-x15-60", "boxes": 1}, {"model": "L-Acoustics 15\" coaxial top", "cov": 60, "r": 17, "kg": 30, "trim": 0, "h": 2.5, "mount": "pole", "where": "Pole on the south sub stack", "id": "B", "role": "main", "x": 1.8, "y": 5.2, "aim": {"x": 11.4, "y": 6}, "tune": "P1", "lib": "lac-x15-60", "boxes": 1}, {"model": "L-Acoustics 15\" coaxial top", "cov": 90, "r": 9, "kg": 30, "trim": -9.5, "h": 2.6, "mount": "T4", "where": "", "id": "F1", "role": "fill", "x": 18.1, "y": 7, "aim": {"x": 14.2, "y": 15}, "tune": "P5", "lib": "lac-x15-60", "boxes": 1}, {"model": "L-Acoustics 15\" coaxial top", "cov": 90, "r": 9, "kg": 30, "trim": -8, "h": 2.6, "mount": "T5", "where": "", "id": "F2", "role": "fill", "x": 1.8, "y": 16.2, "aim": {"x": 9, "y": 17.5}, "tune": "P4", "lib": "lac-x15-60", "boxes": 1}, {"model": "L-Acoustics 15\" coaxial top (ADD to FPS quote)", "cov": 90, "r": 9, "kg": 30, "trim": -8, "h": 2.4, "mount": "pole", "where": "Short pole hidden behind the NE corner palm", "id": "F3", "role": "fill", "x": 16.2, "y": 1.7, "aim": {"x": 16.2, "y": 8}, "tune": "P3", "lib": "lac-x15-60", "boxes": 1}, {"model": "L-Acoustics 15\" coaxial top", "cov": 90, "r": 11, "kg": 30, "trim": -8.5, "h": 2.6, "mount": "T6", "where": "", "id": "D1", "role": "delay", "x": 18.3, "y": 18.2, "aim": {"x": 18.9, "y": 10.2}, "tune": "P5", "lib": "lac-x15-60", "boxes": 1}, {"model": "L-Acoustics 15\" coaxial top", "cov": 90, "r": 11, "kg": 30, "trim": -9, "h": 2.6, "mount": "T6", "where": "", "id": "D2", "role": "delay", "x": 18.2, "y": 18.3, "aim": {"x": 10.2, "y": 20}, "tune": "P11", "lib": "lac-x15-60", "boxes": 1}, {"model": "JBL SRX812P", "cov": 50, "r": 16, "kg": 26, "trim": -14, "h": 2, "mount": "stand", "where": "Behind the SE corner pier, south gallery", "id": "G1", "role": "gal", "x": -0.3, "y": 0.6, "aim": {"x": -1.2, "y": 21}, "tune": "P7", "lib": "jbl-srx812p", "boxes": 1}, {"model": "JBL SRX812P", "cov": 50, "r": 16, "kg": 26, "trim": -14, "h": 2, "mount": "stand", "where": "Behind the SE corner pier, east gallery", "id": "G2", "role": "gal", "x": 0.7, "y": -0.4, "aim": {"x": 21, "y": -1.8}, "tune": "P8", "lib": "jbl-srx812p", "boxes": 1}, {"model": "JBL SRX812P", "cov": 50, "r": 16, "kg": 26, "trim": -18, "h": 2, "mount": "stand", "where": "Behind the NE corner pier, north gallery", "id": "G3", "role": "gal", "x": 19.9, "y": 0.2, "aim": {"x": 21.4, "y": 21}, "tune": "P9", "lib": "jbl-srx812p", "boxes": 1}, {"model": "JBL SRX812P", "cov": 50, "r": 16, "kg": 26, "trim": -18, "h": 2, "mount": "stand", "where": "Behind the SW corner pier, west gallery", "id": "G4", "role": "gal", "x": 0, "y": 20.4, "aim": {"x": 21, "y": 21.4}, "tune": "P10", "lib": "jbl-srx812p", "boxes": 1}, {"model": "JBL SRX812P", "cov": 50, "r": 3, "kg": 26, "trim": 0, "h": 1.4, "mount": "stand", "where": "Booth end, DJ side", "id": "M1", "role": "mon", "x": 3.8, "y": 1.5, "aim": "P6", "tune": "P6", "lib": "jbl-srx812p", "boxes": 1}, {"model": "JBL SRX812P", "cov": 50, "r": 3, "kg": 26, "trim": 0, "h": 1.4, "mount": "stand", "where": "Booth end; singer’s wedge", "id": "M2", "role": "mon", "x": 1.5, "y": 3.8, "aim": "P6", "tune": "P6", "lib": "jbl-srx812p", "boxes": 1}], "points": [{"id": "P1", "name": "FOH reference", "x": 11, "y": 11, "target": "98–100 dB(A) LAeq at peak", "check": "System EQ for the mains; sub-to-top alignment"}, {"id": "P2", "name": "Front of floor", "x": 7, "y": 7, "target": "No more than P1 + 4 dB", "check": "Front rows not overpowered"}, {"id": "P3", "name": "NE floor corner", "x": 15.5, "y": 6, "target": "P1 ± 3 dB", "check": "Set F3"}, {"id": "P4", "name": "West band", "x": 9, "y": 17, "target": "P1 ± 3 dB", "check": "Set F2"}, {"id": "P5", "name": "North band", "x": 16, "y": 13, "target": "P1 − 3 to 0 dB", "check": "Set F1 and D1"}, {"id": "P6", "name": "DJ position", "x": 2.4, "y": 2.4, "target": "95–100 dB(A) from the monitors", "check": "Sub quieter here than at P2"}, {"id": "P7", "name": "South gallery", "x": -2.4, "y": 14, "target": "82–86 dB(A)", "check": "Set G1"}, {"id": "P8", "name": "East gallery", "x": 14, "y": -2.4, "target": "82–86 dB(A)", "check": "Set G2"}, {"id": "P9", "name": "North gallery", "x": 22.6, "y": 13, "target": "82–86 dB(A)", "check": "Set G3"}, {"id": "P10", "name": "West gallery", "x": 13, "y": 22.6, "target": "82–86 dB(A)", "check": "Set G4"}, {"id": "P11", "name": "West band", "x": 13, "y": 17, "target": "P1 ± 3 dB", "check": "Set D2"}], "items": [{"id": "MIC", "kind": "mic", "name": "Opera mic stand", "x": 0.9, "y": 6.2}], "tent": {"on": true, "x": 13.9, "y": 13.9, "w": 12.19, "l": 12.19, "rot": 0, "eave": 3.05, "ridge": 5.6, "roof": "clear", "sides": "open"}, "trimmed": true};const add=[a,b].filter(t=>!ST.options.some(o=>o.name===t.name));ST.options.splice(i>=0?i+1:ST.options.length,0,...add);ST.v8tent=true;try{localStorage.setItem(KEY,JSON.stringify(ST))}catch(e){}}
 ST.options.forEach(o=>o.speakers.forEach(normSpk));
 if(ST.cur>=ST.options.length)ST.cur=0;fixSel();
 drawBase();renderSteps();renderAll();
