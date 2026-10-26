@@ -441,7 +441,8 @@ const LIBX=[
  {id:'gen-12',n:'Generic 12in powered',t:'top',h:90,v:60,spl:129,lo:50},
  {id:'gen-15',n:'Generic 15in powered',t:'top',h:90,v:60,spl:130,lo:45},
  {id:'gen-18sub',n:'Generic 18in sub',t:'sub',h:360,v:360,spl:132,lo:35},
- {id:'gen-card',n:'Generic cardioid sub',t:'sub',h:360,v:360,spl:134,lo:35,cd:true}];
+ {id:'gen-card',n:'Generic cardioid sub',t:'sub',h:360,v:360,spl:134,lo:35,cd:true},
+ {id:'rcf-evox-8',n:'RCF EVOX 8 column array (8 × 2" + 12" woofer)',t:'top',h:120,v:30,spl:128,lo:45}];
 const LIBI=Object.fromEntries(LIBX.map(m=>[m.id,m]));
 function inferLib(s){const t=String(s.model||'');
   if(/VRX/i.test(t))return s.role==='sub'||/sub/i.test(t)?'jbl-vrx918s':'jbl-vrx932la';
@@ -461,7 +462,7 @@ function prep(){const o=O();let E=ENGC.get(o);if(E)return E;
     let r=[f[1],-f[0],0],rl=Math.hypot(r[0],r[1]);if(rl<1e-6){r=[1,0,0];rl=1}r=[r[0]/rl,r[1]/rl,0];
     const u=[r[1]*f[2]-r[2]*f[1],r[2]*f[0]-r[0]*f[2],r[0]*f[1]-r[1]*f[0]],pl=Math.hypot(fx,fy)||1,n=Math.max(1,+s.boxes||1);
     return {s,id:s.id,role:s.role,x:s.x,y:s.y,h:+s.h||0,m,f,r,u,ax:fx/pl,ay:fy/pl,L1:m.spl-PROGRAM_OFFSET+(+s.trim||0)+20*Math.log10(n),hw:Math.max(5,m.h/2),vw:Math.max(5,(m.t==='la'?m.v*n:m.v)/2),pol:s.pol===-1?-1:1,sub:s.role==='sub',mon:s.role==='mon',aim:a}});
-  E={o,sp,ref,delays:{},subAdj:0,tent:tentGeo(o)};ENGC.set(o,E);
+  E={o,sp,ref,delays:{},subAdj:0,tent:tentGeo(o),roofs:[tentGeo(o),trussGeo(o)].filter(Boolean)};ENGC.set(o,E);
   E.delays=calcDelaysT(E);
   const subs=sp.filter(k=>k.sub);
   if(subs.length&&sp.some(TOPS)){const t=splK(E,ref,TOPS),b=splK(E,ref,SUBS);if(t>-90&&b>-90){E.subAdj=t-b;subs.forEach(k=>k.L1+=E.subAdj)}}
@@ -473,7 +474,7 @@ function patGainT(k,p){const dx=p.x-k.x,dy=p.y-k.y,dz=EAR-k.h;
   const ah=Math.atan2(Math.abs(dr),df)*DEG,av=Math.atan2(Math.abs(du),df)*DEG;
   return Math.max(-24,-6*((ah/k.hw)**2+(av/k.vw)**2))}
 function lvlK(k,p){const r=Math.max(1,Math.hypot(p.x-k.x,p.y-k.y,EAR-k.h));return k.L1-20*Math.log10(r)+patGainT(k,p)-(k.sub?0:crowdLoss(k.s,p))-SITE.extraLoss(k,p)}
-function splK(E,p,kf){let e=0;for(const k of E.sp){if(k.mon&&!(kf&&kf(k)))continue;if(kf&&!kf(k))continue;e+=Math.pow(10,lvlK(k,p)/10);if(E.tent){const rr=roofLvl(E,k,p);if(rr>-90)e+=Math.pow(10,rr/10)}}return e>0?10*Math.log10(e):-99}
+function splK(E,p,kf){let e=0;for(const k of E.sp){if(k.mon&&!(kf&&kf(k)))continue;if(kf&&!kf(k))continue;e+=Math.pow(10,lvlK(k,p)/10);if(E.roofs)for(const G of E.roofs){const rr=roofLvl(E,k,p,G);if(rr>-90)e+=Math.pow(10,rr/10)}}return e>0?10*Math.log10(e):-99}
 function spl(p,filt){return splK(prep(),p,filt?(k=>filt(k.s)):null)}
 function subCoh(p){const E=prep(),subs=E.sp.filter(k=>k.sub);if(!subs.length)return -99;let e=0;
   for(const fr of [50,63,80]){const kk=2*Math.PI*fr/CS;let re=0,im=0;for(const k of subs){const r=Math.max(1,Math.hypot(p.x-k.x,p.y-k.y,EAR-k.h));const A=k.pol*Math.pow(10,(k.L1+patGainT(k,p)-SITE.extraLoss(k,p))/20)/r;const ph=kk*r+2*Math.PI*fr*(E.delays[k.id]||0)/1000;re+=A*Math.cos(ph);im+=A*Math.sin(ph)}e+=re*re+im*im}
@@ -491,7 +492,7 @@ function calcDelaysT(E){const D={},mains=E.sp.filter(k=>k.role==='main'),subs=E.
   E.sp.filter(k=>k.mon).forEach(k=>D[k.id]=null);return D}
 function delayOf(s){if(s.role==='mon')return null;const v=prep().delays[s.id];return v==null?0:v}
 function predAt(p){const E=prep();return splK(E,p,ALLK)-splK(E,E.ref,ALLK)+TARGET}
-function ruleIssues(){const out=[];for(const s of O().speakers){if(s.role==='mon')continue;if(SITE.onFloor(s))out.push(s.id+' stands on the dance floor.');if(SITE.frontClear(s))out.push(s.id+' is in the clear strip in front of the stage.')}return out.concat(tentIssues())}
+function ruleIssues(){const out=[];for(const s of O().speakers){if(s.role==='mon')continue;if(SITE.onFloor(s))out.push(s.id+' stands on the dance floor.');if(SITE.frontClear(s))out.push(s.id+' is in the clear strip in front of the stage.')}return out.concat(tentIssues(),trussIssues())}
 function tuneScore(quick){const E=prep(),ref=E.ref;const pts=SITE.floor(quick?1.4:0.8);const EV=E.sp.some(TOPS)?TOPS:ALLK;const LrefE=splK(E,ref,EV);
   const rel=pts.map(p=>splK(E,p,EV)-LrefE);const pc=f=>rel.length?Math.round(100*rel.filter(f).length/rel.length):0;
   const res={even:pc(v=>Math.abs(v)<=3),cov6:pc(v=>Math.abs(v)<=6),Lref:splK(E,ref,ALLK)};
@@ -524,7 +525,7 @@ function tentGeo(o){const T=o&&o.tent;if(!T||T.on===false)return null;const a=(T
 const tLocal=(G,p)=>{const dx=p.x-G.T.x,dy=p.y-G.T.y;return {a:dx*G.c+dy*G.s,b:-dx*G.s+dy*G.c}};
 const tWorld=(G,a,b)=>({x:G.T.x+a*G.c-b*G.s,y:G.T.y+a*G.s+b*G.c});
 /* roof height at a plan point, null outside the footprint; ridge runs along the length, hipped ends (a 40 × 40 is a pyramid) */
-function roofAt(G,p){const q=tLocal(G,p);if(Math.abs(q.a)>G.hl+1e-6||Math.abs(q.b)>G.hw+1e-6)return null;
+function roofAt(G,p){if(G.kind==='poly')return polyIn(p,G.pts)?G.h:null;const q=tLocal(G,p);if(Math.abs(q.a)>G.hl+1e-6||Math.abs(q.b)>G.hw+1e-6)return null;
   const f=Math.max(0,Math.min(1-Math.abs(q.b)/G.hw,(G.hl-Math.abs(q.a))/G.hw));return G.eave+(G.ridge-G.eave)*f}
 function tentLegs(G){const out=[],step=10*FT_M;const side=(len,fixed,alongA)=>{const n=Math.max(1,Math.round(len/step));for(let i=0;i<=n;i++){const t=-len/2+len*i/n;out.push(alongA?tWorld(G,t,fixed):tWorld(G,fixed,t))}};
   side(G.T.l,-G.hw,true);side(G.T.l,G.hw,true);side(G.T.w,-G.hl,false);side(G.T.w,G.hl,false);
@@ -534,7 +535,7 @@ function patGainV(k,vx,vy,vz){if(k.sub){if(!k.m.cd)return 0;const l=Math.hypot(v
   const dr=vx*k.r[0]+vy*k.r[1]+vz*k.r[2],du=vx*k.u[0]+vy*k.u[1]+vz*k.u[2];
   const ah=Math.atan2(Math.abs(dr),df)*DEG,av=Math.atan2(Math.abs(du),df)*DEG;return Math.max(-24,-6*((ah/k.hw)**2+(av/k.vw)**2))}
 /* one bounce off the roof: image source in the roof plane at the reflection point (local roof treated as flat). Clear PVC reflects the mid and high range (about −2 dB) and lets most of the sub range through (about −12 dB). */
-function roofLvl(E,k,p){const G=E.tent;if(!G)return -99;const zs=k.h,zr=EAR,dx=p.x-k.x,dy=p.y-k.y;
+function roofLvl(E,k,p,G){G=G||E.tent;if(!G)return -99;const zs=k.h,zr=EAR,dx=p.x-k.x,dy=p.y-k.y;
   let H=roofAt(G,{x:k.x+dx/2,y:k.y+dy/2});if(H==null||H<=zs+0.05||H<=zr)return -99;
   let t=(H-zs)/((H-zs)+(H-zr)),rp={x:k.x+t*dx,y:k.y+t*dy};H=roofAt(G,rp);if(H==null||H<=zs+0.05)return -99;
   t=(H-zs)/((H-zs)+(H-zr));rp={x:k.x+t*dx,y:k.y+t*dy};if(roofAt(G,rp)==null)return -99;
@@ -581,6 +582,34 @@ function bindTent(){const T=()=>O().tent;const num=(id,key,min,max)=>on(id,'chan
   on('tn-roof','change',e=>commit(()=>T().roof=e.target.value));on('tn-sides','change',e=>commit(()=>T().sides=e.target.value));
   num('tn-w','w',3,40);num('tn-l','l',3,60);num('tn-e','eave',2.1,5);num('tn-r','ridge',2.1,12);num('tn-rot','rot',-360,360);
   on('tn-del','click',()=>commit(()=>{delete O().tent;ST.sel=(O().speakers[0]||{}).id}))}
+
+/* ---------- Stage truss in the booth corner: 3 truss towers (one in the corner, one along each wall), truss across the top, optional cover over the triangle ---------- */
+function trussPts(T){return [{x:T.x,y:T.y},{x:T.x+T.a,y:T.y},{x:T.x,y:T.y+T.b}]}
+function polyIn(p,poly){let c=false;for(let i=0,j=poly.length-1;i<poly.length;j=i++){const A=poly[i],B=poly[j];if(((A.y>p.y)!==(B.y>p.y))&&(p.x<(B.x-A.x)*(p.y-A.y)/(B.y-A.y)+A.x))c=!c}return c}
+function trussGeo(o){const T=o&&o.truss;if(!T||T.on===false||!T.cover)return null;return {kind:'poly',pts:trussPts(T),h:+T.h||4.27,R:-2,Rsub:-12}}
+function trussIssues(){const o=O(),T=o.truss;if(!T||T.on===false)return [];const out=[],tw=trussPts(T),poly=tw;
+  for(const s of o.speakers){if(tw.some(q=>Math.hypot(q.x-s.x,q.y-s.y)<0.4))out.push(`${s.id} stands on a stage truss tower.`);if(polyIn(s,poly)&&+s.h+0.3>(+T.h||4.27))out.push(`${s.id} is above the stage truss.`)}
+  for(const t of o.towers||[]){if(tw.some(q=>Math.hypot(q.x-t.x,q.y-t.y)<0.45))out.push(`Tower ${t.id} clashes with a stage truss tower.`);if(polyIn(t,poly)&&+t.h+0.6>(+T.h||4.27))out.push(`Tower ${t.id} and its lights hit the stage truss.`)}
+  return out}
+function drawTruss(){const o=O(),T=o.truss;if(!T||T.on===false)return '';const isS=ST.sel==='tr',tw=trussPts(T).map(p=>U(p.x,p.y));let g=`<g data-id="tr:0" style="cursor:move">`;
+  if(T.cover)g+=`<path d="M${tw.map(p=>p[0].toFixed(2)+' '+p[1].toFixed(2)).join('L')}Z" fill="var(--truss,#8E7CC3)" fill-opacity=".14" stroke="none" pointer-events="none"/>`;
+  [[0,1],[0,2],[1,2]].forEach(([i,j])=>{g+=`<line x1="${tw[i][0]}" y1="${tw[i][1]}" x2="${tw[j][0]}" y2="${tw[j][1]}" stroke="var(--truss,#8E7CC3)" stroke-width="${isS?.34:.26}" stroke-opacity=".9"/><line x1="${tw[i][0]}" y1="${tw[i][1]}" x2="${tw[j][0]}" y2="${tw[j][1]}" stroke="var(--panel)" stroke-width=".1" stroke-dasharray=".18 .18" pointer-events="none"/>`});
+  tw.forEach(p=>{g+=`<rect x="${p[0]-.22}" y="${p[1]-.22}" width=".44" height=".44" fill="var(--truss,#8E7CC3)" stroke="var(--ink)" stroke-width=".04"/>`});
+  const m={x:(tw[1][0]+tw[2][0])/2,y:(tw[1][1]+tw[2][1])/2};
+  g+=`<text x="${m.x}" y="${m.y-.35}" font-size=".5" text-anchor="middle" font-family="var(--f-mono)" fill="var(--truss,#8E7CC3)" font-weight="600" pointer-events="none">TRUSS ${f1(T.h)} m${T.cover?' · COVER':''}</text></g>`;return g}
+function trussInsp(){const T=O().truss,ft=v=>Math.round(v/FT_M);const front=Math.hypot(T.a,T.b);
+  return `<div class="insp-head"><div class="swatch" style="background:#8E7CC3">TR</div><div><div class="insp-title">Stage truss</div><div class="insp-model">3 truss towers round the DJ booth, truss across the top</div></div></div>
+  <div class="fields"><label class="field"><span class="lbl">Along the east side (m)</span><input id="tr-a" type="number" step="0.1" value="${T.a}"></label>
+  <label class="field"><span class="lbl">Along the south side (m)</span><input id="tr-b" type="number" step="0.1" value="${T.b}"></label>
+  <label class="field"><span class="lbl">Height of the top truss (m)</span><input id="tr-h" type="number" step="0.05" value="${T.h}"></label>
+  <label class="field"><span class="lbl">Cover across the top</span><select id="tr-c">${opts([['1','Yes, covered'],['0','Open frame']],T.cover?'1':'0')}</select></label></div>
+  <div class="readouts"><div class="ro"><span class="lbl">Spans</span><span class="v" style="font-size:18px">${ft(T.a)} ft · ${ft(T.b)} ft · ${ft(front)} ft front</span><span class="n">${f1(T.a)} m, ${f1(T.b)} m along the walls, ${f1(front)} m across the front</span></div>
+  <div class="ro"><span class="lbl">Height</span><span class="v">${f1(T.h)}<small> m</small></span><span class="n">${ft(T.h)} ft to the top truss</span></div></div>
+  <p class="note">Drag the truss to move it. The corner tower sits in the booth corner and one tower runs along each wall, as in your sketch. With the cover on, the map adds its one-bounce reflection: it mostly lifts the monitors and the booth, the mains stand outside the frame. Hanging the eye or lights from the truss needs the truss supplier's load sign-off.</p>
+  <div class="bar"><button class="btn danger" id="tr-del">Remove truss from this option</button></div>`}
+function bindTruss(){const T=()=>O().truss;const num=(id,key,min,max)=>on(id,'change',e=>{const v=parseFloat(e.target.value);if(!isNaN(v))commit(()=>T()[key]=Math.max(min,Math.min(max,v)))});
+  num('tr-a','a',2,10);num('tr-b','b',2,10);num('tr-h','h',2.5,8);on('tr-c','change',e=>commit(()=>T().cover=e.target.value==='1'));
+  on('tr-del','click',()=>commit(()=>{delete O().truss;ST.sel=(O().speakers[0]||{}).id}))}
 
 /* ---------- Tent bar above the map: switch the tent in or out for this option, move, turn and size it, and compare the score both ways ---------- */
 const tentOn=o=>!!(o.tent&&o.tent.on!==false);
@@ -635,8 +664,9 @@ const SPACE_CUSTOM={
  'custom-jbl-vrx918s':{b:'JBL',m:'VRX918S sub',t:'sub',h:360,v:360,spl:135,lo:35,kg:41},
  'custom-l-acoustics-x15-hiq-60':{b:'L-Acoustics',m:'X15 HiQ, horn 60° wide',t:'top',h:60,v:40,spl:138,lo:55,kg:21},
  'custom-l-acoustics-sb18-card2':{b:'L-Acoustics',m:'SB18 pair, cardioid',t:'sub',h:360,v:360,spl:140,lo:32,kg:104,cd:true},
+ 'custom-rcf-evox-8':{b:'RCF',m:'EVOX 8 column array',t:'top',h:120,v:30,spl:128,lo:45,kg:24},
  'custom-l-acoustics-sb18-card4':{b:'L-Acoustics',m:'SB18 block of 4, cardioid',t:'sub',h:360,v:360,spl:146,lo:32,kg:208,cd:true}};
-const SPACE_MAP={'lac-x15-40':'l-acoustics-x15-hiq','lac-x15-60':'custom-l-acoustics-x15-hiq-60','lac-x12':'l-acoustics-x12','lac-x8':'l-acoustics-x8','lac-sb18':'l-acoustics-sb18','lac-sb18-card2':'custom-l-acoustics-sb18-card2','lac-sb18-card4':'custom-l-acoustics-sb18-card4','lac-ks28':'l-acoustics-ks28','jbl-vrx918s':'custom-jbl-vrx918s','jbl-srx812p':'jbl-srx812p','jbl-srx815p':'jbl-srx815p','jbl-srx835p':'jbl-srx835p','jbl-srx818sp':'jbl-srx818sp','gen-12':'generic-12in-powered','gen-15':'generic-15in-powered','gen-18sub':'generic-18in-sub','gen-card':'generic-cardioid-sub'};
+const SPACE_MAP={'lac-x15-40':'l-acoustics-x15-hiq','lac-x15-60':'custom-l-acoustics-x15-hiq-60','lac-x12':'l-acoustics-x12','lac-x8':'l-acoustics-x8','lac-sb18':'l-acoustics-sb18','lac-sb18-card2':'custom-l-acoustics-sb18-card2','lac-sb18-card4':'custom-l-acoustics-sb18-card4','lac-ks28':'l-acoustics-ks28','jbl-vrx918s':'custom-jbl-vrx918s','jbl-srx812p':'jbl-srx812p','jbl-srx815p':'jbl-srx815p','jbl-srx835p':'jbl-srx835p','jbl-srx818sp':'jbl-srx818sp','gen-12':'generic-12in-powered','gen-15':'generic-15in-powered','gen-18sub':'generic-18in-sub','gen-card':'generic-cardioid-sub','rcf-evox-8':'custom-rcf-evox-8'};
 const spaceModel=s=>{s=normSpk(s);return s.lib==='jbl-vrx932la'?'custom-jbl-vrx932la-x'+Math.min(2,Math.max(1,s.boxes||1)):(SPACE_MAP[s.lib]||'generic-12in-powered')};
 const SPACE_ROLE={main:'main',sub:'sub',fill:'fill',delay:'delay',gal:'fill',mon:'mon'};
 const SPACE_MOUNT={stand:'stand',pole:'pole',tower:'tower',floor:'floor',deck:'wedge',wedge:'wedge',fly:'flown',flown:'flown',wall:'wall'};

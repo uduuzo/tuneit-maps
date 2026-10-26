@@ -1,8 +1,8 @@
 {
  "v": 1,
- "id": "p_mvpvn4fs9",
+ "id": "p_mvpwkduh9",
  "name": "Intergalactic Ball · Visiting Stage (garden)",
- "updated": 1793056663864,
+ "updated": 1793058215705,
  "example": false,
  "notes": "Ancient Spanish Monastery garden. Built from the Visiting Stage Tuning Map, designed by Uzo Udu. Plan positions come from the site plan crop (±15%): confirm with a tape walk. JBL VRX figures are custom library entries: check them against the JBL spec sheet. Layouts with a tent: the Rumbas clear-top frame tent is drawn on the tuning map only; TuneiT Space has no roof model, so expect slightly more level and reflection under the tent than TuneiT Space shows.",
  "space": {
@@ -37,7 +37,7 @@
  },
  "zones": [
   {
-   "id": "z_mvpvn4fr1",
+   "id": "z_mvpwkdug1",
    "type": "stage",
    "name": "Round stage (4.88 m)",
    "pts": [
@@ -61,7 +61,7 @@
    "guests": 0
   },
   {
-   "id": "z_mvpvn4fr2",
+   "id": "z_mvpwkdug2",
    "type": "floor",
    "name": "Dance floor, in front of the stage",
    "pts": [
@@ -85,7 +85,7 @@
    "guests": 150
   },
   {
-   "id": "z_mvpvn4fr3",
+   "id": "z_mvpwkdug3",
    "type": "foh",
    "name": "FOH",
    "pts": [
@@ -109,7 +109,7 @@
    "guests": 0
   },
   {
-   "id": "z_mvpvn4fr4",
+   "id": "z_mvpwkdug4",
    "type": "nogo",
    "name": "Fountain ring",
    "pts": [
@@ -203,7 +203,7 @@
  ],
  "options": [
   {
-   "id": "o_mvpvn4fr5",
+   "id": "o_mvpwkduh5",
    "name": "Option A · Spread: side stacks + side fills",
    "desc": "Stage at P5, facing the fountain area; the dance floor is in front of it, between the stage and the fountain. The four VRX tops each on their own stand: one each side of the stage, one each side of the floor halfway back, just outside its edge, delayed to the stage. SRX fillers at the far corners. Subs side by side behind the stage in the old square.",
    "speakers": [
@@ -760,7 +760,7 @@
    }
   },
   {
-   "id": "o_mvpvn4fs6",
+   "id": "o_mvpwkduh6",
    "name": "Option B · Side stacks, subs behind the stage",
    "desc": "Stage at P5, facing the fountain area; the dance floor is in front of it, between the stage and the fountain. Two VRX tops on a stand each side of the stage, toed in a little. Both subs side by side behind the stage in the old square. SRX fillers at the far corners. Simplest rig.",
    "speakers": [
@@ -1241,7 +1241,7 @@
    }
   },
   {
-   "id": "o_mvpvn4fs7",
+   "id": "o_mvpwkduh7",
    "name": "Option B · with the tent",
    "desc": "Option B under the Rumbas 40 × 80 ft clear-top frame tent (3.05 m legs), long side running from behind the stage out over the fountain: it covers the back of the stage and the subs, the stage, the whole dance floor, the fountain, FOH and the path just beyond. SR drops to 2.5 m; nothing else moves. Legs run down both long sides, clear of the mains.",
    "speakers": [
@@ -1734,7 +1734,7 @@
    }
   },
   {
-   "id": "o_mvpvn4fs8",
+   "id": "o_mvpwkduh8",
    "name": "Option C · Subs beside the stage",
    "desc": "Stage at P5, facing the fountain area. Same side stacks as B, but each pair of tops stands on its own sub. Use only if nothing can go behind the stage: two subs 9 m apart leave loud and thin bass stripes across the floor.",
    "speakers": [
@@ -2215,7 +2215,7 @@
    }
   }
  ],
- "cur": 2,
+ "cur": 1,
  "crowd": {
   "on": true,
   "pct": 100

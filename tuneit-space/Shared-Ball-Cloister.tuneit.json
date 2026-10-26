@@ -1,8 +1,8 @@
 {
  "v": 1,
- "id": "p_mvpv0slqf",
+ "id": "p_mvpwkb3sf",
  "name": "Intergalactic Ball · Shared Ball (cloister)",
- "updated": 1793055622094,
+ "updated": 1793058212152,
  "example": false,
  "notes": "Ancient Spanish Monastery cloister: the open courtyard is the dance floor, the booth in the corner, galleries all round. Built from the Cloister Tuning Map, designed by Uzo Udu. TuneiT Space does not model the arcade columns between the courtyard and the galleries; the map takes 6 to 12 dB off for them, so gallery levels read higher in TuneiT Space. Towers and lights are listed in the speaker notes only. Layouts with a tent: the Rumbas clear-top frame tent is drawn on the tuning map only; TuneiT Space has no roof model, so expect slightly more level and reflection under the tent than TuneiT Space shows.",
  "space": {
@@ -37,7 +37,7 @@
  },
  "zones": [
   {
-   "id": "z_mvpv0slo1",
+   "id": "z_mvpwkb3p1",
    "type": "floor",
    "name": "Courtyard dance floor",
    "pts": [
@@ -69,7 +69,7 @@
    "guests": 300
   },
   {
-   "id": "z_mvpv0slp2",
+   "id": "z_mvpwkb3p2",
    "type": "stage",
    "name": "DJ booth corner",
    "pts": [
@@ -93,7 +93,7 @@
    "guests": 0
   },
   {
-   "id": "z_mvpv0slp3",
+   "id": "z_mvpwkb3p3",
    "type": "walk",
    "name": "South gallery",
    "pts": [
@@ -117,7 +117,7 @@
    "guests": 0
   },
   {
-   "id": "z_mvpv0slp4",
+   "id": "z_mvpwkb3p4",
    "type": "walk",
    "name": "East gallery",
    "pts": [
@@ -141,7 +141,7 @@
    "guests": 0
   },
   {
-   "id": "z_mvpv0slp5",
+   "id": "z_mvpwkb3p5",
    "type": "walk",
    "name": "North gallery",
    "pts": [
@@ -165,7 +165,7 @@
    "guests": 0
   },
   {
-   "id": "z_mvpv0slp6",
+   "id": "z_mvpwkb3p6",
    "type": "walk",
    "name": "West gallery",
    "pts": [
@@ -219,7 +219,7 @@
    "role": "delay"
   },
   {
-   "model": "jbl-srx812p",
+   "model": "custom-rcf-evox-8",
    "qty": 4,
    "role": "fill"
   },
@@ -231,7 +231,7 @@
  ],
  "options": [
   {
-   "id": "o_mvpv0slp7",
+   "id": "o_mvpwkb3q7",
    "name": "Option 4 · Team layout 15 Oct, tuned",
    "desc": "Your 15 Oct layout with three changes: F1 turned away from the booth, one added 15\" top (F3) hidden behind the NE corner palm to fill the weak NE corner of the floor, and gallery speakers kept tucked behind the corner piers. Needs 1 extra top from FPS.",
    "speakers": [
@@ -390,71 +390,71 @@
     },
     {
      "id": "G1",
-     "model": "jbl-srx812p",
+     "model": "custom-rcf-evox-8",
      "role": "fill",
-     "x": 4.9,
-     "y": 5.8,
-     "h": 2,
+     "x": 2.8,
+     "y": 4.6,
+     "h": 1.8,
      "aim": {
-      "x": 4,
-      "y": 26.2
+      "x": 2.8,
+      "y": 19.2
      },
-     "trim": -14,
+     "trim": 0,
      "extra": 0,
      "pol": 1,
      "mount": "stand",
-     "note": "Behind the SE corner pier, south gallery · JBL SRX812P · Ambience filler on the tuning map · Tune at P7"
+     "note": "SE corner, fires down the south gallery · RCF EVOX 8 column array · Ambience filler on the tuning map · Tune at P7"
     },
     {
      "id": "G2",
-     "model": "jbl-srx812p",
+     "model": "custom-rcf-evox-8",
      "role": "fill",
-     "x": 5.9,
-     "y": 4.8,
-     "h": 2,
+     "x": 26.2,
+     "y": 2.8,
+     "h": 1.8,
      "aim": {
-      "x": 26.2,
-      "y": 3.4
+      "x": 19.2,
+      "y": 2.8
      },
-     "trim": -14,
+     "trim": -1.5,
      "extra": 0,
      "pol": 1,
      "mount": "stand",
-     "note": "Behind the SE corner pier, east gallery · JBL SRX812P · Ambience filler on the tuning map · Tune at P8"
+     "note": "NE corner, fires down the east gallery · RCF EVOX 8 column array · Ambience filler on the tuning map · Tune at P8"
     },
     {
      "id": "G3",
-     "model": "jbl-srx812p",
+     "model": "custom-rcf-evox-8",
      "role": "fill",
-     "x": 25.1,
-     "y": 5.4,
-     "h": 2,
+     "x": 27.6,
+     "y": 26.2,
+     "h": 1.8,
      "aim": {
-      "x": 26.6,
-      "y": 26.2
+      "x": 27.8,
+      "y": 18.2
      },
-     "trim": -18,
+     "trim": -1.2,
      "extra": 0,
      "pol": 1,
      "mount": "stand",
-     "note": "Behind the NE corner pier, north gallery · JBL SRX812P · Ambience filler on the tuning map · Tune at P9"
+     "note": "NW corner, fires down the north gallery · RCF EVOX 8 column array · Ambience filler on the tuning map · Tune at P9"
     },
     {
      "id": "G4",
-     "model": "jbl-srx812p",
+     "model": "custom-rcf-evox-8",
      "role": "fill",
      "x": 5.2,
-     "y": 25.6,
-     "h": 2,
+     "y": 27.6,
+     "h": 1.8,
      "aim": {
-      "x": 26.2,
-      "y": 26.6
+      "x": 18.2,
+      "y": 27.8
      },
-     "trim": -18,
+     "trim": 0,
      "extra": 0,
      "pol": 1,
      "mount": "stand",
-     "note": "Behind the SW corner pier, west gallery · JBL SRX812P · Ambience filler on the tuning map · Tune at P10"
+     "note": "SW corner, fires down the west gallery · RCF EVOX 8 column array · Ambience filler on the tuning map · Tune at P10"
     },
     {
      "id": "M1",
@@ -835,87 +835,87 @@
       "boxes": 1
      },
      {
-      "model": "JBL SRX812P",
-      "cov": 50,
+      "model": "RCF EVOX 8 column array",
+      "cov": 120,
       "r": 16,
       "kg": 26,
-      "trim": -14,
-      "h": 2,
+      "trim": 0,
+      "h": 1.8,
       "mount": "stand",
-      "where": "Behind the SE corner pier, south gallery",
+      "where": "SE corner, fires down the south gallery",
       "id": "G1",
       "role": "gal",
-      "x": -0.3,
-      "y": 0.6,
+      "x": -2.4,
+      "y": -0.6,
       "aim": {
-       "x": -1.2,
-       "y": 21
+       "x": -2.4,
+       "y": 14
       },
       "tune": "P7",
-      "lib": "jbl-srx812p",
+      "lib": "rcf-evox-8",
       "boxes": 1
      },
      {
-      "model": "JBL SRX812P",
-      "cov": 50,
+      "model": "RCF EVOX 8 column array",
+      "cov": 120,
       "r": 16,
       "kg": 26,
-      "trim": -14,
-      "h": 2,
+      "trim": -1.5,
+      "h": 1.8,
       "mount": "stand",
-      "where": "Behind the SE corner pier, east gallery",
+      "where": "NE corner, fires down the east gallery",
       "id": "G2",
       "role": "gal",
-      "x": 0.7,
-      "y": -0.4,
+      "x": 21,
+      "y": -2.4,
       "aim": {
-       "x": 21,
-       "y": -1.8
+       "x": 14,
+       "y": -2.4
       },
       "tune": "P8",
-      "lib": "jbl-srx812p",
+      "lib": "rcf-evox-8",
       "boxes": 1
      },
      {
-      "model": "JBL SRX812P",
-      "cov": 50,
+      "model": "RCF EVOX 8 column array",
+      "cov": 120,
       "r": 16,
       "kg": 26,
-      "trim": -18,
-      "h": 2,
+      "trim": -1.2,
+      "h": 1.8,
       "mount": "stand",
-      "where": "Behind the NE corner pier, north gallery",
+      "where": "NW corner, fires down the north gallery",
       "id": "G3",
       "role": "gal",
-      "x": 19.9,
-      "y": 0.2,
+      "x": 22.4,
+      "y": 21,
       "aim": {
-       "x": 21.4,
-       "y": 21
+       "x": 22.6,
+       "y": 13
       },
       "tune": "P9",
-      "lib": "jbl-srx812p",
+      "lib": "rcf-evox-8",
       "boxes": 1
      },
      {
-      "model": "JBL SRX812P",
-      "cov": 50,
+      "model": "RCF EVOX 8 column array",
+      "cov": 120,
       "r": 16,
       "kg": 26,
-      "trim": -18,
-      "h": 2,
+      "trim": 0,
+      "h": 1.8,
       "mount": "stand",
-      "where": "Behind the SW corner pier, west gallery",
+      "where": "SW corner, fires down the west gallery",
       "id": "G4",
       "role": "gal",
       "x": 0,
-      "y": 20.4,
+      "y": 22.4,
       "aim": {
-       "x": 21,
-       "y": 21.4
+       "x": 13,
+       "y": 22.6
       },
       "tune": "P10",
-      "lib": "jbl-srx812p",
+      "lib": "rcf-evox-8",
       "boxes": 1
      },
      {
@@ -1053,11 +1053,20 @@
       "x": 0.9,
       "y": 6.2
      }
-    ]
+    ],
+    "truss": {
+     "on": true,
+     "x": 0.3,
+     "y": 0.3,
+     "a": 5.18,
+     "b": 5.18,
+     "h": 4.27,
+     "cover": true
+    }
    }
   },
   {
-   "id": "o_mvpv0slp8",
+   "id": "o_mvpwkb3q8",
    "name": "Option 4 · tuned, no tent",
    "desc": "The team layout from 15 Oct after Optimal Tune, nothing moved: main A up to 3.1 m, both mains re-aimed, fills and delays trimmed 1.5 to 3 dB down. Use this without the tent.",
    "speakers": [
@@ -1216,71 +1225,71 @@
     },
     {
      "id": "G1",
-     "model": "jbl-srx812p",
+     "model": "custom-rcf-evox-8",
      "role": "fill",
-     "x": 4.9,
-     "y": 5.8,
-     "h": 2,
+     "x": 2.8,
+     "y": 4.6,
+     "h": 1.8,
      "aim": {
-      "x": 4,
-      "y": 26.2
+      "x": 2.8,
+      "y": 19.2
      },
-     "trim": -14,
+     "trim": 0,
      "extra": 0,
      "pol": 1,
      "mount": "stand",
-     "note": "Behind the SE corner pier, south gallery · JBL SRX812P · Ambience filler on the tuning map · Tune at P7"
+     "note": "SE corner, fires down the south gallery · RCF EVOX 8 column array · Ambience filler on the tuning map · Tune at P7"
     },
     {
      "id": "G2",
-     "model": "jbl-srx812p",
+     "model": "custom-rcf-evox-8",
      "role": "fill",
-     "x": 5.9,
-     "y": 4.8,
-     "h": 2,
+     "x": 26.2,
+     "y": 2.8,
+     "h": 1.8,
      "aim": {
-      "x": 26.2,
-      "y": 3.4
+      "x": 19.2,
+      "y": 2.8
      },
-     "trim": -14,
+     "trim": -4.8,
      "extra": 0,
      "pol": 1,
      "mount": "stand",
-     "note": "Behind the SE corner pier, east gallery · JBL SRX812P · Ambience filler on the tuning map · Tune at P8"
+     "note": "NE corner, fires down the east gallery · RCF EVOX 8 column array · Ambience filler on the tuning map · Tune at P8"
     },
     {
      "id": "G3",
-     "model": "jbl-srx812p",
+     "model": "custom-rcf-evox-8",
      "role": "fill",
-     "x": 25.1,
-     "y": 5.4,
-     "h": 2,
+     "x": 27.6,
+     "y": 26.2,
+     "h": 1.8,
      "aim": {
-      "x": 26.6,
-      "y": 26.2
+      "x": 27.8,
+      "y": 18.2
      },
-     "trim": -18,
+     "trim": -4.4,
      "extra": 0,
      "pol": 1,
      "mount": "stand",
-     "note": "Behind the NE corner pier, north gallery · JBL SRX812P · Ambience filler on the tuning map · Tune at P9"
+     "note": "NW corner, fires down the north gallery · RCF EVOX 8 column array · Ambience filler on the tuning map · Tune at P9"
     },
     {
      "id": "G4",
-     "model": "jbl-srx812p",
+     "model": "custom-rcf-evox-8",
      "role": "fill",
      "x": 5.2,
-     "y": 25.6,
-     "h": 2,
+     "y": 27.6,
+     "h": 1.8,
      "aim": {
-      "x": 26.2,
-      "y": 26.6
+      "x": 18.2,
+      "y": 27.8
      },
-     "trim": -18,
+     "trim": 0,
      "extra": 0,
      "pol": 1,
      "mount": "stand",
-     "note": "Behind the SW corner pier, west gallery · JBL SRX812P · Ambience filler on the tuning map · Tune at P10"
+     "note": "SW corner, fires down the west gallery · RCF EVOX 8 column array · Ambience filler on the tuning map · Tune at P10"
     },
     {
      "id": "M1",
@@ -1661,87 +1670,87 @@
       "boxes": 1
      },
      {
-      "model": "JBL SRX812P",
-      "cov": 50,
+      "model": "RCF EVOX 8 column array",
+      "cov": 120,
       "r": 16,
       "kg": 26,
-      "trim": -14,
-      "h": 2,
+      "trim": 0,
+      "h": 1.8,
       "mount": "stand",
-      "where": "Behind the SE corner pier, south gallery",
+      "where": "SE corner, fires down the south gallery",
       "id": "G1",
       "role": "gal",
-      "x": -0.3,
-      "y": 0.6,
+      "x": -2.4,
+      "y": -0.6,
       "aim": {
-       "x": -1.2,
-       "y": 21
+       "x": -2.4,
+       "y": 14
       },
       "tune": "P7",
-      "lib": "jbl-srx812p",
+      "lib": "rcf-evox-8",
       "boxes": 1
      },
      {
-      "model": "JBL SRX812P",
-      "cov": 50,
+      "model": "RCF EVOX 8 column array",
+      "cov": 120,
       "r": 16,
       "kg": 26,
-      "trim": -14,
-      "h": 2,
+      "trim": -4.8,
+      "h": 1.8,
       "mount": "stand",
-      "where": "Behind the SE corner pier, east gallery",
+      "where": "NE corner, fires down the east gallery",
       "id": "G2",
       "role": "gal",
-      "x": 0.7,
-      "y": -0.4,
+      "x": 21,
+      "y": -2.4,
       "aim": {
-       "x": 21,
-       "y": -1.8
+       "x": 14,
+       "y": -2.4
       },
       "tune": "P8",
-      "lib": "jbl-srx812p",
+      "lib": "rcf-evox-8",
       "boxes": 1
      },
      {
-      "model": "JBL SRX812P",
-      "cov": 50,
+      "model": "RCF EVOX 8 column array",
+      "cov": 120,
       "r": 16,
       "kg": 26,
-      "trim": -18,
-      "h": 2,
+      "trim": -4.4,
+      "h": 1.8,
       "mount": "stand",
-      "where": "Behind the NE corner pier, north gallery",
+      "where": "NW corner, fires down the north gallery",
       "id": "G3",
       "role": "gal",
-      "x": 19.9,
-      "y": 0.2,
+      "x": 22.4,
+      "y": 21,
       "aim": {
-       "x": 21.4,
-       "y": 21
+       "x": 22.6,
+       "y": 13
       },
       "tune": "P9",
-      "lib": "jbl-srx812p",
+      "lib": "rcf-evox-8",
       "boxes": 1
      },
      {
-      "model": "JBL SRX812P",
-      "cov": 50,
+      "model": "RCF EVOX 8 column array",
+      "cov": 120,
       "r": 16,
       "kg": 26,
-      "trim": -18,
-      "h": 2,
+      "trim": 0,
+      "h": 1.8,
       "mount": "stand",
-      "where": "Behind the SW corner pier, west gallery",
+      "where": "SW corner, fires down the west gallery",
       "id": "G4",
       "role": "gal",
       "x": 0,
-      "y": 20.4,
+      "y": 22.4,
       "aim": {
-       "x": 21,
-       "y": 21.4
+       "x": 13,
+       "y": 22.6
       },
       "tune": "P10",
-      "lib": "jbl-srx812p",
+      "lib": "rcf-evox-8",
       "boxes": 1
      },
      {
@@ -1880,11 +1889,20 @@
       "y": 6.2
      }
     ],
-    "trimmed": true
+    "trimmed": true,
+    "truss": {
+     "on": true,
+     "x": 0.3,
+     "y": 0.3,
+     "a": 5.18,
+     "b": 5.18,
+     "h": 4.27,
+     "cover": true
+    }
    }
   },
   {
-   "id": "o_mvpv0slp9",
+   "id": "o_mvpwkb3q9",
    "name": "Option 4 · with the tent",
    "desc": "The team layout with the Rumbas 40 × 40 ft clear-top frame tent (3.05 m legs) over the floor north-west of the oak, from the north arcade to the west arcade; FOH sits under it. Tower T4 and fill F1 move 1.5 m east so the tower and its lights clear the tent edge. Main B drops to 2.5 m, both mains re-aimed, fills and delays trimmed. Keep beam lights on T6 off the clear roof.",
    "speakers": [
@@ -2043,71 +2061,71 @@
     },
     {
      "id": "G1",
-     "model": "jbl-srx812p",
+     "model": "custom-rcf-evox-8",
      "role": "fill",
-     "x": 4.9,
-     "y": 5.8,
-     "h": 2,
+     "x": 2.8,
+     "y": 4.6,
+     "h": 1.8,
      "aim": {
-      "x": 4,
-      "y": 26.2
+      "x": 2.8,
+      "y": 19.2
      },
-     "trim": -14,
+     "trim": 0,
      "extra": 0,
      "pol": 1,
      "mount": "stand",
-     "note": "Behind the SE corner pier, south gallery · JBL SRX812P · Ambience filler on the tuning map · Tune at P7"
+     "note": "SE corner, fires down the south gallery · RCF EVOX 8 column array · Ambience filler on the tuning map · Tune at P7"
     },
     {
      "id": "G2",
-     "model": "jbl-srx812p",
+     "model": "custom-rcf-evox-8",
      "role": "fill",
-     "x": 5.9,
-     "y": 4.8,
-     "h": 2,
+     "x": 26.2,
+     "y": 2.8,
+     "h": 1.8,
      "aim": {
-      "x": 26.2,
-      "y": 3.4
+      "x": 19.2,
+      "y": 2.8
      },
-     "trim": -14,
+     "trim": -5.1,
      "extra": 0,
      "pol": 1,
      "mount": "stand",
-     "note": "Behind the SE corner pier, east gallery · JBL SRX812P · Ambience filler on the tuning map · Tune at P8"
+     "note": "NE corner, fires down the east gallery · RCF EVOX 8 column array · Ambience filler on the tuning map · Tune at P8"
     },
     {
      "id": "G3",
-     "model": "jbl-srx812p",
+     "model": "custom-rcf-evox-8",
      "role": "fill",
-     "x": 25.1,
-     "y": 5.4,
-     "h": 2,
+     "x": 27.6,
+     "y": 26.2,
+     "h": 1.8,
      "aim": {
-      "x": 26.6,
-      "y": 26.2
+      "x": 27.8,
+      "y": 18.2
      },
-     "trim": -18,
+     "trim": -4.9,
      "extra": 0,
      "pol": 1,
      "mount": "stand",
-     "note": "Behind the NE corner pier, north gallery · JBL SRX812P · Ambience filler on the tuning map · Tune at P9"
+     "note": "NW corner, fires down the north gallery · RCF EVOX 8 column array · Ambience filler on the tuning map · Tune at P9"
     },
     {
      "id": "G4",
-     "model": "jbl-srx812p",
+     "model": "custom-rcf-evox-8",
      "role": "fill",
      "x": 5.2,
-     "y": 25.6,
-     "h": 2,
+     "y": 27.6,
+     "h": 1.8,
      "aim": {
-      "x": 26.2,
-      "y": 26.6
+      "x": 18.2,
+      "y": 27.8
      },
-     "trim": -18,
+     "trim": 0,
      "extra": 0,
      "pol": 1,
      "mount": "stand",
-     "note": "Behind the SW corner pier, west gallery · JBL SRX812P · Ambience filler on the tuning map · Tune at P10"
+     "note": "SW corner, fires down the west gallery · RCF EVOX 8 column array · Ambience filler on the tuning map · Tune at P10"
     },
     {
      "id": "M1",
@@ -2488,87 +2506,87 @@
       "boxes": 1
      },
      {
-      "model": "JBL SRX812P",
-      "cov": 50,
+      "model": "RCF EVOX 8 column array",
+      "cov": 120,
       "r": 16,
       "kg": 26,
-      "trim": -14,
-      "h": 2,
+      "trim": 0,
+      "h": 1.8,
       "mount": "stand",
-      "where": "Behind the SE corner pier, south gallery",
+      "where": "SE corner, fires down the south gallery",
       "id": "G1",
       "role": "gal",
-      "x": -0.3,
-      "y": 0.6,
+      "x": -2.4,
+      "y": -0.6,
       "aim": {
-       "x": -1.2,
-       "y": 21
+       "x": -2.4,
+       "y": 14
       },
       "tune": "P7",
-      "lib": "jbl-srx812p",
+      "lib": "rcf-evox-8",
       "boxes": 1
      },
      {
-      "model": "JBL SRX812P",
-      "cov": 50,
+      "model": "RCF EVOX 8 column array",
+      "cov": 120,
       "r": 16,
       "kg": 26,
-      "trim": -14,
-      "h": 2,
+      "trim": -5.1,
+      "h": 1.8,
       "mount": "stand",
-      "where": "Behind the SE corner pier, east gallery",
+      "where": "NE corner, fires down the east gallery",
       "id": "G2",
       "role": "gal",
-      "x": 0.7,
-      "y": -0.4,
+      "x": 21,
+      "y": -2.4,
       "aim": {
-       "x": 21,
-       "y": -1.8
+       "x": 14,
+       "y": -2.4
       },
       "tune": "P8",
-      "lib": "jbl-srx812p",
+      "lib": "rcf-evox-8",
       "boxes": 1
      },
      {
-      "model": "JBL SRX812P",
-      "cov": 50,
+      "model": "RCF EVOX 8 column array",
+      "cov": 120,
       "r": 16,
       "kg": 26,
-      "trim": -18,
-      "h": 2,
+      "trim": -4.9,
+      "h": 1.8,
       "mount": "stand",
-      "where": "Behind the NE corner pier, north gallery",
+      "where": "NW corner, fires down the north gallery",
       "id": "G3",
       "role": "gal",
-      "x": 19.9,
-      "y": 0.2,
+      "x": 22.4,
+      "y": 21,
       "aim": {
-       "x": 21.4,
-       "y": 21
+       "x": 22.6,
+       "y": 13
       },
       "tune": "P9",
-      "lib": "jbl-srx812p",
+      "lib": "rcf-evox-8",
       "boxes": 1
      },
      {
-      "model": "JBL SRX812P",
-      "cov": 50,
+      "model": "RCF EVOX 8 column array",
+      "cov": 120,
       "r": 16,
       "kg": 26,
-      "trim": -18,
-      "h": 2,
+      "trim": 0,
+      "h": 1.8,
       "mount": "stand",
-      "where": "Behind the SW corner pier, west gallery",
+      "where": "SW corner, fires down the west gallery",
       "id": "G4",
       "role": "gal",
       "x": 0,
-      "y": 20.4,
+      "y": 22.4,
       "aim": {
-       "x": 21,
-       "y": 21.4
+       "x": 13,
+       "y": 22.6
       },
       "tune": "P10",
-      "lib": "jbl-srx812p",
+      "lib": "rcf-evox-8",
       "boxes": 1
      },
      {
@@ -2719,11 +2737,20 @@
      "roof": "clear",
      "sides": "open"
     },
-    "trimmed": true
+    "trimmed": true,
+    "truss": {
+     "on": true,
+     "x": 0.3,
+     "y": 0.3,
+     "a": 5.18,
+     "b": 5.18,
+     "h": 4.27,
+     "cover": true
+    }
    }
   },
   {
-   "id": "o_mvpv0slpa",
+   "id": "o_mvpwkb3qa",
    "name": "Option 5 · Clear booth, subs at the eye",
    "desc": "Nothing in front of the booth. The two cardioid sub pairs move back to the feet of the outer eye towers, behind the booth line; the mains go on poles against the east and south arcades beside the stage. Fills, F3 and gallery speakers as Option 4.",
    "speakers": [
@@ -2882,71 +2909,71 @@
     },
     {
      "id": "G1",
-     "model": "jbl-srx812p",
+     "model": "custom-rcf-evox-8",
      "role": "fill",
-     "x": 4.9,
-     "y": 5.8,
-     "h": 2,
+     "x": 2.8,
+     "y": 4.6,
+     "h": 1.8,
      "aim": {
-      "x": 4,
-      "y": 26.2
+      "x": 2.8,
+      "y": 19.2
      },
-     "trim": -14,
+     "trim": 0,
      "extra": 0,
      "pol": 1,
      "mount": "stand",
-     "note": "Behind the SE corner pier, south gallery · JBL SRX812P · Ambience filler on the tuning map · Tune at P7"
+     "note": "SE corner, fires down the south gallery · RCF EVOX 8 column array · Ambience filler on the tuning map · Tune at P7"
     },
     {
      "id": "G2",
-     "model": "jbl-srx812p",
+     "model": "custom-rcf-evox-8",
      "role": "fill",
-     "x": 5.9,
-     "y": 4.8,
-     "h": 2,
+     "x": 26.2,
+     "y": 2.8,
+     "h": 1.8,
      "aim": {
-      "x": 26.2,
-      "y": 3.4
+      "x": 19.2,
+      "y": 2.8
      },
-     "trim": -14,
+     "trim": 0,
      "extra": 0,
      "pol": 1,
      "mount": "stand",
-     "note": "Behind the SE corner pier, east gallery · JBL SRX812P · Ambience filler on the tuning map · Tune at P8"
+     "note": "NE corner, fires down the east gallery · RCF EVOX 8 column array · Ambience filler on the tuning map · Tune at P8"
     },
     {
      "id": "G3",
-     "model": "jbl-srx812p",
+     "model": "custom-rcf-evox-8",
      "role": "fill",
-     "x": 25.1,
-     "y": 5.4,
-     "h": 2,
+     "x": 27.6,
+     "y": 26.2,
+     "h": 1.8,
      "aim": {
-      "x": 26.6,
-      "y": 26.2
+      "x": 27.8,
+      "y": 18.2
      },
-     "trim": -18,
+     "trim": -0.7,
      "extra": 0,
      "pol": 1,
      "mount": "stand",
-     "note": "Behind the NE corner pier, north gallery · JBL SRX812P · Ambience filler on the tuning map · Tune at P9"
+     "note": "NW corner, fires down the north gallery · RCF EVOX 8 column array · Ambience filler on the tuning map · Tune at P9"
     },
     {
      "id": "G4",
-     "model": "jbl-srx812p",
+     "model": "custom-rcf-evox-8",
      "role": "fill",
      "x": 5.2,
-     "y": 25.6,
-     "h": 2,
+     "y": 27.6,
+     "h": 1.8,
      "aim": {
-      "x": 26.2,
-      "y": 26.6
+      "x": 18.2,
+      "y": 27.8
      },
-     "trim": -18,
+     "trim": 0,
      "extra": 0,
      "pol": 1,
      "mount": "stand",
-     "note": "Behind the SW corner pier, west gallery · JBL SRX812P · Ambience filler on the tuning map · Tune at P10"
+     "note": "SW corner, fires down the west gallery · RCF EVOX 8 column array · Ambience filler on the tuning map · Tune at P10"
     },
     {
      "id": "M1",
@@ -3327,87 +3354,87 @@
       "boxes": 1
      },
      {
-      "model": "JBL SRX812P",
-      "cov": 50,
+      "model": "RCF EVOX 8 column array",
+      "cov": 120,
       "r": 16,
       "kg": 26,
-      "trim": -14,
-      "h": 2,
+      "trim": 0,
+      "h": 1.8,
       "mount": "stand",
-      "where": "Behind the SE corner pier, south gallery",
+      "where": "SE corner, fires down the south gallery",
       "id": "G1",
       "role": "gal",
-      "x": -0.3,
-      "y": 0.6,
+      "x": -2.4,
+      "y": -0.6,
       "aim": {
-       "x": -1.2,
-       "y": 21
+       "x": -2.4,
+       "y": 14
       },
       "tune": "P7",
-      "lib": "jbl-srx812p",
+      "lib": "rcf-evox-8",
       "boxes": 1
      },
      {
-      "model": "JBL SRX812P",
-      "cov": 50,
+      "model": "RCF EVOX 8 column array",
+      "cov": 120,
       "r": 16,
       "kg": 26,
-      "trim": -14,
-      "h": 2,
+      "trim": 0,
+      "h": 1.8,
       "mount": "stand",
-      "where": "Behind the SE corner pier, east gallery",
+      "where": "NE corner, fires down the east gallery",
       "id": "G2",
       "role": "gal",
-      "x": 0.7,
-      "y": -0.4,
+      "x": 21,
+      "y": -2.4,
       "aim": {
-       "x": 21,
-       "y": -1.8
+       "x": 14,
+       "y": -2.4
       },
       "tune": "P8",
-      "lib": "jbl-srx812p",
+      "lib": "rcf-evox-8",
       "boxes": 1
      },
      {
-      "model": "JBL SRX812P",
-      "cov": 50,
+      "model": "RCF EVOX 8 column array",
+      "cov": 120,
       "r": 16,
       "kg": 26,
-      "trim": -18,
-      "h": 2,
+      "trim": -0.7,
+      "h": 1.8,
       "mount": "stand",
-      "where": "Behind the NE corner pier, north gallery",
+      "where": "NW corner, fires down the north gallery",
       "id": "G3",
       "role": "gal",
-      "x": 19.9,
-      "y": 0.2,
+      "x": 22.4,
+      "y": 21,
       "aim": {
-       "x": 21.4,
-       "y": 21
+       "x": 22.6,
+       "y": 13
       },
       "tune": "P9",
-      "lib": "jbl-srx812p",
+      "lib": "rcf-evox-8",
       "boxes": 1
      },
      {
-      "model": "JBL SRX812P",
-      "cov": 50,
+      "model": "RCF EVOX 8 column array",
+      "cov": 120,
       "r": 16,
       "kg": 26,
-      "trim": -18,
-      "h": 2,
+      "trim": 0,
+      "h": 1.8,
       "mount": "stand",
-      "where": "Behind the SW corner pier, west gallery",
+      "where": "SW corner, fires down the west gallery",
       "id": "G4",
       "role": "gal",
       "x": 0,
-      "y": 20.4,
+      "y": 22.4,
       "aim": {
-       "x": 21,
-       "y": 21.4
+       "x": 13,
+       "y": 22.6
       },
       "tune": "P10",
-      "lib": "jbl-srx812p",
+      "lib": "rcf-evox-8",
       "boxes": 1
      },
      {
@@ -3545,11 +3572,20 @@
       "x": 1.4,
       "y": 4.8
      }
-    ]
+    ],
+    "truss": {
+     "on": true,
+     "x": 0.3,
+     "y": 0.3,
+     "a": 5.18,
+     "b": 5.18,
+     "h": 4.27,
+     "cover": true
+    }
    }
   },
   {
-   "id": "o_mvpv0slqb",
+   "id": "o_mvpwkb3rb",
    "name": "Option 6 · Clear booth, subs spread to the towers",
    "desc": "Nothing in front of the booth. The four subs split up: one at each outer eye tower, one at the north wall tower T4, one at the SW tower T5, the far two delayed to the stage. Mains on arcade poles as Option 5. Shows what spreading the subs does to the bass.",
    "speakers": [
@@ -3742,71 +3778,71 @@
     },
     {
      "id": "G1",
-     "model": "jbl-srx812p",
+     "model": "custom-rcf-evox-8",
      "role": "fill",
-     "x": 4.9,
-     "y": 5.8,
-     "h": 2,
+     "x": 2.8,
+     "y": 4.6,
+     "h": 1.8,
      "aim": {
-      "x": 4,
-      "y": 26.2
+      "x": 2.8,
+      "y": 19.2
      },
-     "trim": -14,
+     "trim": 0,
      "extra": 0,
      "pol": 1,
      "mount": "stand",
-     "note": "Behind the SE corner pier, south gallery · JBL SRX812P · Ambience filler on the tuning map · Tune at P7"
+     "note": "SE corner, fires down the south gallery · RCF EVOX 8 column array · Ambience filler on the tuning map · Tune at P7"
     },
     {
      "id": "G2",
-     "model": "jbl-srx812p",
+     "model": "custom-rcf-evox-8",
      "role": "fill",
-     "x": 5.9,
-     "y": 4.8,
-     "h": 2,
+     "x": 26.2,
+     "y": 2.8,
+     "h": 1.8,
      "aim": {
-      "x": 26.2,
-      "y": 3.4
+      "x": 19.2,
+      "y": 2.8
      },
-     "trim": -14,
+     "trim": 0,
      "extra": 0,
      "pol": 1,
      "mount": "stand",
-     "note": "Behind the SE corner pier, east gallery · JBL SRX812P · Ambience filler on the tuning map · Tune at P8"
+     "note": "NE corner, fires down the east gallery · RCF EVOX 8 column array · Ambience filler on the tuning map · Tune at P8"
     },
     {
      "id": "G3",
-     "model": "jbl-srx812p",
+     "model": "custom-rcf-evox-8",
      "role": "fill",
-     "x": 25.1,
-     "y": 5.4,
-     "h": 2,
+     "x": 27.6,
+     "y": 26.2,
+     "h": 1.8,
      "aim": {
-      "x": 26.6,
-      "y": 26.2
+      "x": 27.8,
+      "y": 18.2
      },
-     "trim": -18,
+     "trim": 0,
      "extra": 0,
      "pol": 1,
      "mount": "stand",
-     "note": "Behind the NE corner pier, north gallery · JBL SRX812P · Ambience filler on the tuning map · Tune at P9"
+     "note": "NW corner, fires down the north gallery · RCF EVOX 8 column array · Ambience filler on the tuning map · Tune at P9"
     },
     {
      "id": "G4",
-     "model": "jbl-srx812p",
+     "model": "custom-rcf-evox-8",
      "role": "fill",
      "x": 5.2,
-     "y": 25.6,
-     "h": 2,
+     "y": 27.6,
+     "h": 1.8,
      "aim": {
-      "x": 26.2,
-      "y": 26.6
+      "x": 18.2,
+      "y": 27.8
      },
-     "trim": -18,
+     "trim": 0,
      "extra": 0,
      "pol": 1,
      "mount": "stand",
-     "note": "Behind the SW corner pier, west gallery · JBL SRX812P · Ambience filler on the tuning map · Tune at P10"
+     "note": "SW corner, fires down the west gallery · RCF EVOX 8 column array · Ambience filler on the tuning map · Tune at P10"
     },
     {
      "id": "M1",
@@ -4235,87 +4271,87 @@
       "boxes": 1
      },
      {
-      "model": "JBL SRX812P",
-      "cov": 50,
+      "model": "RCF EVOX 8 column array",
+      "cov": 120,
       "r": 16,
       "kg": 26,
-      "trim": -14,
-      "h": 2,
+      "trim": 0,
+      "h": 1.8,
       "mount": "stand",
-      "where": "Behind the SE corner pier, south gallery",
+      "where": "SE corner, fires down the south gallery",
       "id": "G1",
       "role": "gal",
-      "x": -0.3,
-      "y": 0.6,
+      "x": -2.4,
+      "y": -0.6,
       "aim": {
-       "x": -1.2,
-       "y": 21
+       "x": -2.4,
+       "y": 14
       },
       "tune": "P7",
-      "lib": "jbl-srx812p",
+      "lib": "rcf-evox-8",
       "boxes": 1
      },
      {
-      "model": "JBL SRX812P",
-      "cov": 50,
+      "model": "RCF EVOX 8 column array",
+      "cov": 120,
       "r": 16,
       "kg": 26,
-      "trim": -14,
-      "h": 2,
+      "trim": 0,
+      "h": 1.8,
       "mount": "stand",
-      "where": "Behind the SE corner pier, east gallery",
+      "where": "NE corner, fires down the east gallery",
       "id": "G2",
       "role": "gal",
-      "x": 0.7,
-      "y": -0.4,
+      "x": 21,
+      "y": -2.4,
       "aim": {
-       "x": 21,
-       "y": -1.8
+       "x": 14,
+       "y": -2.4
       },
       "tune": "P8",
-      "lib": "jbl-srx812p",
+      "lib": "rcf-evox-8",
       "boxes": 1
      },
      {
-      "model": "JBL SRX812P",
-      "cov": 50,
+      "model": "RCF EVOX 8 column array",
+      "cov": 120,
       "r": 16,
       "kg": 26,
-      "trim": -18,
-      "h": 2,
+      "trim": 0,
+      "h": 1.8,
       "mount": "stand",
-      "where": "Behind the NE corner pier, north gallery",
+      "where": "NW corner, fires down the north gallery",
       "id": "G3",
       "role": "gal",
-      "x": 19.9,
-      "y": 0.2,
+      "x": 22.4,
+      "y": 21,
       "aim": {
-       "x": 21.4,
-       "y": 21
+       "x": 22.6,
+       "y": 13
       },
       "tune": "P9",
-      "lib": "jbl-srx812p",
+      "lib": "rcf-evox-8",
       "boxes": 1
      },
      {
-      "model": "JBL SRX812P",
-      "cov": 50,
+      "model": "RCF EVOX 8 column array",
+      "cov": 120,
       "r": 16,
       "kg": 26,
-      "trim": -18,
-      "h": 2,
+      "trim": 0,
+      "h": 1.8,
       "mount": "stand",
-      "where": "Behind the SW corner pier, west gallery",
+      "where": "SW corner, fires down the west gallery",
       "id": "G4",
       "role": "gal",
       "x": 0,
-      "y": 20.4,
+      "y": 22.4,
       "aim": {
-       "x": 21,
-       "y": 21.4
+       "x": 13,
+       "y": 22.6
       },
       "tune": "P10",
-      "lib": "jbl-srx812p",
+      "lib": "rcf-evox-8",
       "boxes": 1
      },
      {
@@ -4453,11 +4489,20 @@
       "x": 1.4,
       "y": 4.8
      }
-    ]
+    ],
+    "truss": {
+     "on": true,
+     "x": 0.3,
+     "y": 0.3,
+     "a": 5.18,
+     "b": 5.18,
+     "h": 4.27,
+     "cover": true
+    }
    }
   },
   {
-   "id": "o_mvpv0slqc",
+   "id": "o_mvpwkb3rc",
    "name": "Option 1 · Poles over subs, corner towers",
    "desc": "Recommended. Mains on poles above two sub stacks either side of the booth. The 3 eye towers carry the eye, the Mega Pointe and 2 Sharpys. Fill speakers, lights and lasers on the NE, SW and NW corner towers. Nothing on the dance floor.",
    "speakers": [
@@ -4599,71 +4644,71 @@
     },
     {
      "id": "G1",
-     "model": "jbl-srx812p",
+     "model": "custom-rcf-evox-8",
      "role": "fill",
-     "x": 3.4,
-     "y": 8.2,
-     "h": 2,
+     "x": 2.8,
+     "y": 4.6,
+     "h": 1.8,
      "aim": {
-      "x": 3.4,
-      "y": 26.2
+      "x": 2.8,
+      "y": 19.2
      },
-     "trim": -14,
+     "trim": 0,
      "extra": 0,
      "pol": 1,
      "mount": "stand",
-     "note": "South gallery, SE end, on stand · JBL SRX812P · Ambience filler on the tuning map · Tune at P7"
+     "note": "SE corner, fires down the south gallery · RCF EVOX 8 column array · Ambience filler on the tuning map · Tune at P7"
     },
     {
      "id": "G2",
-     "model": "jbl-srx812p",
+     "model": "custom-rcf-evox-8",
      "role": "fill",
-     "x": 8.2,
-     "y": 3.4,
-     "h": 2,
+     "x": 26.2,
+     "y": 2.8,
+     "h": 1.8,
      "aim": {
-      "x": 26.2,
-      "y": 3.4
+      "x": 19.2,
+      "y": 2.8
      },
-     "trim": -14,
+     "trim": -1.8,
      "extra": 0,
      "pol": 1,
      "mount": "stand",
-     "note": "East gallery, SE end, on stand · JBL SRX812P · Ambience filler on the tuning map · Tune at P8"
+     "note": "NE corner, fires down the east gallery · RCF EVOX 8 column array · Ambience filler on the tuning map · Tune at P8"
     },
     {
      "id": "G3",
-     "model": "jbl-srx812p",
+     "model": "custom-rcf-evox-8",
      "role": "fill",
-     "x": 27,
-     "y": 5.8,
-     "h": 2,
+     "x": 27.6,
+     "y": 26.2,
+     "h": 1.8,
      "aim": {
-      "x": 27,
-      "y": 26.2
+      "x": 27.8,
+      "y": 18.2
      },
-     "trim": -20,
+     "trim": -1.4,
      "extra": 0,
      "pol": 1,
      "mount": "stand",
-     "note": "North gallery, NE end, on stand; bring up if quiet · JBL SRX812P · Ambience filler on the tuning map · Tune at P9"
+     "note": "NW corner, fires down the north gallery · RCF EVOX 8 column array · Ambience filler on the tuning map · Tune at P9"
     },
     {
      "id": "G4",
-     "model": "jbl-srx812p",
+     "model": "custom-rcf-evox-8",
      "role": "fill",
-     "x": 5.8,
-     "y": 27,
-     "h": 2,
+     "x": 5.2,
+     "y": 27.6,
+     "h": 1.8,
      "aim": {
-      "x": 26.2,
-      "y": 27
+      "x": 18.2,
+      "y": 27.8
      },
-     "trim": -20,
+     "trim": 0,
      "extra": 0,
      "pol": 1,
      "mount": "stand",
-     "note": "West gallery, SW end, on stand; bring up if quiet · JBL SRX812P · Ambience filler on the tuning map · Tune at P10"
+     "note": "SW corner, fires down the west gallery · RCF EVOX 8 column array · Ambience filler on the tuning map · Tune at P10"
     },
     {
      "id": "M1",
@@ -5023,87 +5068,87 @@
       "boxes": 1
      },
      {
-      "model": "JBL SRX812P",
-      "cov": 50,
+      "model": "RCF EVOX 8 column array",
+      "cov": 120,
       "r": 16,
       "kg": 26,
-      "trim": -14,
-      "h": 2,
+      "trim": 0,
+      "h": 1.8,
       "mount": "stand",
-      "where": "South gallery, SE end, on stand",
+      "where": "SE corner, fires down the south gallery",
       "id": "G1",
       "role": "gal",
-      "x": -1.8,
-      "y": 3,
+      "x": -2.4,
+      "y": -0.6,
       "aim": {
-       "x": -1.8,
-       "y": 21
+       "x": -2.4,
+       "y": 14
       },
       "tune": "P7",
-      "lib": "jbl-srx812p",
+      "lib": "rcf-evox-8",
       "boxes": 1
      },
      {
-      "model": "JBL SRX812P",
-      "cov": 50,
+      "model": "RCF EVOX 8 column array",
+      "cov": 120,
       "r": 16,
       "kg": 26,
-      "trim": -14,
-      "h": 2,
+      "trim": -1.8,
+      "h": 1.8,
       "mount": "stand",
-      "where": "East gallery, SE end, on stand",
+      "where": "NE corner, fires down the east gallery",
       "id": "G2",
       "role": "gal",
-      "x": 3,
-      "y": -1.8,
+      "x": 21,
+      "y": -2.4,
       "aim": {
-       "x": 21,
-       "y": -1.8
+       "x": 14,
+       "y": -2.4
       },
       "tune": "P8",
-      "lib": "jbl-srx812p",
+      "lib": "rcf-evox-8",
       "boxes": 1
      },
      {
-      "model": "JBL SRX812P",
-      "cov": 50,
+      "model": "RCF EVOX 8 column array",
+      "cov": 120,
       "r": 16,
       "kg": 26,
-      "trim": -20,
-      "h": 2,
+      "trim": -1.4,
+      "h": 1.8,
       "mount": "stand",
-      "where": "North gallery, NE end, on stand; bring up if quiet",
+      "where": "NW corner, fires down the north gallery",
       "id": "G3",
       "role": "gal",
-      "x": 21.8,
-      "y": 0.6,
+      "x": 22.4,
+      "y": 21,
       "aim": {
-       "x": 21.8,
-       "y": 21
+       "x": 22.6,
+       "y": 13
       },
       "tune": "P9",
-      "lib": "jbl-srx812p",
+      "lib": "rcf-evox-8",
       "boxes": 1
      },
      {
-      "model": "JBL SRX812P",
-      "cov": 50,
+      "model": "RCF EVOX 8 column array",
+      "cov": 120,
       "r": 16,
       "kg": 26,
-      "trim": -20,
-      "h": 2,
+      "trim": 0,
+      "h": 1.8,
       "mount": "stand",
-      "where": "West gallery, SW end, on stand; bring up if quiet",
+      "where": "SW corner, fires down the west gallery",
       "id": "G4",
       "role": "gal",
-      "x": 0.6,
-      "y": 21.8,
+      "x": 0,
+      "y": 22.4,
       "aim": {
-       "x": 21,
-       "y": 21.8
+       "x": 13,
+       "y": 22.6
       },
       "tune": "P10",
-      "lib": "jbl-srx812p",
+      "lib": "rcf-evox-8",
       "boxes": 1
      },
      {
@@ -5241,11 +5286,20 @@
       "x": 0.9,
       "y": 6.2
      }
-    ]
+    ],
+    "truss": {
+     "on": true,
+     "x": 0.3,
+     "y": 0.3,
+     "a": 5.18,
+     "b": 5.18,
+     "h": 4.27,
+     "cover": true
+    }
    }
   },
   {
-   "id": "o_mvpv0slqd",
+   "id": "o_mvpwkb3rd",
    "name": "Option 2 · Mains on the eye towers",
    "desc": "Mains hang on the two outer eye towers and the 4 subs stay in one block in the booth front. Cleanest look, no poles. But the mains sit right behind the DJ: the booth gets about as loud as FOH and the opera mic stands in front of the speakers.",
    "speakers": [
@@ -5370,71 +5424,71 @@
     },
     {
      "id": "G1",
-     "model": "jbl-srx812p",
+     "model": "custom-rcf-evox-8",
      "role": "fill",
-     "x": 3.4,
-     "y": 8.2,
-     "h": 2,
+     "x": 2.8,
+     "y": 4.6,
+     "h": 1.8,
      "aim": {
-      "x": 3.4,
-      "y": 26.2
+      "x": 2.8,
+      "y": 19.2
      },
-     "trim": -14,
+     "trim": 0,
      "extra": 0,
      "pol": 1,
      "mount": "stand",
-     "note": "South gallery, SE end, on stand · JBL SRX812P · Ambience filler on the tuning map · Tune at P7"
+     "note": "SE corner, fires down the south gallery · RCF EVOX 8 column array · Ambience filler on the tuning map · Tune at P7"
     },
     {
      "id": "G2",
-     "model": "jbl-srx812p",
+     "model": "custom-rcf-evox-8",
      "role": "fill",
-     "x": 8.2,
-     "y": 3.4,
-     "h": 2,
+     "x": 26.2,
+     "y": 2.8,
+     "h": 1.8,
      "aim": {
-      "x": 26.2,
-      "y": 3.4
+      "x": 19.2,
+      "y": 2.8
      },
-     "trim": -14,
+     "trim": -5.6,
      "extra": 0,
      "pol": 1,
      "mount": "stand",
-     "note": "East gallery, SE end, on stand · JBL SRX812P · Ambience filler on the tuning map · Tune at P8"
+     "note": "NE corner, fires down the east gallery · RCF EVOX 8 column array · Ambience filler on the tuning map · Tune at P8"
     },
     {
      "id": "G3",
-     "model": "jbl-srx812p",
+     "model": "custom-rcf-evox-8",
      "role": "fill",
-     "x": 27,
-     "y": 5.8,
-     "h": 2,
+     "x": 27.6,
+     "y": 26.2,
+     "h": 1.8,
      "aim": {
-      "x": 27,
-      "y": 26.2
+      "x": 27.8,
+      "y": 18.2
      },
-     "trim": -20,
+     "trim": -2.9,
      "extra": 0,
      "pol": 1,
      "mount": "stand",
-     "note": "North gallery, NE end, on stand; bring up if quiet · JBL SRX812P · Ambience filler on the tuning map · Tune at P9"
+     "note": "NW corner, fires down the north gallery · RCF EVOX 8 column array · Ambience filler on the tuning map · Tune at P9"
     },
     {
      "id": "G4",
-     "model": "jbl-srx812p",
+     "model": "custom-rcf-evox-8",
      "role": "fill",
-     "x": 5.8,
-     "y": 27,
-     "h": 2,
+     "x": 5.2,
+     "y": 27.6,
+     "h": 1.8,
      "aim": {
-      "x": 26.2,
-      "y": 27
+      "x": 18.2,
+      "y": 27.8
      },
-     "trim": -20,
+     "trim": 0,
      "extra": 0,
      "pol": 1,
      "mount": "stand",
-     "note": "West gallery, SW end, on stand; bring up if quiet · JBL SRX812P · Ambience filler on the tuning map · Tune at P10"
+     "note": "SW corner, fires down the west gallery · RCF EVOX 8 column array · Ambience filler on the tuning map · Tune at P10"
     },
     {
      "id": "M1",
@@ -5772,87 +5826,87 @@
       "boxes": 1
      },
      {
-      "model": "JBL SRX812P",
-      "cov": 50,
+      "model": "RCF EVOX 8 column array",
+      "cov": 120,
       "r": 16,
       "kg": 26,
-      "trim": -14,
-      "h": 2,
+      "trim": 0,
+      "h": 1.8,
       "mount": "stand",
-      "where": "South gallery, SE end, on stand",
+      "where": "SE corner, fires down the south gallery",
       "id": "G1",
       "role": "gal",
-      "x": -1.8,
-      "y": 3,
+      "x": -2.4,
+      "y": -0.6,
       "aim": {
-       "x": -1.8,
-       "y": 21
+       "x": -2.4,
+       "y": 14
       },
       "tune": "P7",
-      "lib": "jbl-srx812p",
+      "lib": "rcf-evox-8",
       "boxes": 1
      },
      {
-      "model": "JBL SRX812P",
-      "cov": 50,
+      "model": "RCF EVOX 8 column array",
+      "cov": 120,
       "r": 16,
       "kg": 26,
-      "trim": -14,
-      "h": 2,
+      "trim": -5.6,
+      "h": 1.8,
       "mount": "stand",
-      "where": "East gallery, SE end, on stand",
+      "where": "NE corner, fires down the east gallery",
       "id": "G2",
       "role": "gal",
-      "x": 3,
-      "y": -1.8,
+      "x": 21,
+      "y": -2.4,
       "aim": {
-       "x": 21,
-       "y": -1.8
+       "x": 14,
+       "y": -2.4
       },
       "tune": "P8",
-      "lib": "jbl-srx812p",
+      "lib": "rcf-evox-8",
       "boxes": 1
      },
      {
-      "model": "JBL SRX812P",
-      "cov": 50,
+      "model": "RCF EVOX 8 column array",
+      "cov": 120,
       "r": 16,
       "kg": 26,
-      "trim": -20,
-      "h": 2,
+      "trim": -2.9,
+      "h": 1.8,
       "mount": "stand",
-      "where": "North gallery, NE end, on stand; bring up if quiet",
+      "where": "NW corner, fires down the north gallery",
       "id": "G3",
       "role": "gal",
-      "x": 21.8,
-      "y": 0.6,
+      "x": 22.4,
+      "y": 21,
       "aim": {
-       "x": 21.8,
-       "y": 21
+       "x": 22.6,
+       "y": 13
       },
       "tune": "P9",
-      "lib": "jbl-srx812p",
+      "lib": "rcf-evox-8",
       "boxes": 1
      },
      {
-      "model": "JBL SRX812P",
-      "cov": 50,
+      "model": "RCF EVOX 8 column array",
+      "cov": 120,
       "r": 16,
       "kg": 26,
-      "trim": -20,
-      "h": 2,
+      "trim": 0,
+      "h": 1.8,
       "mount": "stand",
-      "where": "West gallery, SW end, on stand; bring up if quiet",
+      "where": "SW corner, fires down the west gallery",
       "id": "G4",
       "role": "gal",
-      "x": 0.6,
-      "y": 21.8,
+      "x": 0,
+      "y": 22.4,
       "aim": {
-       "x": 21,
-       "y": 21.8
+       "x": 13,
+       "y": 22.6
       },
       "tune": "P10",
-      "lib": "jbl-srx812p",
+      "lib": "rcf-evox-8",
       "boxes": 1
      },
      {
@@ -5990,11 +6044,20 @@
       "x": 0.9,
       "y": 5
      }
-    ]
+    ],
+    "truss": {
+     "on": true,
+     "x": 0.3,
+     "y": 0.3,
+     "a": 5.18,
+     "b": 5.18,
+     "h": 4.27,
+     "cover": true
+    }
    }
   },
   {
-   "id": "o_mvpv0slqe",
+   "id": "o_mvpwkb3re",
    "name": "Option 3 · Poles over subs, edge towers",
    "desc": "Same as Option 1, but the NE and SW fill towers move to the middle of the north and west walls and fire along the walls. Slightly less even than Option 1.",
    "speakers": [
@@ -6136,71 +6199,71 @@
     },
     {
      "id": "G1",
-     "model": "jbl-srx812p",
+     "model": "custom-rcf-evox-8",
      "role": "fill",
-     "x": 3.4,
-     "y": 8.2,
-     "h": 2,
+     "x": 2.8,
+     "y": 4.6,
+     "h": 1.8,
      "aim": {
-      "x": 3.4,
-      "y": 26.2
+      "x": 2.8,
+      "y": 19.2
      },
-     "trim": -14,
+     "trim": 0,
      "extra": 0,
      "pol": 1,
      "mount": "stand",
-     "note": "South gallery, SE end, on stand · JBL SRX812P · Ambience filler on the tuning map · Tune at P7"
+     "note": "SE corner, fires down the south gallery · RCF EVOX 8 column array · Ambience filler on the tuning map · Tune at P7"
     },
     {
      "id": "G2",
-     "model": "jbl-srx812p",
+     "model": "custom-rcf-evox-8",
      "role": "fill",
-     "x": 8.2,
-     "y": 3.4,
-     "h": 2,
+     "x": 26.2,
+     "y": 2.8,
+     "h": 1.8,
      "aim": {
-      "x": 26.2,
-      "y": 3.4
+      "x": 19.2,
+      "y": 2.8
      },
-     "trim": -14,
+     "trim": -1.8,
      "extra": 0,
      "pol": 1,
      "mount": "stand",
-     "note": "East gallery, SE end, on stand · JBL SRX812P · Ambience filler on the tuning map · Tune at P8"
+     "note": "NE corner, fires down the east gallery · RCF EVOX 8 column array · Ambience filler on the tuning map · Tune at P8"
     },
     {
      "id": "G3",
-     "model": "jbl-srx812p",
+     "model": "custom-rcf-evox-8",
      "role": "fill",
-     "x": 27,
-     "y": 5.8,
-     "h": 2,
+     "x": 27.6,
+     "y": 26.2,
+     "h": 1.8,
      "aim": {
-      "x": 27,
-      "y": 26.2
+      "x": 27.8,
+      "y": 18.2
      },
-     "trim": -20,
+     "trim": -1.6,
      "extra": 0,
      "pol": 1,
      "mount": "stand",
-     "note": "North gallery, NE end, on stand; bring up if quiet · JBL SRX812P · Ambience filler on the tuning map · Tune at P9"
+     "note": "NW corner, fires down the north gallery · RCF EVOX 8 column array · Ambience filler on the tuning map · Tune at P9"
     },
     {
      "id": "G4",
-     "model": "jbl-srx812p",
+     "model": "custom-rcf-evox-8",
      "role": "fill",
-     "x": 5.8,
-     "y": 27,
-     "h": 2,
+     "x": 5.2,
+     "y": 27.6,
+     "h": 1.8,
      "aim": {
-      "x": 26.2,
-      "y": 27
+      "x": 18.2,
+      "y": 27.8
      },
-     "trim": -20,
+     "trim": 0,
      "extra": 0,
      "pol": 1,
      "mount": "stand",
-     "note": "West gallery, SW end, on stand; bring up if quiet · JBL SRX812P · Ambience filler on the tuning map · Tune at P10"
+     "note": "SW corner, fires down the west gallery · RCF EVOX 8 column array · Ambience filler on the tuning map · Tune at P10"
     },
     {
      "id": "M1",
@@ -6560,87 +6623,87 @@
       "boxes": 1
      },
      {
-      "model": "JBL SRX812P",
-      "cov": 50,
+      "model": "RCF EVOX 8 column array",
+      "cov": 120,
       "r": 16,
       "kg": 26,
-      "trim": -14,
-      "h": 2,
+      "trim": 0,
+      "h": 1.8,
       "mount": "stand",
-      "where": "South gallery, SE end, on stand",
+      "where": "SE corner, fires down the south gallery",
       "id": "G1",
       "role": "gal",
-      "x": -1.8,
-      "y": 3,
+      "x": -2.4,
+      "y": -0.6,
       "aim": {
-       "x": -1.8,
-       "y": 21
+       "x": -2.4,
+       "y": 14
       },
       "tune": "P7",
-      "lib": "jbl-srx812p",
+      "lib": "rcf-evox-8",
       "boxes": 1
      },
      {
-      "model": "JBL SRX812P",
-      "cov": 50,
+      "model": "RCF EVOX 8 column array",
+      "cov": 120,
       "r": 16,
       "kg": 26,
-      "trim": -14,
-      "h": 2,
+      "trim": -1.8,
+      "h": 1.8,
       "mount": "stand",
-      "where": "East gallery, SE end, on stand",
+      "where": "NE corner, fires down the east gallery",
       "id": "G2",
       "role": "gal",
-      "x": 3,
-      "y": -1.8,
+      "x": 21,
+      "y": -2.4,
       "aim": {
-       "x": 21,
-       "y": -1.8
+       "x": 14,
+       "y": -2.4
       },
       "tune": "P8",
-      "lib": "jbl-srx812p",
+      "lib": "rcf-evox-8",
       "boxes": 1
      },
      {
-      "model": "JBL SRX812P",
-      "cov": 50,
+      "model": "RCF EVOX 8 column array",
+      "cov": 120,
       "r": 16,
       "kg": 26,
-      "trim": -20,
-      "h": 2,
+      "trim": -1.6,
+      "h": 1.8,
       "mount": "stand",
-      "where": "North gallery, NE end, on stand; bring up if quiet",
+      "where": "NW corner, fires down the north gallery",
       "id": "G3",
       "role": "gal",
-      "x": 21.8,
-      "y": 0.6,
+      "x": 22.4,
+      "y": 21,
       "aim": {
-       "x": 21.8,
-       "y": 21
+       "x": 22.6,
+       "y": 13
       },
       "tune": "P9",
-      "lib": "jbl-srx812p",
+      "lib": "rcf-evox-8",
       "boxes": 1
      },
      {
-      "model": "JBL SRX812P",
-      "cov": 50,
+      "model": "RCF EVOX 8 column array",
+      "cov": 120,
       "r": 16,
       "kg": 26,
-      "trim": -20,
-      "h": 2,
+      "trim": 0,
+      "h": 1.8,
       "mount": "stand",
-      "where": "West gallery, SW end, on stand; bring up if quiet",
+      "where": "SW corner, fires down the west gallery",
       "id": "G4",
       "role": "gal",
-      "x": 0.6,
-      "y": 21.8,
+      "x": 0,
+      "y": 22.4,
       "aim": {
-       "x": 21,
-       "y": 21.8
+       "x": 13,
+       "y": 22.6
       },
       "tune": "P10",
-      "lib": "jbl-srx812p",
+      "lib": "rcf-evox-8",
       "boxes": 1
      },
      {
@@ -6778,7 +6841,16 @@
       "x": 0.9,
       "y": 6.2
      }
-    ]
+    ],
+    "truss": {
+     "on": true,
+     "x": 0.3,
+     "y": 0.3,
+     "a": 5.18,
+     "b": 5.18,
+     "h": 4.27,
+     "cover": true
+    }
    }
   }
  ],
@@ -6817,6 +6889,21 @@
    "spl": 140,
    "lo": 32,
    "kg": 104
+  },
+  {
+   "id": "custom-rcf-evox-8",
+   "d": "custom",
+   "pw": true,
+   "cd": false,
+   "c": "moderate",
+   "b": "RCF",
+   "m": "EVOX 8 column array",
+   "t": "top",
+   "h": 120,
+   "v": 30,
+   "spl": 128,
+   "lo": 45,
+   "kg": 24
   },
   {
    "id": "custom-l-acoustics-sb18-card4",
