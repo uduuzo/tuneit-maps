@@ -133,6 +133,7 @@ ol.steps li.done .t{color:var(--muted);text-decoration:line-through}
 
 <div class="main">
   <div class="mapbox">
+    <div id="tentbar"></div>
     <div class="legend" id="legend"></div>
     <svg id="map" viewBox="-1.6 -2.2 32.4 31" role="img" aria-label="Cloister plan with towers, speakers, aim and coverage">
       <defs>
@@ -672,6 +673,43 @@ function bindTent(){const T=()=>O().tent;const num=(id,key,min,max)=>on(id,'chan
   on('tn-roof','change',e=>commit(()=>T().roof=e.target.value));on('tn-sides','change',e=>commit(()=>T().sides=e.target.value));
   num('tn-w','w',3,40);num('tn-l','l',3,60);num('tn-e','eave',2.1,5);num('tn-r','ridge',2.1,12);num('tn-rot','rot',-360,360);
   on('tn-del','click',()=>commit(()=>{delete O().tent;ST.sel=(O().speakers[0]||{}).id}))}
+
+/* ---------- Tent bar above the map: switch the tent in or out for this option, move, turn and size it, and compare the score both ways ---------- */
+const tentOn=o=>!!(o.tent&&o.tent.on!==false);
+function scoreBoth(){const o=O();if(!o.tent)return {off:tuneScore(false),on:null};const was=o.tent.on;
+  o.tent.on=false;bump();const off=tuneScore(false);o.tent.on=true;bump();const on=tuneScore(false);o.tent.on=was;bump();return {off,on}}
+function renderTentBar(){const el=document.getElementById('tentbar');if(!el)return;const o=O(),T=o.tent,isOn=tentOn(o);let sc=renderTentBar.last||{off:null,on:null};if(!(typeof drag!=='undefined'&&drag&&drag.moved)){try{sc=scoreBoth();renderTentBar.last=sc}catch(e){}}
+  const sz=T?Math.round(T.w/FT_M)+'x'+Math.round(T.l/FT_M):'';
+  el.innerHTML=`<div class="bar" style="gap:6px;flex-wrap:wrap;align-items:center">
+    <span class="lbl">Tent</span>
+    <button class="chip" id="tb-off" aria-pressed="${!isOn}">No tent${sc.off?` · ${sc.off.overall}`:''}</button>
+    <button class="chip" id="tb-on" aria-pressed="${isOn}">With tent${sc.on?` · ${sc.on.overall}`:''}</button>
+    ${isOn?`<span class="spacer" style="flex:0 0 6px"></span>
+    <select class="mini" id="tb-size" aria-label="Tent size">${opts([['40x40','40 × 40 ft'],['40x80','40 × 80 ft'],['40x60','40 × 60 ft'],['30x60','30 × 60 ft'],['custom','Custom size']],['40x40','40x80','40x60','30x60'].includes(sz)?sz:'custom')}</select>
+    <button class="btn ghost" id="tb-l" title="Move left 0.5 m" aria-label="Move tent left">←</button><button class="btn ghost" id="tb-u" title="Move up 0.5 m" aria-label="Move tent up">↑</button><button class="btn ghost" id="tb-d" title="Move down 0.5 m" aria-label="Move tent down">↓</button><button class="btn ghost" id="tb-r" title="Move right 0.5 m" aria-label="Move tent right">→</button>
+    <button class="btn ghost" id="tb-ccw" title="Turn 15° anticlockwise" aria-label="Turn tent anticlockwise">⟲</button><button class="btn ghost" id="tb-cw" title="Turn 15° clockwise" aria-label="Turn tent clockwise">⟳</button>
+    <label class="crowdin">Legs <input id="tb-e" type="number" step="0.05" value="${T.eave}" style="width:60px"> m</label>
+    <label class="crowdin">Peak <input id="tb-p" type="number" step="0.1" value="${T.ridge}" style="width:60px"> m</label>
+    <select class="mini" id="tb-roof" aria-label="Roof">${opts([['clear','Clear top'],['white','White top']],T.roof||'clear')}</select>
+    <select class="mini" id="tb-sides" aria-label="Sides">${opts([['open','Sides open'],['clear','Clear sidewalls']],T.sides||'open')}</select>
+    <button class="btn ghost" id="tb-sel">Tent details</button><button class="btn ghost" id="tb-reset">Reset tent</button>`:''}
+  </div>
+  <p class="hint" style="margin:2px 0 8px">${isOn?`Drag the tent on the map or use the arrows. Roof bounce ${sc.on&&sc.on.roof!=null?f1(sc.on.roof)+' dB':'–'} (under −9 dB is clean). Switching the tent keeps every speaker where it is, so you can tune this layout both ways; use <b>Copy this option</b> first to keep a tent and a no-tent version side by side.`:`No tent on this layout. Press <b>With tent</b> to put the ${SITE.id==='visiting'?'40 × 80 ft':'40 × 40 ft'} clear-top tent in and see what it changes.`}</p>`;
+  const tw=()=>O().tent;
+  const nudge=(du,dv)=>commit(()=>{const t=tw(),[u,v]=U(t.x,t.y),q=P(u+du,v+dv);t.x=+q.x.toFixed(2);t.y=+q.y.toFixed(2)});
+  on('tb-off','click',()=>{if(tentOn(O()))commit(()=>{O().tent.on=false;if(ST.sel==='tn')ST.sel=(O().speakers[0]||{}).id})});
+  on('tb-on','click',()=>{if(!tentOn(O()))commit(()=>{if(!O().tent)O().tent=SITE.tentDefault();O().tent.on=true})});
+  if(!isOn)return;
+  on('tb-l','click',()=>nudge(-.5,0));on('tb-r','click',()=>nudge(.5,0));on('tb-u','click',()=>nudge(0,-.5));on('tb-d','click',()=>nudge(0,.5));
+  const turn=d=>commit(()=>{const t=tw();t.rot=(((+t.rot||0)+d)%360+360)%360});
+  on('tb-cw','click',()=>turn(SITE.id==='cloister'?-15:15));on('tb-ccw','click',()=>turn(SITE.id==='cloister'?15:-15));
+  on('tb-size','change',e=>{const v=e.target.value;if(v==='custom'){commit(()=>ST.sel='tn');return}const [w,l]=v.split('x').map(n=>+(+n*FT_M).toFixed(2));commit(()=>{tw().w=w;tw().l=l})});
+  on('tb-e','change',e=>{const v=parseFloat(e.target.value);if(!isNaN(v))commit(()=>tw().eave=Math.max(2.1,Math.min(5,v)))});
+  on('tb-p','change',e=>{const v=parseFloat(e.target.value);if(!isNaN(v))commit(()=>tw().ridge=Math.max(2.1,Math.min(12,v)))});
+  on('tb-roof','change',e=>commit(()=>tw().roof=e.target.value));on('tb-sides','change',e=>commit(()=>tw().sides=e.target.value));
+  on('tb-sel','click',()=>{ST.sel='tn';save();render()});
+  on('tb-reset','click',()=>commit(()=>{O().tent=SITE.tentDefault()}))}
+
 function addTent(){commit(()=>{if(!O().tent)O().tent=SITE.tentDefault();ST.sel='tn'})}
 
 /* ---------- Files: TuneiT Space project export / import, and the PDF sound plan (same logic as TuneiT Space) ---------- */
@@ -713,7 +751,7 @@ function spaceProject(){const G=SITE.spaceGeom();
   const custom=Object.entries(SPACE_CUSTOM).filter(([id])=>used.has(id)).map(([id,c])=>Object.assign({id,d:'custom',pw:true,cd:false,c:'moderate'},c));
   const by={};opts[0].speakers.forEach(s=>{const k=s.model+'|'+s.role;by[k]=(by[k]||0)+1});
   const rig=Object.entries(by).map(([k,q])=>{const [model,role]=k.split('|');return {model,qty:q,role}});
-  const cur=Math.max(0,G.ops.indexOf(O()));if(G.ops.some(o=>o.tent))G.notes+=' Layouts with a tent: the Rumbas clear-top frame tent is drawn on the tuning map only; TuneiT Space has no roof model, so expect slightly more level and reflection under the tent than TuneiT Space shows.';
+  const cur=Math.max(0,G.ops.indexOf(O()));if(G.ops.some(o=>tentOn(o)))G.notes+=' Layouts with a tent: the Rumbas clear-top frame tent is drawn on the tuning map only; TuneiT Space has no roof model, so expect slightly more level and reflection under the tent than TuneiT Space shows.';
   return {v:1,id:suid('p_'),name:G.name,updated:Date.now(),example:false,notes:G.notes,space:G.space,zones:G.zones,stage:[],rules:G.rules,rig,options:opts,cur,crowd:{on:true,pct:100},custom,survey:{tempC:24,rh:70},
     tuneitMap:{site:SITE.id,ver:2,frame:G.frame,skipped:G.skipped}}}
 async function exportSpace(){try{const p=spaceProject();await saveBlob(slugF(SITE.fileName)+'.tuneit.json',new Blob([JSON.stringify(p,null,1)],{type:'application/json'}));
@@ -801,7 +839,7 @@ async function buildPdf(){if(!window.jspdf)await loadScript('https://cdnjs.cloud
    r.stage!=null?`Tops on the stage: ${(r.stage>0?'+':'')+f1(r.stage)} dB against the floor${r.stage<=-6?', which keeps the stage clean':''}.`:'',
    `Level available at ${SITE.refName}: about ${Math.round(r.Lref)} dB, ${(r.headroom>=0?'+':'')+f1(r.headroom)} dB over a ${TARGET} dB show.`,
    r.issues.length?`Rules broken: ${r.issues.join(' ')}.`:'Every rule kept: nothing on the dance floor'+(SITE.hasStageRule?', the front of the stage clear.':'.'),
-   o.tent?`Tent: Rumbas Frame Tent, ${o.tent.roof==='white'?'white':'clear'} top, ${Math.round(o.tent.w/FT_M)} × ${Math.round(o.tent.l/FT_M)} ft, ${f1(o.tent.eave)} m legs, about ${f1(o.tent.ridge)} m at the peak (confirm with Rumbas). Roof bounce on the floor ${r.roof==null?'not measurable':f1(r.roof)+' dB'} against the direct sound; sides open. Nothing hangs from the tent frame unless Rumbas signs off the loads.`:'',
+   tentOn(o)?`Tent: Rumbas Frame Tent, ${o.tent.roof==='white'?'white':'clear'} top, ${Math.round(o.tent.w/FT_M)} × ${Math.round(o.tent.l/FT_M)} ft, ${f1(o.tent.eave)} m legs, about ${f1(o.tent.ridge)} m at the peak (confirm with Rumbas). Roof bounce on the floor ${r.roof==null?'not measurable':f1(r.roof)+' dB'} against the direct sound; sides open. Nothing hangs from the tent frame unless Rumbas signs off the loads.`:'',
    `Air ${AIR.T} °C, ${AIR.RH}% humidity, sound at ${f1(CS)} m/s.`].filter(Boolean).forEach(bullet);
   const tw_=domTable('twrs');if(tw_){y+=3;sect('Towers','Towers and what they carry');table(tw_.head.map(h=>[h,1]),tw_.rows)}
   const sch=domTable('sched');if(sch){y+=3;sect('Speakers','Speaker schedule','Position from the reference shown on the map. Delays and trims as set in the map; confirm by measurement.');table(sch.head.map((h,i)=>[h,i===1?2.2:i===0?0.7:1]),sch.rows)}
@@ -849,7 +887,7 @@ function wedge(s){
 }
 function micBehind(){const m=O().items.find(i=>i.kind==='mic');const mains=O().speakers.filter(s=>s.role==='main');if(!m||!mains.length)return 1;let best=-1e9;mains.forEach(b=>{const a=aimOf(b),L=Math.hypot(a.x-b.x,a.y-b.y)||1;const d=-(((m.x-b.x)*(a.x-b.x)+(m.y-b.y)*(a.y-b.y))/L);if(Math.hypot(m.x-b.x,m.y-b.y)<4)best=Math.max(best,d)});return best===-1e9?1:best}
 function render(){
-  bump();const L=ST.layers,o=O(),sel=ST.sel,g=[];
+  bump();renderTentBar();const L=ST.layers,o=O(),sel=ST.sel,g=[];
   document.getElementById('gridL').style.display=L.grid?'':'none';
   renderHeat();
   g.push(drawTrunk());g.push(drawTent());
